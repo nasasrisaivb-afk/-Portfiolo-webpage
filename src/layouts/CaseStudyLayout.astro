@@ -1,0 +1,852 @@
+---
+import '../styles/case-study.css';
+import Base from './Base.astro';
+import Block from '../components/case-study/Block.astro';
+import Tree from '../components/case-study/Tree.astro';
+import type { CaseStudy } from '../data/types';
+import { siblings } from '../data/projects';
+import { href } from '../lib/url';
+
+interface Props {
+  project: CaseStudy;
+}
+
+const { project: p } = Astro.props;
+const { prev, next } = siblings(p.slug);
+
+/**
+ * The 25-section template. Each entry declares its section and whether the
+ * project has content for it — missing sections are skipped entirely, so a
+ * study can ship partial and grow without leaving empty headings behind.
+ */
+const sections = [
+  { id: 'overview', title: 'Overview', has: Boolean(p.overview) },
+  { id: 'business-problem', title: 'Business problem', has: Boolean(p.businessProblem) },
+  { id: 'user-problem', title: 'User problem', has: Boolean(p.userProblem) },
+  { id: 'context', title: 'Context', has: Boolean(p.context) },
+  { id: 'role', title: 'My role, team & timeline', has: true },
+  { id: 'research', title: 'Research', has: Boolean(p.research) },
+  { id: 'insights', title: 'User insights', has: Boolean(p.insights?.length) },
+  { id: 'personas', title: 'Personas', has: Boolean(p.personas?.length) },
+  { id: 'journey', title: 'User journey', has: Boolean(p.journey?.length) },
+  { id: 'pain-points', title: 'Pain points', has: Boolean(p.painPoints?.length) },
+  { id: 'problem-definition', title: 'Problem definition', has: Boolean(p.problemDefinition) },
+  { id: 'ia', title: 'Information architecture', has: Boolean(p.informationArchitecture) },
+  { id: 'flows', title: 'User flows', has: Boolean(p.userFlows) },
+  { id: 'wireframes', title: 'Wireframes', has: Boolean(p.wireframes) },
+  { id: 'exploration', title: 'Design exploration', has: Boolean(p.exploration) },
+  { id: 'ui', title: 'UI design', has: Boolean(p.uiDesign) },
+  { id: 'design-system', title: 'Design system', has: Boolean(p.designSystem) },
+  { id: 'prototyping', title: 'Prototyping', has: Boolean(p.prototyping) },
+  { id: 'testing', title: 'Usability testing', has: Boolean(p.usabilityTesting) },
+  { id: 'iterations', title: 'Iterations', has: Boolean(p.iterations?.length) },
+  { id: 'solution', title: 'Final solution', has: Boolean(p.finalSolution) },
+  { id: 'impact', title: 'Impact & outcomes', has: Boolean(p.impact) },
+  { id: 'learnings', title: 'Learnings', has: Boolean(p.learnings?.length) },
+  { id: 'next', title: 'What is next', has: Boolean(p.nextSteps?.length) },
+].filter((s) => s.has);
+
+const numberFor = (id: string) => {
+  const i = sections.findIndex((s) => s.id === id);
+  return String(i + 1).padStart(2, '0');
+};
+
+const schema = {
+  '@type': 'Article',
+  headline: `${p.title} — ${p.tagline}`,
+  description: p.description,
+  articleSection: p.industry,
+  keywords: [p.industry, p.projectType, ...p.tags].join(', '),
+  datePublished: `${p.year}-01-01`,
+  author: { '@id': `${Astro.site?.origin ?? ''}${href('/')}#person` },
+  about: { '@type': 'CreativeWork', name: p.title, description: p.description },
+};
+---
+
+<Base
+  title={`${p.title} — ${p.industry} case study`}
+  description={p.description}
+  image={p.cover.src.endsWith('.svg') ? `/og/og-${p.slug}.png` : p.cover.src}
+  type="article"
+  schema={schema}
+>
+  <article class="cs">
+    <!-- ================= HERO ================= -->
+    <header class="cs-hero">
+      <div class="shell">
+        <nav aria-label="Breadcrumb">
+          <ol class="cs-breadcrumb" role="list">
+            <li><a href={href('/')}>Home</a></li>
+            <li><a href={href('/work')}>Work</a></li>
+            <li aria-current="page">{p.title}</li>
+          </ol>
+        </nav>
+
+        <p class="eyebrow">{p.industry} · {p.year}</p>
+        <h1 class="cs-hero__title">{p.title}</h1>
+        <p class="cs-hero__tagline">{p.tagline}</p>
+
+        <ul class="cluster cs-hero__tags" role="list">
+          <li><span class="tag tag--accent">{p.status}</span></li>
+          <li><span class="tag">{p.projectType}</span></li>
+          {p.tags.map((t) => <li><span class="tag tag--plain">{t}</span></li>)}
+        </ul>
+      </div>
+
+      <div class="shell shell--wide">
+        <figure class="cs-hero__media">
+          <img
+            src={href(p.cover.src)}
+            alt={p.cover.alt}
+            width="1320"
+            height="780"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </figure>
+      </div>
+
+      <div class="shell">
+        <dl class="cs-meta">
+          <div>
+            <dt>My role</dt>
+            <dd>{p.role}</dd>
+          </div>
+          <div>
+            <dt>Team</dt>
+            <dd>
+              <ul role="list">
+                {p.team.map((member) => <li>{member}</li>)}
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt>Timeline</dt>
+            <dd>{p.timeline}</dd>
+          </div>
+          <div>
+            <dt>Project type</dt>
+            <dd>{p.projectType}</dd>
+          </div>
+        </dl>
+
+        {
+          p.links?.length ? (
+            <p class="cluster" style="margin-block-start: var(--space-6)">
+              {p.links.map((link) => (
+                <a
+                  class="btn btn--secondary btn--sm"
+                  href={link.href}
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noopener noreferrer' : undefined}
+                >
+                  {link.label}
+                  {link.external && <span class="visually-hidden">(opens in a new tab)</span>}
+                </a>
+              ))}
+            </p>
+          ) : null
+        }
+
+        <!-- ================= CONTENTS ================= -->
+        <nav class="cs-toc" aria-labelledby="cs-toc-title">
+          <h2 class="cs-toc__title" id="cs-toc-title">In this case study</h2>
+          <ol class="cs-toc__list" role="list">
+            {
+              sections.map((section, i) => (
+                <li>
+                  <a href={`#${section.id}`}>
+                    <span class="cs-toc__num">{String(i + 1).padStart(2, '0')}</span>
+                    {section.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ol>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ================= 01 OVERVIEW ================= -->
+    {
+      p.overview && (
+        <Block
+          id="overview"
+          number={numberFor('overview')}
+          title="Overview"
+          narrative={p.overview.narrative}
+          narrativeExtra={p.overview.narrativeExtra}
+        >
+          {p.overview.highlights?.length ? (
+            <ul class="cs-metrics js-reveal" role="list">
+              {p.overview.highlights.map((m) => (
+                <li class="cs-metric">
+                  <p class="cs-metric__value">{m.value}</p>
+                  <p class="cs-metric__label">{m.label}</p>
+                  {m.note && <p class="cs-metric__note">{m.note}</p>}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </Block>
+      )
+    }
+
+    <!-- ================= 02 BUSINESS PROBLEM ================= -->
+    {
+      p.businessProblem && (
+        <Block
+          id="business-problem"
+          number={numberFor('business-problem')}
+          title="Business problem"
+          narrative={p.businessProblem.narrative}
+          narrativeExtra={p.businessProblem.narrativeExtra}
+          tone="sunken"
+        />
+      )
+    }
+
+    <!-- ================= 03 USER PROBLEM ================= -->
+    {
+      p.userProblem && (
+        <Block
+          id="user-problem"
+          number={numberFor('user-problem')}
+          title="User problem"
+          narrative={p.userProblem.narrative}
+          narrativeExtra={p.userProblem.narrativeExtra}
+        />
+      )
+    }
+
+    <!-- ================= 04 CONTEXT ================= -->
+    {
+      p.context && (
+        <Block
+          id="context"
+          number={numberFor('context')}
+          title="Context"
+          narrative={p.context.narrative}
+          narrativeExtra={p.context.narrativeExtra}
+        />
+      )
+    }
+
+    <!-- ================= 05 ROLE / TEAM / TIMELINE ================= -->
+    <Block
+      id="role"
+      number={numberFor('role')}
+      title="My role, team & timeline"
+      tone="sunken"
+    >
+      <dl class="cs-meta js-reveal" style="border-block-start: 0; padding-block-start: 0">
+        <div>
+          <dt>What I was responsible for</dt>
+          <dd>{p.role}</dd>
+        </div>
+        <div>
+          <dt>Who I worked with</dt>
+          <dd>
+            <ul role="list">
+              {p.team.map((member) => <li>{member}</li>)}
+            </ul>
+          </dd>
+        </div>
+        <div>
+          <dt>Timeline</dt>
+          <dd>{p.timeline}</dd>
+        </div>
+        <div>
+          <dt>Status</dt>
+          <dd><span class="tag tag--accent">{p.status}</span></dd>
+        </div>
+      </dl>
+      <p class="cs-statement js-reveal">{p.contribution}</p>
+    </Block>
+
+    <!-- ================= 06 RESEARCH ================= -->
+    {
+      p.research && (
+        <Block
+          id="research"
+          number={numberFor('research')}
+          title="Research"
+          narrative={p.research.narrative}
+          narrativeExtra={p.research.narrativeExtra}
+        >
+          {p.research.methods?.length ? (
+            <div class="js-reveal">
+              <p class="cs-option__heading" style="margin-block-end: var(--space-3)">Methods</p>
+              <ul class="cs-list" role="list">
+                {p.research.methods.map((m) => <li>{m}</li>)}
+              </ul>
+            </div>
+          ) : null}
+          {p.research.participants ? (
+            <p class="cs-flow__decision js-reveal">
+              <span>Participants</span>
+              {p.research.participants}
+            </p>
+          ) : null}
+        </Block>
+      )
+    }
+
+    <!-- ================= 07 INSIGHTS ================= -->
+    {
+      p.insights?.length ? (
+        <Block
+          id="insights"
+          number={numberFor('insights')}
+          title="User insights"
+          narrative="The findings that changed what got built. Each one carries the evidence it came from, because a design decision defended by an unsourced insight is just an opinion with a diagram."
+          tone="sunken"
+        >
+          <ul class="cs-cards cs-cards--2 js-reveal" role="list">
+            {p.insights.map((insight) => (
+              <li class="cs-card">
+                <h3 class="cs-card__title">{insight.title}</h3>
+                <p class="cs-card__detail">{insight.detail}</p>
+                {insight.quote && <blockquote class="cs-card__quote">“{insight.quote}”</blockquote>}
+                {insight.evidence && <p class="cs-card__evidence">{insight.evidence}</p>}
+              </li>
+            ))}
+          </ul>
+        </Block>
+      ) : null
+    }
+
+    <!-- ================= 08 PERSONAS ================= -->
+    {
+      p.personas?.length ? (
+        <Block
+          id="personas"
+          number={numberFor('personas')}
+          title="Personas"
+          narrative="Built from the research rather than invented to justify it. I use these to settle arguments — when a decision is contested, the question becomes which of these people it is for."
+        >
+          <ul class="cs-personas js-reveal" role="list">
+            {p.personas.map((persona) => (
+              <li class="cs-persona">
+                <div class="cs-persona__head">
+                  <span class="cs-persona__avatar" aria-hidden="true">
+                    {persona.name.charAt(0)}
+                  </span>
+                  <h3 class="cs-persona__name">
+                    {persona.name}
+                    <span class="cs-persona__role">{persona.role}</span>
+                  </h3>
+                </div>
+
+                <p class="cs-persona__context">{persona.context}</p>
+
+                {persona.quote && <blockquote class="cs-card__quote">“{persona.quote}”</blockquote>}
+
+                <div class="cs-persona__cols">
+                  <div class="cs-persona__col">
+                    <h4>Goals</h4>
+                    <ul role="list">
+                      {persona.goals.map((g) => <li>{g}</li>)}
+                    </ul>
+                  </div>
+                  <div class="cs-persona__col">
+                    <h4>Frustrations</h4>
+                    <ul role="list">
+                      {persona.frustrations.map((f) => <li>{f}</li>)}
+                    </ul>
+                  </div>
+                </div>
+
+                {persona.techComfort && (
+                  <p class="cs-card__evidence">Digital confidence: {persona.techComfort}</p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </Block>
+      ) : null
+    }
+
+    <!-- ================= 09 JOURNEY ================= -->
+    {
+      p.journey?.length ? (
+        <Block
+          id="journey"
+          number={numberFor('journey')}
+          title="User journey"
+          narrative="What the person is doing, thinking and feeling at each stage — and the design opportunity that sits in the gap between them."
+          tone="sunken"
+        >
+          <ol class="cs-journey js-reveal" role="list">
+            {p.journey.map((stage) => (
+              <li class="cs-journey__stage">
+                <h3 class="cs-journey__name">{stage.stage}</h3>
+
+                <dl class="cs-journey__cell">
+                  <dt>Doing</dt>
+                  <dd>{stage.doing}</dd>
+                </dl>
+
+                <dl class="cs-journey__cell">
+                  <dt>Thinking</dt>
+                  <dd>{stage.thinking}</dd>
+                </dl>
+
+                <dl class="cs-journey__cell">
+                  <dt>Feeling</dt>
+                  <dd>
+                    <span class="cs-journey__feeling" data-feeling={stage.feeling}>
+                      {stage.feeling}
+                    </span>
+                  </dd>
+                </dl>
+
+                <p class="cs-journey__opportunity">
+                  <span>Opportunity</span>
+                  {stage.opportunity}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </Block>
+      ) : null
+    }
+
+    <!-- ================= 10 PAIN POINTS ================= -->
+    {
+      p.painPoints?.length ? (
+        <Block
+          id="pain-points"
+          number={numberFor('pain-points')}
+          title="Pain points"
+          narrative="Ranked by consequence rather than by how interesting they were to solve. Severity is what decided the order of the work."
+        >
+          <ul class="cs-cards cs-cards--2 js-reveal" role="list">
+            {p.painPoints.map((point) => (
+              <li class="cs-card">
+                <p class="cs-severity" data-severity={point.severity}>{point.severity}</p>
+                <h3 class="cs-card__title">{point.title}</h3>
+                <p class="cs-card__detail">{point.detail}</p>
+                {point.who && <p class="cs-card__evidence">Affects: {point.who}</p>}
+              </li>
+            ))}
+          </ul>
+        </Block>
+      ) : null
+    }
+
+    <!-- ================= 11 PROBLEM DEFINITION ================= -->
+    {
+      p.problemDefinition && (
+        <Block
+          id="problem-definition"
+          number={numberFor('problem-definition')}
+          title="Problem definition"
+          tone="sunken"
+        >
+          <p class="cs-statement js-reveal">{p.problemDefinition.statement}</p>
+          <div class="js-reveal">
+            <p class="cs-option__heading" style="margin-block-end: var(--space-3)">
+              How might we
+            </p>
+            <ol class="cs-hmw" role="list">
+              {p.problemDefinition.hmw.map((q) => <li>{q}</li>)}
+            </ol>
+          </div>
+        </Block>
+      )
+    }
+
+    <!-- ================= 12 INFORMATION ARCHITECTURE ================= -->
+    {
+      p.informationArchitecture && (
+        <Block
+          id="ia"
+          number={numberFor('ia')}
+          title="Information architecture"
+          narrative={p.informationArchitecture.narrative}
+          narrativeExtra={p.informationArchitecture.narrativeExtra}
+        >
+          {p.informationArchitecture.tree?.length ? (
+            <div class="cs-card js-reveal">
+              <Tree items={p.informationArchitecture.tree} />
+            </div>
+          ) : null}
+        </Block>
+      )
+    }
+
+    <!-- ================= 13 USER FLOWS ================= -->
+    {
+      p.userFlows && (
+        <Block
+          id="flows"
+          number={numberFor('flows')}
+          title="User flows"
+          narrative={p.userFlows.narrative}
+          narrativeExtra={p.userFlows.narrativeExtra}
+          tone="sunken"
+        >
+          {p.userFlows.flows?.length ? (
+            <ul class="cs-flows js-reveal" role="list">
+              {p.userFlows.flows.map((flow) => (
+                <li class="cs-flow">
+                  <h3 class="cs-flow__name">{flow.name}</h3>
+                  <p class="cs-flow__goal">{flow.goal}</p>
+                  <ol class="cs-flow__steps" role="list">
+                    {flow.steps.map((step) => <li>{step}</li>)}
+                  </ol>
+                  {flow.decision && (
+                    <p class="cs-flow__decision">
+                      <span>Design decision</span>
+                      {flow.decision}
+                    </p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </Block>
+      )
+    }
+
+    <!-- ================= 14 WIREFRAMES ================= -->
+    {
+      p.wireframes && (
+        <Block
+          id="wireframes"
+          number={numberFor('wireframes')}
+          title="Wireframes"
+          narrative={p.wireframes.narrative}
+          narrativeExtra={p.wireframes.narrativeExtra}
+        >
+          {p.wireframes.items?.length ? (
+            <ul class="cs-artefacts js-reveal" role="list">
+              {p.wireframes.items.map((item) => (
+                <li class="cs-artefact">
+                  <p class="cs-artefact__name">{item.name}</p>
+                  <p class="cs-artefact__detail">{item.detail}</p>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </Block>
+      )
+    }
+
+    <!-- ================= 15 DESIGN EXPLORATION ================= -->
+    {
+      p.exploration && (
+        <Block
+          id="exploration"
+          number={numberFor('exploration')}
+          title="Design exploration"
+          narrative={p.exploration.narrative}
+          narrativeExtra={p.exploration.narrativeExtra}
+          tone="sunken"
+        >
+          {p.exploration.options?.length ? (
+            <ul class="cs-options js-reveal" role="list">
+              {p.exploration.options.map((option) => (
+                <li class={`cs-option ${option.chosen ? 'cs-option--chosen' : ''}`}>
+                  {option.chosen && (
+                    <p class="badge badge--success" style="justify-self: start">Chosen</p>
+                  )}
+                  <h3 class="cs-option__name">{option.name}</h3>
+                  <p class="cs-option__summary">{option.summary}</p>
+
+                  <p class="cs-option__heading">Strengths</p>
+                  <ul class="cs-option__list cs-option__list--pro" role="list">
+                    {option.pros.map((pro) => <li>{pro}</li>)}
+                  </ul>
+
+                  <p class="cs-option__heading">Costs</p>
+                  <ul class="cs-option__list cs-option__list--con" role="list">
+                    {option.cons.map((con) => <li>{con}</li>)}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </Block>
+      )
+    }
+
+    <!-- ================= 16 UI DESIGN ================= -->
+    {
+      p.uiDesign && (
+        <Block
+          id="ui"
+          number={numberFor('ui')}
+          title="UI design"
+          narrative={p.uiDesign.narrative}
+          narrativeExtra={p.uiDesign.narrativeExtra}
+        >
+          {p.uiDesign.principles?.length ? (
+            <ul class="cs-artefacts js-reveal" role="list">
+              {p.uiDesign.principles.map((principle) => (
+                <li class="cs-artefact">
+                  <p class="cs-artefact__name">{principle.name}</p>
+                  <p class="cs-artefact__detail">{principle.detail}</p>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </Block>
+      )
+    }
+
+    <!-- ================= 17 DESIGN SYSTEM ================= -->
+    {
+      p.designSystem && (
+        <Block
+          id="design-system"
+          number={numberFor('design-system')}
+          title="Design system"
+          narrative={p.designSystem.narrative}
+          narrativeExtra={p.designSystem.narrativeExtra}
+          tone="sunken"
+        >
+          {p.designSystem.tokens?.length ? (
+            <ul class="cs-artefacts js-reveal" role="list">
+              {p.designSystem.tokens.map((token) => (
+                <li class="cs-artefact">
+                  <p class="cs-artefact__name">{token.name}</p>
+                  <p class="cs-artefact__detail">{token.detail}</p>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+
+          {p.designSystem.components?.length ? (
+            <div class="js-reveal">
+              <p class="cs-option__heading" style="margin-block-end: var(--space-3)">
+                Components in the system
+              </p>
+              <ul class="cluster cs-chips" role="list">
+                {p.designSystem.components.map((c) => (
+                  <li><span class="tag">{c}</span></li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </Block>
+      )
+    }
+
+    <!-- ================= 18 PROTOTYPING ================= -->
+    {
+      p.prototyping && (
+        <Block
+          id="prototyping"
+          number={numberFor('prototyping')}
+          title="Prototyping"
+          narrative={p.prototyping.narrative}
+          narrativeExtra={p.prototyping.narrativeExtra}
+        >
+          {p.prototyping.artefacts?.length ? (
+            <ul class="cs-artefacts js-reveal" role="list">
+              {p.prototyping.artefacts.map((a) => (
+                <li class="cs-artefact">
+                  <p class="cs-artefact__name">{a.name}</p>
+                  <p class="cs-artefact__detail">{a.detail}</p>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </Block>
+      )
+    }
+
+    <!-- ================= 19 USABILITY TESTING ================= -->
+    {
+      p.usabilityTesting && (
+        <Block
+          id="testing"
+          number={numberFor('testing')}
+          title="Usability testing"
+          narrative={p.usabilityTesting.narrative}
+          narrativeExtra={p.usabilityTesting.narrativeExtra}
+          tone="sunken"
+        >
+          {p.usabilityTesting.setup ? (
+            <p class="cs-flow__decision js-reveal">
+              <span>Setup</span>
+              {p.usabilityTesting.setup}
+            </p>
+          ) : null}
+
+          {p.usabilityTesting.findings?.length ? (
+            <ul class="cs-findings js-reveal" role="list">
+              {p.usabilityTesting.findings.map((finding) => (
+                <li class="cs-finding">
+                  <div class="cs-finding__head">
+                    <h3 class="cs-finding__issue">{finding.issue}</h3>
+                    <p class="cs-severity" data-severity={finding.severity}>{finding.severity}</p>
+                  </div>
+                  <div class="cs-finding__pair">
+                    <p class="cs-finding__cell">
+                      <span>Evidence</span>
+                      {finding.evidence}
+                    </p>
+                    <p class="cs-finding__cell">
+                      <span>What I changed</span>
+                      {finding.fix}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </Block>
+      )
+    }
+
+    <!-- ================= 20 ITERATIONS ================= -->
+    {
+      p.iterations?.length ? (
+        <Block
+          id="iterations"
+          number={numberFor('iterations')}
+          title="Iterations"
+          narrative="What changed, why it changed, and what changing it produced. The reasoning is the interesting part — the screens are just where it landed."
+        >
+          <ol class="cs-iterations js-reveal" role="list">
+            {p.iterations.map((iteration) => (
+              <li class="cs-iteration">
+                <p class="cs-iteration__version">{iteration.version}</p>
+                <div class="cs-iteration__body">
+                  <p class="cs-iteration__changed">{iteration.changed}</p>
+                  <p class="cs-iteration__because">
+                    <strong>Because:</strong> {iteration.because}
+                  </p>
+                  {iteration.result && (
+                    <p class="cs-iteration__result">
+                      <strong>Result:</strong> {iteration.result}
+                    </p>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </Block>
+      ) : null
+    }
+
+    <!-- ================= 21 FINAL SOLUTION ================= -->
+    {
+      p.finalSolution && (
+        <Block
+          id="solution"
+          number={numberFor('solution')}
+          title="Final solution"
+          narrative={p.finalSolution.narrative}
+          narrativeExtra={p.finalSolution.narrativeExtra}
+          tone="sunken"
+        >
+          {p.finalSolution.features?.length ? (
+            <ul class="cs-features js-reveal" role="list">
+              {p.finalSolution.features.map((feature) => (
+                <li class="cs-feature">
+                  <h3 class="cs-feature__name">{feature.name}</h3>
+                  <p class="cs-feature__detail">{feature.detail}</p>
+                  {feature.answers && (
+                    <p class="cs-feature__answers">{feature.answers}</p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </Block>
+      )
+    }
+
+    <!-- ================= 22 IMPACT ================= -->
+    {
+      p.impact && (
+        <Block
+          id="impact"
+          number={numberFor('impact')}
+          title="Impact & outcomes"
+          narrative={p.impact.narrative}
+          narrativeExtra={p.impact.narrativeExtra}
+        >
+          {p.impact.metrics?.length ? (
+            <ul class="cs-metrics js-reveal" role="list">
+              {p.impact.metrics.map((metric) => (
+                <li class="cs-metric">
+                  <p class="cs-metric__value">{metric.value}</p>
+                  <p class="cs-metric__label">{metric.label}</p>
+                  {metric.note && <p class="cs-metric__note">{metric.note}</p>}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </Block>
+      )
+    }
+
+    <!-- ================= 23 LEARNINGS ================= -->
+    {
+      p.learnings?.length ? (
+        <Block
+          id="learnings"
+          number={numberFor('learnings')}
+          title="Learnings"
+          narrative="Including the things I would do differently. A case study with no mistakes in it is a case study nobody believes."
+          tone="sunken"
+        >
+          <ul class="cs-list js-reveal" role="list">
+            {p.learnings.map((learning) => <li>{learning}</li>)}
+          </ul>
+        </Block>
+      ) : null
+    }
+
+    <!-- ================= 24 NEXT ================= -->
+    {
+      p.nextSteps?.length ? (
+        <Block
+          id="next"
+          number={numberFor('next')}
+          title="What is next"
+          narrative="Where this work goes, and which claims still need measuring before I would make them."
+        >
+          <ul class="cs-list js-reveal" role="list">
+            {p.nextSteps.map((step) => <li>{step}</li>)}
+          </ul>
+        </Block>
+      ) : null
+    }
+
+    <!-- ================= PAGER ================= -->
+    <nav class="shell" aria-label="More case studies">
+      <div class="cs-pager">
+        {
+          prev && (
+            <a class="cs-pager__link" href={href(`/work/${prev.slug}`)}>
+              <span class="cs-pager__dir">Previous</span>
+              <span class="cs-pager__title">{prev.title}</span>
+              <span class="cs-pager__meta">{prev.industry} · {prev.projectType}</span>
+            </a>
+          )
+        }
+        {
+          next && (
+            <a class="cs-pager__link cs-pager__link--next" href={href(`/work/${next.slug}`)}>
+              <span class="cs-pager__dir">Next</span>
+              <span class="cs-pager__title">{next.title}</span>
+              <span class="cs-pager__meta">{next.industry} · {next.projectType}</span>
+            </a>
+          )
+        }
+      </div>
+
+      <p class="cluster" style="padding-block-end: var(--space-section-tight)">
+        <a class="btn btn--secondary" href={href('/work')}>All case studies</a>
+        <a class="btn btn--primary" href={href('/#contact')}>Talk to me about this work</a>
+      </p>
+    </nav>
+  </article>
+</Base>

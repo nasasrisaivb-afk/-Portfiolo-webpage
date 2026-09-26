@@ -1,0 +1,39 @@
+---
+import '../../styles/case-study.css';
+import Base from '../../layouts/Base.astro';
+import ResumeSection from '../../components/ResumeSection.astro';
+import { profile } from '../../data/site';
+import { coreSkills, resumeMeta } from '../../data/resume';
+import { href } from '../../lib/url';
+
+const schema = {
+  '@type': 'ProfilePage',
+  name: `${profile.name} — Resume`,
+  description: profile.summary,
+  mainEntity: {
+    '@type': 'Person',
+    name: profile.name,
+    jobTitle: 'UX/UI Designer & Product Designer',
+    knowsAbout: coreSkills,
+  },
+};
+---
+
+<Base
+  title="Resume"
+  description={`Resume of ${profile.name} — UX/UI and product designer. Experience, education, certifications and core skills. Updated ${resumeMeta.updated}.`}
+  schema={schema}
+>
+  <section class="section">
+    <div class="shell shell--wide">
+      <nav aria-label="Breadcrumb">
+        <ol class="cs-breadcrumb" role="list">
+          <li><a href={href('/')}>Home</a></li>
+          <li aria-current="page">Resume</li>
+        </ol>
+      </nav>
+
+      <ResumeSection variant="full" />
+    </div>
+  </section>
+</Base>

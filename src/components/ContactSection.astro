@@ -1,0 +1,182 @@
+---
+import { profile } from '../data/site';
+import ContactForm from './ContactForm.astro';
+import SectionHeader from './SectionHeader.astro';
+---
+
+<div class="contact">
+  <SectionHeader
+    eyebrow="Contact"
+    title="Tell me what you are trying to build"
+    lead="Hiring, a project, or a second opinion on something that is not working — all welcome. I reply to everything within two working days."
+  />
+
+  <div class="contact__grid">
+    <div class="contact__form js-reveal">
+      <ContactForm />
+    </div>
+
+    <aside class="contact__aside js-reveal" aria-label="Other ways to reach me">
+      <div class="contact__block">
+        <h3 class="contact__block-title">Email</h3>
+        <a class="contact__email link" href={`mailto:${profile.email}`}>{profile.email}</a>
+      </div>
+
+      <div class="contact__block">
+        <h3 class="contact__block-title">Elsewhere</h3>
+        <ul class="contact__links" role="list">
+          {
+            profile.social.map((s) => (
+              <li>
+                <a href={s.href} target="_blank" rel="me noopener noreferrer">
+                  <span class="contact__link-label">{s.label}</span>
+                  <span class="contact__link-handle">{s.handle}</span>
+                  <svg class="contact__link-icon" viewBox="0 0 12 12" aria-hidden="true">
+                    <path
+                      d="M4 2h6v6M10 2 3 9"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <span class="visually-hidden">(opens in a new tab)</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="contact__block">
+        <h3 class="contact__block-title">Working details</h3>
+        <dl class="contact__facts">
+          <div>
+            <dt>Location</dt>
+            <dd>{profile.location}</dd>
+          </div>
+          <div>
+            <dt>Time zone</dt>
+            <dd>{profile.timezone}</dd>
+          </div>
+          <div>
+            <dt>Status</dt>
+            <dd>
+              <span class="badge badge--success">
+                <span class="badge__dot" aria-hidden="true"></span>
+                {profile.availability}
+              </span>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<style>
+  .contact__grid {
+    display: grid;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 60em) {
+    .contact__grid {
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+    }
+  }
+
+  .contact__form {
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    background-color: var(--surface);
+    border: var(--border-width) solid var(--hairline);
+    border-radius: var(--radius-lg);
+  }
+
+  .contact__aside {
+    display: grid;
+    gap: var(--space-7);
+    align-content: start;
+  }
+
+  .contact__block-title {
+    font-family: var(--font-sans);
+    font-size: var(--step--2);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--ink-subtle);
+    padding-block-end: var(--space-3);
+    border-block-end: var(--border-width) solid var(--hairline);
+    margin-block-end: var(--space-4);
+  }
+
+  .contact__email {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-variation-settings: 'opsz' 28;
+    letter-spacing: var(--tracking-snug);
+    overflow-wrap: anywhere;
+  }
+
+  .contact__links {
+    display: grid;
+    gap: var(--space-1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact__links a {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: var(--space-3);
+    min-block-size: var(--target-min);
+    padding-block: var(--space-3);
+    border-block-end: var(--border-width) solid var(--hairline);
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .contact__links a:hover {
+    color: var(--accent);
+  }
+
+  .contact__link-label {
+    font-size: var(--step-0);
+    font-weight: var(--weight-medium);
+  }
+
+  .contact__link-handle {
+    font-size: var(--step--2);
+    color: var(--ink-subtle);
+    overflow-wrap: anywhere;
+  }
+
+  .contact__link-icon {
+    inline-size: 0.7em;
+    block-size: 0.7em;
+    opacity: 0.6;
+  }
+
+  .contact__facts {
+    display: grid;
+    gap: var(--space-4);
+    margin: 0;
+  }
+
+  .contact__facts dt {
+    font-size: var(--step--2);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--ink-subtle);
+  }
+
+  .contact__facts dd {
+    margin: var(--space-1) 0 0;
+    font-size: var(--step--1);
+  }
+</style>

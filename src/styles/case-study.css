@@ -1,0 +1,986 @@
+/* ==========================================================================
+   CASE STUDY — shared patterns used by the reusable template
+   ========================================================================== */
+
+/* ---- hero ---------------------------------------------------------------- */
+.cs-hero {
+  padding-block: var(--space-7) var(--space-section-tight);
+}
+
+.cs-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0 0 var(--space-6);
+  padding: 0;
+  font-size: var(--step--2);
+  color: var(--ink-subtle);
+}
+
+.cs-breadcrumb a {
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.cs-breadcrumb a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.cs-breadcrumb li + li::before {
+  content: '/';
+  margin-inline-end: var(--space-2);
+  color: var(--border-strong);
+}
+
+.cs-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--step-5);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  font-variation-settings: 'opsz' 72;
+  margin-block-end: var(--space-4);
+}
+
+.cs-hero__tagline {
+  font-size: var(--step-2);
+  line-height: var(--leading-snug);
+  color: var(--ink-muted);
+  max-width: 34ch;
+  text-wrap: pretty;
+  margin-block-end: var(--space-6);
+}
+
+.cs-hero__tags {
+  --cluster-gap: var(--space-2);
+  list-style: none;
+  margin: 0 0 var(--space-7);
+  padding: 0;
+}
+
+.cs-hero__media {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: var(--border-width) solid var(--hairline);
+  background-color: var(--surface-sunken);
+  aspect-ratio: 22 / 13;
+  margin-block-end: var(--space-7);
+}
+
+.cs-hero__media img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+/* ---- meta bar ------------------------------------------------------------ */
+.cs-meta {
+  display: grid;
+  gap: var(--space-5);
+  margin: 0;
+  padding-block: var(--space-6);
+  border-block: var(--border-width) solid var(--hairline);
+}
+
+@media (min-width: 40em) {
+  .cs-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64em) {
+  .cs-meta {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.cs-meta dt {
+  font-size: var(--step--2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  margin-block-end: var(--space-2);
+}
+
+.cs-meta dd {
+  margin: 0;
+  font-size: var(--step--1);
+  color: var(--ink);
+}
+
+.cs-meta ul {
+  display: grid;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- table of contents --------------------------------------------------- */
+.cs-toc {
+  padding-block: var(--space-6);
+}
+
+.cs-toc__title {
+  font-family: var(--font-sans);
+  font-size: var(--step--2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  margin-block-end: var(--space-4);
+}
+
+.cs-toc__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: var(--space-1) var(--space-5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cs-toc__list a {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-block: var(--space-2);
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+  text-decoration: none;
+  border-block-end: var(--border-width) solid var(--hairline);
+}
+
+.cs-toc__list a:hover {
+  color: var(--accent);
+}
+
+.cs-toc__num {
+  font-size: var(--step--2);
+  color: var(--ink-subtle);
+  font-feature-settings: 'tnum' 1;
+}
+
+/* ---- metrics ------------------------------------------------------------- */
+.cs-metrics {
+  display: grid;
+  gap: var(--grid-gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 34em) {
+  .cs-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 60em) {
+  .cs-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.cs-metric {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+  padding: var(--space-5);
+  background-color: var(--surface);
+  border: var(--border-width) solid var(--hairline);
+  border-radius: var(--radius-md);
+}
+
+.cs-metric__value {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-tight);
+  font-variation-settings: 'opsz' 36;
+  color: var(--accent);
+}
+
+.cs-metric__label {
+  font-size: var(--step--1);
+  font-weight: var(--weight-semibold);
+  color: var(--ink);
+}
+
+.cs-metric__note {
+  font-size: var(--step--2);
+  color: var(--ink-subtle);
+  line-height: var(--leading-normal);
+}
+
+/* ---- insight / pain-point / finding cards -------------------------------- */
+.cs-cards {
+  display: grid;
+  gap: var(--grid-gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 52em) {
+  .cs-cards--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.cs-card {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding: var(--space-5);
+  background-color: var(--surface);
+  border: var(--border-width) solid var(--hairline);
+  border-radius: var(--radius-md);
+}
+
+.cs-card__title {
+  font-size: var(--step-1);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+}
+
+.cs-card__detail {
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+}
+
+.cs-card__quote {
+  margin: 0;
+  padding-inline-start: var(--space-4);
+  border-inline-start: var(--border-width-thick) solid var(--accent);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: italic;
+  font-variation-settings: 'opsz' 24;
+  line-height: var(--leading-snug);
+  color: var(--ink);
+}
+
+.cs-card__evidence {
+  font-size: var(--step--2);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  font-feature-settings: 'tnum' 1;
+}
+
+/* ---- personas ------------------------------------------------------------ */
+.cs-personas {
+  display: grid;
+  gap: var(--grid-gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 52em) {
+  .cs-personas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.cs-persona {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+  padding: var(--space-6);
+  background-color: var(--surface);
+  border: var(--border-width) solid var(--hairline);
+  border-radius: var(--radius-lg);
+}
+
+.cs-persona__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.cs-persona__avatar {
+  display: grid;
+  place-items: center;
+  inline-size: 3rem;
+  block-size: 3rem;
+  flex: none;
+  border-radius: 50%;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: var(--weight-semibold);
+}
+
+.cs-persona__name {
+  font-size: var(--step-1);
+  letter-spacing: var(--tracking-snug);
+}
+
+.cs-persona__role {
+  display: block;
+  font-size: var(--step--2);
+  font-weight: var(--weight-medium);
+  color: var(--accent);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.cs-persona__context {
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+}
+
+.cs-persona__cols {
+  display: grid;
+  gap: var(--space-4);
+  padding-block-start: var(--space-4);
+  border-block-start: var(--border-width) solid var(--hairline);
+}
+
+@media (min-width: 30em) {
+  .cs-persona__cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+}
+
+.cs-persona__col h4 {
+  font-family: var(--font-sans);
+  font-size: var(--step--2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  margin-block-end: var(--space-2);
+}
+
+.cs-persona__col ul {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--step--2);
+  color: var(--ink-muted);
+  line-height: var(--leading-normal);
+}
+
+.cs-persona__col li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-2);
+}
+
+.cs-persona__col li::before {
+  content: '';
+  inline-size: 4px;
+  block-size: 4px;
+  margin-block-start: 0.6em;
+  border-radius: 50%;
+  background-color: var(--accent-line);
+}
+
+/* ---- journey ------------------------------------------------------------- */
+.cs-journey {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: journey;
+}
+
+.cs-journey__stage {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background-color: var(--surface);
+  border: var(--border-width) solid var(--hairline);
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 64em) {
+  .cs-journey__stage {
+    grid-template-columns: 10rem repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+    align-items: start;
+  }
+}
+
+.cs-journey__name {
+  font-size: var(--step-0);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-snug);
+}
+
+.cs-journey__cell {
+  display: grid;
+  gap: var(--space-1);
+  font-size: var(--step--2);
+  color: var(--ink-muted);
+  line-height: var(--leading-normal);
+}
+
+.cs-journey__cell dt {
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+}
+
+.cs-journey__cell dd {
+  margin: 0;
+}
+
+.cs-journey__feeling {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.2rem var(--space-3);
+  border-radius: var(--radius-pill);
+  font-size: var(--step--2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+}
+
+.cs-journey__feeling[data-feeling='Frustrated'],
+.cs-journey__feeling[data-feeling='Anxious'] {
+  background-color: var(--danger-soft);
+  color: var(--danger);
+}
+
+.cs-journey__feeling[data-feeling='Neutral'] {
+  background-color: var(--surface-sunken);
+  color: var(--ink-muted);
+}
+
+.cs-journey__feeling[data-feeling='Hopeful'],
+.cs-journey__feeling[data-feeling='Confident'] {
+  background-color: var(--success-soft);
+  color: var(--success);
+}
+
+.cs-journey__opportunity {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: var(--space-1);
+  padding-block-start: var(--space-3);
+  border-block-start: var(--border-width) solid var(--hairline);
+  font-size: var(--step--1);
+  color: var(--ink);
+}
+
+.cs-journey__opportunity span {
+  font-size: var(--step--2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---- severity marker ------------------------------------------------------ */
+.cs-severity {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--step--2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.cs-severity::before {
+  content: '';
+  inline-size: 0.6em;
+  block-size: 0.6em;
+  border-radius: 2px;
+  background-color: currentColor;
+}
+
+.cs-severity[data-severity='Critical'] {
+  color: var(--danger);
+}
+
+.cs-severity[data-severity='High'],
+.cs-severity[data-severity='Major'] {
+  color: var(--warning);
+}
+
+.cs-severity[data-severity='Medium'],
+.cs-severity[data-severity='Minor'] {
+  color: var(--ink-subtle);
+}
+
+/* ---- how-might-we -------------------------------------------------------- */
+.cs-statement {
+  padding: var(--space-6);
+  background-color: var(--surface-inverse);
+  color: var(--ink-inverse);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+  font-variation-settings: 'opsz' 28;
+  text-wrap: pretty;
+}
+
+.cs-hmw {
+  display: grid;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: hmw;
+}
+
+.cs-hmw li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: baseline;
+  padding-block: var(--space-3);
+  border-block-end: var(--border-width) solid var(--hairline);
+  font-size: var(--step-0);
+  color: var(--ink);
+  counter-increment: hmw;
+}
+
+.cs-hmw li::before {
+  content: counter(hmw, decimal-leading-zero);
+  font-size: var(--step--2);
+  font-weight: var(--weight-semibold);
+  color: var(--accent);
+  font-feature-settings: 'tnum' 1;
+}
+
+/* ---- flows --------------------------------------------------------------- */
+.cs-flows {
+  display: grid;
+  gap: var(--space-5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cs-flow {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background-color: var(--surface);
+  border: var(--border-width) solid var(--hairline);
+  border-radius: var(--radius-md);
+}
+
+.cs-flow__name {
+  font-size: var(--step-1);
+  letter-spacing: var(--tracking-snug);
+}
+
+.cs-flow__goal {
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+}
+
+.cs-flow__steps {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: step;
+}
+
+.cs-flow__steps li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  border-block-start: var(--border-width) solid var(--hairline);
+  font-size: var(--step--1);
+  color: var(--ink);
+  counter-increment: step;
+}
+
+.cs-flow__steps li::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  inline-size: 1.6rem;
+  block-size: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  font-size: var(--step--2);
+  font-weight: var(--weight-semibold);
+  font-feature-settings: 'tnum' 1;
+}
+
+.cs-flow__decision {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  background-color: var(--canvas-contrast);
+  border-radius: var(--radius-sm);
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+}
+
+.cs-flow__decision span {
+  font-size: var(--step--2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---- option comparison ---------------------------------------------------- */
+.cs-options {
+  display: grid;
+  gap: var(--grid-gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 64em) {
+  .cs-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.cs-option {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding: var(--space-5);
+  background-color: var(--surface);
+  border: var(--border-width) solid var(--hairline);
+  border-radius: var(--radius-md);
+}
+
+.cs-option--chosen {
+  border-color: var(--accent);
+  border-width: var(--border-width-thick);
+  background-color: var(--accent-soft);
+}
+
+.cs-option__name {
+  font-size: var(--step-1);
+  letter-spacing: var(--tracking-snug);
+}
+
+.cs-option__summary {
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+}
+
+.cs-option__list {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--step--2);
+  color: var(--ink-muted);
+  line-height: var(--leading-normal);
+}
+
+.cs-option__list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-2);
+}
+
+.cs-option__list--pro li::before {
+  content: '+';
+  color: var(--success);
+  font-weight: var(--weight-bold);
+}
+
+.cs-option__list--con li::before {
+  content: '−';
+  color: var(--danger);
+  font-weight: var(--weight-bold);
+}
+
+.cs-option__heading {
+  font-family: var(--font-sans);
+  font-size: var(--step--2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+}
+
+/* ---- iterations ----------------------------------------------------------- */
+.cs-iterations {
+  display: grid;
+  gap: var(--space-5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cs-iteration {
+  display: grid;
+  gap: var(--space-3);
+  padding-block-start: var(--space-5);
+  border-block-start: var(--border-width) solid var(--hairline);
+}
+
+@media (min-width: 52em) {
+  .cs-iteration {
+    grid-template-columns: 11rem minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+.cs-iteration__version {
+  font-size: var(--step--1);
+  font-weight: var(--weight-semibold);
+  color: var(--accent);
+}
+
+.cs-iteration__body {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.cs-iteration__changed {
+  font-size: var(--step-0);
+  color: var(--ink);
+}
+
+.cs-iteration__because,
+.cs-iteration__result {
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+}
+
+.cs-iteration__because strong,
+.cs-iteration__result strong {
+  color: var(--ink);
+  font-weight: var(--weight-semibold);
+}
+
+/* ---- findings table ------------------------------------------------------- */
+.cs-findings {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cs-finding {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background-color: var(--surface);
+  border: var(--border-width) solid var(--hairline);
+  border-radius: var(--radius-md);
+}
+
+.cs-finding__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.cs-finding__issue {
+  font-size: var(--step-0);
+  font-weight: var(--weight-semibold);
+}
+
+.cs-finding__pair {
+  display: grid;
+  gap: var(--space-3);
+}
+
+@media (min-width: 46em) {
+  .cs-finding__pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+}
+
+.cs-finding__cell {
+  display: grid;
+  gap: var(--space-1);
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+}
+
+.cs-finding__cell span {
+  font-size: var(--step--2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+}
+
+/* ---- feature list --------------------------------------------------------- */
+.cs-features {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cs-feature {
+  display: grid;
+  gap: var(--space-2);
+  padding-block: var(--space-4);
+  border-block-end: var(--border-width) solid var(--hairline);
+}
+
+.cs-feature__name {
+  font-size: var(--step-1);
+  letter-spacing: var(--tracking-snug);
+}
+
+.cs-feature__detail {
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+  max-width: 68ch;
+}
+
+.cs-feature__answers {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-size: var(--step--2);
+  color: var(--accent);
+}
+
+.cs-feature__answers::before {
+  content: '↳';
+}
+
+/* ---- simple lists --------------------------------------------------------- */
+.cs-list {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 72ch;
+}
+
+.cs-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-4);
+  font-size: var(--step-0);
+  color: var(--ink-muted);
+  line-height: var(--leading-relaxed);
+}
+
+.cs-list li::before {
+  content: '';
+  inline-size: 6px;
+  block-size: 6px;
+  margin-block-start: 0.6em;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+.cs-chips {
+  --cluster-gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cs-artefacts {
+  display: grid;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cs-artefact {
+  display: grid;
+  gap: var(--space-1);
+  padding-block: var(--space-3);
+  border-block-end: var(--border-width) solid var(--hairline);
+}
+
+.cs-artefact__name {
+  font-size: var(--step-0);
+  font-weight: var(--weight-medium);
+  color: var(--ink);
+}
+
+.cs-artefact__detail {
+  font-size: var(--step--2);
+  color: var(--ink-subtle);
+}
+
+/* ---- next / prev ---------------------------------------------------------- */
+.cs-pager {
+  display: grid;
+  gap: var(--grid-gap);
+  padding-block: var(--space-section-tight);
+}
+
+@media (min-width: 46em) {
+  .cs-pager {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.cs-pager__link {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background-color: var(--surface);
+  border: var(--border-width) solid var(--hairline);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.cs-pager__link:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.cs-pager__link--next {
+  text-align: end;
+}
+
+.cs-pager__dir {
+  font-size: var(--step--2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.cs-pager__title {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  letter-spacing: var(--tracking-snug);
+  font-variation-settings: 'opsz' 28;
+  color: var(--ink);
+}
+
+.cs-pager__meta {
+  font-size: var(--step--2);
+  color: var(--ink-subtle);
+}

@@ -1,0 +1,238 @@
+---
+/**
+ * Print-only resume. This page is the single source of the PDF: it reads the
+ * same `src/data/resume.ts` as the web resume, and `npm run resume:pdf`
+ * renders it to `public/resume/`. Never link to it from navigation.
+ */
+import { certifications, coreSkills, education, experience, resumeMeta } from '../../data/resume';
+import { profile } from '../../data/site';
+import { industriesCovered } from '../../data/projects';
+import { asset } from '../../lib/url';
+
+const fraunces = asset('/fonts/fraunces-latin-wght-normal.woff2');
+const inter = asset('/fonts/inter-latin-wght-normal.woff2');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href={asset('/favicon.svg')} type="image/svg+xml" />
+    <title>{profile.name} — Resume</title>
+    <style is:inline set:html={`
+      @font-face { font-family:'Fraunces'; src:url('${fraunces}') format('woff2-variations'); font-weight:100 900; font-display:swap; }
+      @font-face { font-family:'InterV';  src:url('${inter}') format('woff2-variations');  font-weight:100 900; font-display:swap; }
+    `} />
+  </head>
+
+  <body>
+    <div class="sheet">
+      <header class="masthead">
+        <div>
+          <h1>{profile.name}</h1>
+          <p class="role">{profile.roleLong}</p>
+        </div>
+        <ul class="contacts">
+          <li>{profile.email}</li>
+          <li>{profile.location}</li>
+          {profile.social.map((s) => <li>{s.href.replace(/^https?:\/\/(www\.)?/, '')}</li>)}
+        </ul>
+      </header>
+
+      <section class="block">
+        <h2>Profile</h2>
+        <p class="summary">{resumeMeta.summary}</p>
+      </section>
+
+      <section class="block">
+        <h2>Core skills</h2>
+        <p class="skills">{coreSkills.join(' · ')}</p>
+        <p class="skills skills--muted">Industries: {industriesCovered.join(' · ')}</p>
+      </section>
+
+      <section class="block">
+        <h2>Experience</h2>
+        {
+          experience.map((item) => (
+            <article class="entry">
+              <div class="entry__head">
+                <h3>
+                  {item.role} <span>· {item.organisation}</span>
+                </h3>
+                <p class="period">{item.period}</p>
+              </div>
+              <p class="entry__summary">{item.summary}</p>
+              <ul>
+                {item.highlights.map((h) => <li>{h}</li>)}
+              </ul>
+            </article>
+          ))
+        }
+      </section>
+
+      <div class="two-up">
+        <section class="block">
+          <h2>Education</h2>
+          {
+            education.map((item) => (
+              <article class="entry entry--tight">
+                <h3>{item.qualification}</h3>
+                <p class="org">{item.institution}</p>
+                <p class="period">{item.period}</p>
+              </article>
+            ))
+          }
+        </section>
+
+        <section class="block">
+          <h2>Certifications</h2>
+          {
+            certifications.map((cert) => (
+              <article class="entry entry--tight">
+                <h3>{cert.name}</h3>
+                <p class="org">{cert.issuer}</p>
+                <p class="period">{cert.year}</p>
+              </article>
+            ))
+          }
+        </section>
+      </div>
+
+      <footer class="foot">
+        <span>Updated {resumeMeta.updated}</span>
+        <span>Full case studies and portfolio online</span>
+      </footer>
+    </div>
+
+    <style is:inline>
+      @page {
+        size: A4;
+        margin: 14mm 15mm;
+      }
+
+      * { margin: 0; box-sizing: border-box; }
+
+      body {
+        font-family: 'InterV', system-ui, sans-serif;
+        font-size: 9.6pt;
+        line-height: 1.5;
+        color: #14140f;
+        background: #ffffff;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .sheet { max-width: 190mm; margin: 0 auto; padding: 4mm 0; }
+
+      /* ---- masthead ---- */
+      .masthead {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 12mm;
+        padding-bottom: 4mm;
+        border-bottom: 1.6pt solid #14140f;
+      }
+
+      h1 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 26pt;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+      }
+
+      .role {
+        margin-top: 1.5mm;
+        font-size: 10pt;
+        font-weight: 500;
+        color: #a8401c;
+      }
+
+      .contacts {
+        list-style: none;
+        padding: 0;
+        text-align: right;
+        font-size: 8.6pt;
+        color: #56544c;
+        line-height: 1.55;
+      }
+
+      /* ---- blocks ---- */
+      .block { margin-top: 6mm; break-inside: avoid; }
+
+      h2 {
+        font-size: 7.6pt;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #6f6b60;
+        padding-bottom: 1.5mm;
+        margin-bottom: 3mm;
+        border-bottom: 0.6pt solid #ded9cf;
+      }
+
+      .summary { font-size: 9.6pt; color: #3a382f; }
+
+      .skills { font-size: 9pt; color: #3a382f; }
+      .skills--muted { margin-top: 1.5mm; color: #6f6b60; }
+
+      /* ---- entries ---- */
+      .entry { margin-bottom: 4.5mm; break-inside: avoid; }
+      .entry:last-child { margin-bottom: 0; }
+      .entry--tight { margin-bottom: 3mm; }
+
+      .entry__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 6mm;
+      }
+
+      h3 { font-size: 10.4pt; font-weight: 600; letter-spacing: -0.01em; }
+      h3 span { font-weight: 500; color: #a8401c; }
+
+      .org { font-size: 9pt; color: #a8401c; font-weight: 500; }
+
+      .period {
+        font-size: 8.2pt;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #6f6b60;
+        white-space: nowrap;
+      }
+
+      .entry__summary { margin-top: 1mm; font-size: 9.2pt; color: #56544c; }
+
+      .entry ul {
+        margin: 2mm 0 0;
+        padding-left: 4.5mm;
+        font-size: 9.2pt;
+        color: #3a382f;
+      }
+
+      .entry li { margin-bottom: 1.2mm; padding-left: 1mm; }
+      .entry li::marker { color: #a8401c; }
+
+      /* ---- two column ---- */
+      .two-up {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10mm;
+      }
+
+      /* ---- footer ---- */
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 7mm;
+        padding-top: 2.5mm;
+        border-top: 0.6pt solid #ded9cf;
+        font-size: 8pt;
+        color: #6f6b60;
+      }
+    </style>
+  </body>
+</html>

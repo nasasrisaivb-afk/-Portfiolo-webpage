@@ -1,0 +1,123 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import IndustryStrip from '../components/IndustryStrip.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Process from '../components/Process.astro';
+import ResumeSection from '../components/ResumeSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { featuredProjects, allProjects } from '../data/projects';
+import { testimonials } from '../data/testimonials';
+import { href } from '../lib/url';
+
+const schema = {
+  '@type': 'WebSite',
+  name: 'Nasa Sri Sai V.B — Portfolio',
+  url: Astro.site?.href,
+  inLanguage: 'en',
+  hasPart: allProjects.map((p) => ({
+    '@type': 'CreativeWork',
+    name: p.title,
+    description: p.description,
+    url: `${Astro.site?.origin ?? ''}${href(`/work/${p.slug}`)}`,
+  })),
+};
+---
+
+<Base navVariant="home" schema={schema}>
+  <Hero />
+  <IndustryStrip />
+
+  <!-- ============================ WORK ============================ -->
+  <section class="section" id="work" aria-labelledby="work-title">
+    <div class="shell shell--wide">
+      <SectionHeader
+        eyebrow="Selected work"
+        title="Products where the hard part was the thinking"
+        lead="Five projects across agriculture, logistics, healthcare and brand. Each one is a full case study — research, the arguments, the decisions, the things I got wrong."
+        id="work-title"
+      >
+        <a class="link-arrow" href={href('/work')}>See all case studies</a>
+      </SectionHeader>
+
+      <div class="work-rail">
+        {
+          featuredProjects.map((project, i) => (
+            <ProjectCard project={project} variant="feature" index={i} flip={i % 2 === 1} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ABOUT ============================ -->
+  <section class="section section--sunken" id="about" aria-labelledby="about-title">
+    <div class="shell shell--wide">
+      <About />
+    </div>
+  </section>
+
+  <!-- ============================ SKILLS ============================ -->
+  <section class="section" id="skills" aria-labelledby="skills-title">
+    <div class="shell shell--wide">
+      <Skills />
+    </div>
+  </section>
+
+  <!-- ============================ PROCESS ============================ -->
+  <section class="section section--sunken" id="process" aria-labelledby="process-title">
+    <div class="shell shell--wide">
+      <Process />
+    </div>
+  </section>
+
+  <!-- ============================ TESTIMONIALS ============================ -->
+  {
+    testimonials.length > 0 && (
+      <section class="section" id="testimonials" aria-labelledby="testimonials-title">
+        <div class="shell shell--wide">
+          <SectionHeader
+            eyebrow="What people say"
+            title="Working with me, in their words"
+            id="testimonials-title"
+          />
+          <ul class="cs-cards cs-cards--2" role="list">
+            {testimonials.map((t) => (
+              <li class="cs-card">
+                <blockquote class="cs-card__quote">“{t.quote}”</blockquote>
+                <p class="cs-card__evidence">
+                  {t.name} — {t.role}
+                  {t.organisation ? `, ${t.organisation}` : ''}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- ============================ RESUME ============================ -->
+  <section class="section" id="resume" aria-labelledby="resume-title">
+    <div class="shell shell--wide">
+      <ResumeSection variant="summary" />
+    </div>
+  </section>
+
+  <!-- ============================ CONTACT ============================ -->
+  <section class="section section--sunken" id="contact" aria-labelledby="contact-title">
+    <div class="shell shell--wide">
+      <ContactSection />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .work-rail {
+    display: grid;
+    gap: clamp(3rem, 8vw, 7rem);
+  }
+</style>

@@ -1,0 +1,102 @@
+---
+/** Light / dark switch. Persisted, OS-preference aware, no flash on load. */
+---
+
+<button
+  type="button"
+  class="theme-toggle"
+  id="theme-toggle"
+  aria-live="polite"
+  data-label-to-dark="Switch to dark theme"
+  data-label-to-light="Switch to light theme"
+>
+  <span class="visually-hidden" id="theme-toggle-label">Switch theme</span>
+  <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6" />
+    <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+      <path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7" />
+    </g>
+  </svg>
+  <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      d="M20.2 14.6A8.6 8.6 0 1 1 9.4 3.8a6.9 6.9 0 0 0 10.8 10.8Z"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linejoin="round"
+    />
+  </svg>
+</button>
+
+<style>
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--target-min);
+    block-size: var(--target-min);
+    border-radius: var(--radius-pill);
+    color: var(--ink-muted);
+    border: var(--border-width) solid transparent;
+    transition:
+      background-color var(--dur-fast) var(--ease-out),
+      color var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out);
+  }
+
+  .theme-toggle:hover {
+    background-color: var(--surface);
+    border-color: var(--hairline);
+    color: var(--ink);
+  }
+
+  .theme-toggle__icon {
+    inline-size: 1.2rem;
+    block-size: 1.2rem;
+    fill: none;
+  }
+
+  /* Show the icon for the theme you would switch *to*. */
+  .theme-toggle__icon--sun {
+    display: none;
+  }
+
+  :global([data-theme='dark']) .theme-toggle__icon--sun {
+    display: block;
+  }
+
+  :global([data-theme='dark']) .theme-toggle__icon--moon {
+    display: none;
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const btn = document.getElementById('theme-toggle');
+    const label = document.getElementById('theme-toggle-label');
+    if (!btn || !label) return;
+
+    const root = document.documentElement;
+
+    const sync = () => {
+      const isDark = root.getAttribute('data-theme') === 'dark';
+      const text = isDark ? btn.dataset.labelToLight : btn.dataset.labelToDark;
+      btn.setAttribute('aria-label', text || 'Switch theme');
+      label.textContent = text || 'Switch theme';
+      btn.setAttribute('aria-pressed', String(isDark));
+    };
+
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try {
+        localStorage.setItem('portfolio-theme', next);
+      } catch {
+        /* private mode — the choice simply does not persist */
+      }
+      sync();
+    });
+
+    sync();
+  })();
+</script>

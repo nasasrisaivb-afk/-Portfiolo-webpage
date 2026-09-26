@@ -1,0 +1,289 @@
+---
+import { profile } from '../data/site';
+import { experience } from '../data/resume';
+import { industriesCovered } from '../data/projects';
+import SectionHeader from './SectionHeader.astro';
+
+const tools = ['Figma', 'Adobe CC', 'Canva', 'HTML & CSS', 'Design tokens', 'Miro / FigJam'];
+const interests = [
+  'Multi-sided marketplaces and the role models that hold them together',
+  'Safety-critical content design, where the sentence is the interface',
+  'Design systems as tokens rather than sticker sheets',
+  'Where AI genuinely compresses design effort — and where it must not',
+];
+---
+
+<div class="about">
+  <SectionHeader
+    eyebrow="About"
+    title="I design the parts of a product people have to think hardest about"
+    lead="Marketplaces, operations tooling, diagnostics and care coordination — the products where the hard part is not how a screen looks, but how much complexity you can take away from the person using it."
+  />
+
+  <div class="about__grid">
+    <div class="about__intro prose js-reveal">
+      <p>
+        I work end to end. That means I am in the room when the problem is still being argued
+        about, and I am still there when the build hits the states nobody drew. I run the
+        research, write the problem statement, draw the architecture, design the interface,
+        build the token layer, and sit next to the engineers while it ships.
+      </p>
+      <p>
+        My design philosophy is short: <strong
+          >decide what the person is trying to finish, and remove everything in the way of
+          them finishing it</strong
+        >. Most of what I do is subtraction — ordering information so the right thing is read
+        first, cutting a step, or moving one block above another so a decision changes.
+      </p>
+      <p>
+        I care about the unglamorous parts. Loading, empty, error and not-found states get
+        designed alongside the populated view, because those are the screens a first-time user
+        on a weak connection actually meets. Accessibility lives in the token layer, not in a
+        review comment at the end.
+      </p>
+      <p>
+        I use AI where it compresses effort without outsourcing judgement — clustering research,
+        widening exploration, standing up coded prototypes in hours. Sampling participants,
+        clinical phrasing and accessibility calls stay human, because those are the places where
+        being confidently wrong does real damage.
+      </p>
+    </div>
+
+    <aside class="about__aside js-reveal" aria-label="At a glance">
+      <dl class="about__facts">
+        <div>
+          <dt>Based in</dt>
+          <dd>{profile.location}</dd>
+        </div>
+        <div>
+          <dt>Working across</dt>
+          <dd>{industriesCovered.join(' · ')}</dd>
+        </div>
+        <div>
+          <dt>Tools</dt>
+          <dd>{tools.join(' · ')}</dd>
+        </div>
+        <div>
+          <dt>Currently</dt>
+          <dd>{profile.availability}</dd>
+        </div>
+      </dl>
+
+      <div class="about__interests">
+        <h3 class="about__aside-title">What has my attention right now</h3>
+        <ul role="list">
+          {interests.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <div class="about__timeline js-reveal">
+    <h3 class="about__timeline-title">Experience</h3>
+    <ol class="timeline" role="list">
+      {
+        experience.map((item) => (
+          <li class="timeline__item">
+            <div class="timeline__period mono-meta">{item.period}</div>
+            <div class="timeline__body">
+              <h4 class="timeline__role">
+                {item.role}
+                <span class="timeline__org">{item.organisation}</span>
+              </h4>
+              <p class="timeline__summary">{item.summary}</p>
+              <ul class="timeline__highlights" role="list">
+                {item.highlights.map((h) => <li>{h}</li>)}
+              </ul>
+              <ul class="cluster timeline__domains" role="list">
+                {item.domains.map((d) => (
+                  <li><span class="tag tag--plain">{d}</span></li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</div>
+
+<style>
+  .about__grid {
+    display: grid;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 60em) {
+    .about__grid {
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: clamp(2rem, 5vw, 5rem);
+    }
+  }
+
+  .about__intro p {
+    font-size: var(--step-0);
+  }
+
+  .about__aside {
+    display: grid;
+    gap: var(--space-6);
+    align-content: start;
+    padding: var(--space-6);
+    background-color: var(--surface);
+    border: var(--border-width) solid var(--hairline);
+    border-radius: var(--radius-lg);
+  }
+
+  .about__facts {
+    display: grid;
+    gap: var(--space-4);
+    margin: 0;
+  }
+
+  .about__facts dt {
+    font-size: var(--step--2);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--ink-subtle);
+  }
+
+  .about__facts dd {
+    margin: var(--space-1) 0 0;
+    font-size: var(--step--1);
+    color: var(--ink);
+  }
+
+  .about__aside-title {
+    font-family: var(--font-sans);
+    font-size: var(--step--2);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--ink-subtle);
+    margin-block-end: var(--space-3);
+  }
+
+  .about__interests {
+    padding-block-start: var(--space-5);
+    border-block-start: var(--border-width) solid var(--hairline);
+  }
+
+  .about__interests ul {
+    display: grid;
+    gap: var(--space-3);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--step--1);
+    color: var(--ink-muted);
+  }
+
+  .about__interests li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--space-3);
+  }
+
+  .about__interests li::before {
+    content: '';
+    inline-size: 5px;
+    block-size: 5px;
+    margin-block-start: 0.55em;
+    border-radius: 50%;
+    background-color: var(--accent);
+  }
+
+  /* ---- timeline ---- */
+  .about__timeline {
+    margin-block-start: var(--space-10);
+  }
+
+  .about__timeline-title {
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    letter-spacing: var(--tracking-tight);
+    font-variation-settings: 'opsz' 36;
+    margin-block-end: var(--space-6);
+  }
+
+  .timeline {
+    display: grid;
+    gap: var(--space-7);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .timeline__item {
+    display: grid;
+    gap: var(--space-3);
+    padding-block-start: var(--space-5);
+    border-block-start: var(--border-width) solid var(--hairline);
+  }
+
+  @media (min-width: 52em) {
+    .timeline__item {
+      grid-template-columns: 11rem minmax(0, 1fr);
+      gap: var(--space-6);
+    }
+  }
+
+  .timeline__period {
+    color: var(--accent);
+    padding-block-start: 0.35em;
+  }
+
+  .timeline__body {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .timeline__role {
+    display: grid;
+    gap: var(--space-1);
+    font-size: var(--step-2);
+    letter-spacing: var(--tracking-snug);
+  }
+
+  .timeline__org {
+    font-size: var(--step--1);
+    font-weight: var(--weight-medium);
+    color: var(--ink-muted);
+  }
+
+  .timeline__summary {
+    color: var(--ink-muted);
+    max-width: 62ch;
+  }
+
+  .timeline__highlights {
+    display: grid;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--step--1);
+    color: var(--ink-muted);
+    max-width: 68ch;
+  }
+
+  .timeline__highlights li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--space-3);
+  }
+
+  .timeline__highlights li::before {
+    content: '';
+    inline-size: 5px;
+    block-size: 5px;
+    margin-block-start: 0.55em;
+    border-radius: 50%;
+    background-color: var(--accent-line);
+  }
+
+  .timeline__domains {
+    --cluster-gap: var(--space-2);
+  }
+</style>

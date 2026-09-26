@@ -1,0 +1,211 @@
+---
+import { processStages } from '../data/process';
+import SectionHeader from './SectionHeader.astro';
+---
+
+<div class="process">
+  <SectionHeader
+    eyebrow="Design process"
+    title="Discover → Define → Explore → Design → Validate → Deliver"
+    lead="Six stages, but the useful part is what leaves each one and how user feedback changes the next decision. This is how I actually work, including the bits that are unglamorous."
+  />
+
+  <ol class="process__list" role="list">
+    {
+      processStages.map((stage, i) => (
+        <li class="process__stage js-reveal" data-reveal-delay={Math.min(i + 1, 5)}>
+          <div class="process__marker" aria-hidden="true">
+            <span class="process__number">{stage.number}</span>
+          </div>
+
+          <div class="process__body">
+            <h3 class="process__name" id={`process-${stage.id}`}>{stage.name}</h3>
+            <p class="process__promise">{stage.promise}</p>
+
+            <div class="process__cols">
+              <div class="process__col">
+                <h4 class="process__col-title">What I do</h4>
+                <ul role="list">
+                  {stage.activities.map((a) => <li>{a}</li>)}
+                </ul>
+              </div>
+
+              <div class="process__col">
+                <h4 class="process__col-title">What comes out</h4>
+                <ul role="list">
+                  {stage.outputs.map((o) => <li>{o}</li>)}
+                </ul>
+              </div>
+            </div>
+
+            <div class="process__notes">
+              <p class="process__note">
+                <span class="process__note-label">Collaboration</span>
+                {stage.collaboration}
+              </p>
+              <p class="process__note process__note--feedback">
+                <span class="process__note-label">How feedback changes it</span>
+                {stage.feedbackLoop}
+              </p>
+            </div>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</div>
+
+<style>
+  .process__list {
+    display: grid;
+    gap: var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: stage;
+  }
+
+  .process__stage {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--space-4);
+    position: relative;
+  }
+
+  @media (min-width: 40em) {
+    .process__stage {
+      gap: var(--space-6);
+    }
+  }
+
+  .process__marker {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-2);
+  }
+
+  .process__number {
+    display: grid;
+    place-items: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    flex: none;
+    border: var(--border-width) solid var(--border);
+    border-radius: 50%;
+    background-color: var(--canvas);
+    font-family: var(--font-sans);
+    font-size: var(--step--1);
+    font-weight: var(--weight-semibold);
+    color: var(--accent);
+    font-feature-settings: 'tnum' 1;
+  }
+
+  /* Connecting line — the timeline */
+  .process__marker::after {
+    content: '';
+    inline-size: var(--border-width);
+    block-size: 100%;
+    background-color: var(--hairline);
+  }
+
+  .process__stage:last-child .process__marker::after {
+    display: none;
+  }
+
+  .process__body {
+    display: grid;
+    gap: var(--space-4);
+    padding-block-end: var(--space-7);
+  }
+
+  .process__name {
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    letter-spacing: var(--tracking-tight);
+    font-variation-settings: 'opsz' 36;
+    line-height: 1.1;
+  }
+
+  .process__promise {
+    font-size: var(--step-1);
+    line-height: var(--leading-snug);
+    color: var(--ink);
+    max-width: 48ch;
+    text-wrap: pretty;
+  }
+
+  .process__cols {
+    display: grid;
+    gap: var(--space-5);
+    padding-block: var(--space-4);
+    border-block: var(--border-width) solid var(--hairline);
+  }
+
+  @media (min-width: 46em) {
+    .process__cols {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-7);
+    }
+  }
+
+  .process__col-title {
+    font-family: var(--font-sans);
+    font-size: var(--step--2);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--ink-subtle);
+    margin-block-end: var(--space-3);
+  }
+
+  .process__col ul {
+    display: grid;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--step--1);
+    color: var(--ink-muted);
+  }
+
+  .process__col li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--space-3);
+  }
+
+  .process__col li::before {
+    content: '';
+    inline-size: 5px;
+    block-size: 5px;
+    margin-block-start: 0.55em;
+    border-radius: 50%;
+    background-color: var(--accent);
+  }
+
+  .process__notes {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .process__note {
+    display: grid;
+    gap: var(--space-1);
+    font-size: var(--step--1);
+    color: var(--ink-muted);
+    max-width: 62ch;
+  }
+
+  .process__note-label {
+    font-size: var(--step--2);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .process__note--feedback {
+    padding-inline-start: var(--space-4);
+    border-inline-start: var(--border-width-thick) solid var(--accent-line);
+  }
+</style>

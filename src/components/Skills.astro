@@ -1,0 +1,122 @@
+---
+import { skillGroups } from '../data/skills';
+import SectionHeader from './SectionHeader.astro';
+---
+
+<div class="skills">
+  <SectionHeader
+    eyebrow="Skills & expertise"
+    title="What I actually do, grouped by what it is for"
+    lead="No percentage bars. A number next to “Figma” tells you nothing useful — what each cluster is for tells you something."
+  />
+
+  <div class="skills__groups">
+    {
+      skillGroups.map((group, i) => (
+        <section
+          class="skills__group js-reveal"
+          data-reveal-delay={Math.min(i + 1, 5)}
+          aria-labelledby={`skills-${group.id}`}
+        >
+          <div class="skills__head">
+            <h3 class="skills__title" id={`skills-${group.id}`}>
+              <span class="skills__number mono-meta">{String(i + 1).padStart(2, '0')}</span>
+              {group.title}
+            </h3>
+            <p class="skills__intent">{group.intent}</p>
+          </div>
+
+          <ul class="skills__list" role="list">
+            {group.skills.map((skill) => (
+              <li class="skills__item">
+                <span class="skills__name">{skill.name}</span>
+                {skill.note && <span class="skills__note">{skill.note}</span>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .skills__groups {
+    display: grid;
+    gap: var(--space-8);
+  }
+
+  .skills__group {
+    display: grid;
+    gap: var(--space-5);
+    padding-block-start: var(--space-6);
+    border-block-start: var(--border-width) solid var(--hairline);
+  }
+
+  @media (min-width: 60em) {
+    .skills__group {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
+      gap: var(--space-8);
+    }
+  }
+
+  .skills__head {
+    display: grid;
+    gap: var(--space-3);
+    align-content: start;
+  }
+
+  .skills__title {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    letter-spacing: var(--tracking-tight);
+    font-variation-settings: 'opsz' 36;
+  }
+
+  .skills__number {
+    color: var(--accent);
+  }
+
+  .skills__intent {
+    color: var(--ink-muted);
+    font-size: var(--step--1);
+    max-width: 34ch;
+  }
+
+  .skills__list {
+    display: grid;
+    gap: var(--space-1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (min-width: 40em) {
+    .skills__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-1) var(--space-6);
+    }
+  }
+
+  .skills__item {
+    display: grid;
+    gap: 2px;
+    padding-block: var(--space-3);
+    border-block-end: var(--border-width) solid var(--hairline);
+  }
+
+  .skills__name {
+    font-size: var(--step-0);
+    font-weight: var(--weight-medium);
+    color: var(--ink);
+  }
+
+  .skills__note {
+    font-size: var(--step--2);
+    color: var(--ink-subtle);
+    line-height: var(--leading-normal);
+  }
+</style>

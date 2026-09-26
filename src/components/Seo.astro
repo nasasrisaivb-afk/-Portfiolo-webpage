@@ -1,0 +1,98 @@
+---
+import { site, profile } from '../data/site';
+import { absolute, asset } from '../lib/url';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Path to a 1200×630 image in `public/`. */
+  image?: string;
+  /** 'website' for pages, 'article' for case studies. */
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  /** Extra JSON-LD, already shaped. */
+  schema?: Record<string, unknown>;
+  keywords?: readonly string[];
+}
+
+const {
+  title,
+  description = site.description,
+  image = site.ogImage,
+  type = 'website',
+  noindex = false,
+  schema,
+  keywords = site.keywords,
+} = Astro.props;
+
+const pageTitle = title ? `${title} — ${profile.name}` : site.title;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://example.com').href;
+const ogImage = absolute(image, Astro.site);
+
+/** Person schema ships on every page; `schema` adds page-specific graph nodes. */
+const personSchema = {
+  '@type': 'Person',
+  '@id': `${absolute('/', Astro.site)}#person`,
+  name: profile.name,
+  jobTitle: 'UX/UI Designer & Product Designer',
+  description: profile.summary,
+  email: `mailto:${profile.email}`,
+  url: absolute('/', Astro.site),
+  image: ogImage,
+  sameAs: profile.social.map((s) => s.href),
+  knowsAbout: [
+    'User Experience Design',
+    'User Interface Design',
+    'Product Design',
+    'Design Systems',
+    'UX Research',
+    'Web Accessibility',
+    'Information Architecture',
+  ],
+};
+
+const graph: Record<string, unknown>[] = [personSchema];
+if (schema) graph.push(schema);
+
+const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords.join(', ')} />
+<meta name="author" content={profile.name} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+{!noindex && <meta name="robots" content="index, follow, max-image-preview:large" />}
+
+<!-- Open Graph -->
+<meta property="og:type" content={type} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={`${profile.name} — ${profile.role}`} />
+<meta property="og:site_name" content={profile.name} />
+<meta property="og:locale" content={site.locale} />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={`${profile.name} — ${profile.role}`} />
+
+<!-- Icons & theme -->
+<link rel="icon" href={asset('/favicon.svg')} type="image/svg+xml" />
+<link rel="apple-touch-icon" href={asset('/apple-touch-icon.png')} />
+<link rel="manifest" href={asset('/manifest.webmanifest')} />
+<meta name="theme-color" content={site.themeColorLight} media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content={site.themeColorDark} media="(prefers-color-scheme: dark)" />
+<meta name="color-scheme" content="light dark" />
+<link rel="sitemap" href={asset('/sitemap-index.xml')} />
+
+<script type="application/ld+json" is:inline set:html={jsonLd} />

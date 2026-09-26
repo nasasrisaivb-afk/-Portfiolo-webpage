@@ -1,0 +1,74 @@
+---
+import { allProjects } from '../data/projects';
+
+/** Domain breadth, stated once. Static, legible, no marquee animation. */
+const industries = [...new Set(allProjects.map((p) => p.industry))];
+const extra = ['SaaS', 'Fintech', 'E-commerce'].filter((i) => !industries.includes(i as never));
+const all = [...industries, ...extra];
+---
+
+<section class="strip section--sunken" aria-label="Industries I have designed for">
+  <div class="shell shell--wide strip__inner">
+    <p class="strip__label mono-meta">Domain experience</p>
+    <ul class="strip__list" role="list">
+      {all.map((industry) => <li>{industry}</li>)}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .strip {
+    padding-block: var(--space-6);
+    border-block: var(--border-width) solid var(--hairline);
+  }
+
+  .strip__inner {
+    display: grid;
+    gap: var(--space-4);
+    align-items: center;
+  }
+
+  @media (min-width: 52em) {
+    .strip__inner {
+      grid-template-columns: auto 1fr;
+      gap: var(--space-7);
+    }
+  }
+
+  .strip__label {
+    color: var(--ink-subtle);
+  }
+
+  .strip__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .strip__list li {
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-variation-settings: 'opsz' 24;
+    letter-spacing: var(--tracking-snug);
+    color: var(--ink);
+  }
+
+  .strip__list li + li {
+    position: relative;
+  }
+
+  .strip__list li + li::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: calc(var(--space-6) / -2);
+    inset-block-start: 50%;
+    inline-size: 3px;
+    block-size: 3px;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background-color: var(--accent);
+  }
+</style>

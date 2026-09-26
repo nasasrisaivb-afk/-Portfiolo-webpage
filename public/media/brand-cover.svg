@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 900" width="1320" height="900" role="img">
+  <defs>
+    <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7a4a86"/>
+      <stop offset="1" stop-color="#60306c"/>
+    </linearGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0v44" fill="none" stroke="#ffffff" stroke-opacity=".07" stroke-width="1"/>
+    </pattern>
+    <filter id="lift" x="-12%" y="-12%" width="124%" height="124%">
+      <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#000" flood-opacity=".22"/>
+    </filter>
+  </defs>
+
+  <rect width="1320" height="900" fill="url(#plate)"/>
+  <rect width="1320" height="900" fill="url(#grid)"/>
+  <circle cx="1200" cy="130" r="230" fill="#e3b6f0" fill-opacity=".14"/>
+
+  
+  <rect x="110" y="130" width="512" height="640" rx="18" fill="#faf8f4" filter="url(#lift)"/>
+  <text x="166" y="292" font-family="Georgia, serif" font-size="128" font-weight="700" fill="#1b1b17">Aa</text>
+  <rect x="166" y="336" width="400" height="1" rx="0" fill="#e3ded4"/>
+  <rect x="166" y="368" width="296" height="22" rx="4" fill="#1b1b17"/>
+  <rect x="166" y="408" width="358" height="16" rx="4" fill="#8f8b81"/>
+  <rect x="166" y="440" width="236" height="14" rx="4" fill="#8f8b81"/>
+  <rect x="166" y="468" width="300" height="12" rx="4" fill="#c9c4ba"/>
+  <rect x="166" y="492" width="258" height="12" rx="4" fill="#c9c4ba"/>
+  <rect x="166" y="534" width="400" height="1" rx="0" fill="#e3ded4"/>
+  <!-- monogram sizes -->
+  <rect x="166" y="566" width="88" height="88" rx="16" fill="#7a4a86"/>
+  <rect x="274" y="594" width="56" height="56" rx="12" fill="#7a4a86"/>
+  <rect x="350" y="610" width="32" height="32" rx="8" fill="#7a4a86"/>
+  <rect x="400" y="620" width="20" height="20" rx="5" fill="#7a4a86"/>
+  <rect x="166" y="690" width="240" height="12" rx="4" fill="#8f8b81"/>
+
+  <!-- colour token sheet, 60 / 30 / 10 -->
+  <rect x="662" y="196" width="552" height="508" rx="22" fill="#faf8f4" filter="url(#lift)"/>
+  <rect x="706" y="240" width="170" height="14" rx="4" fill="#1b1b17"/>
+  <rect x="706" y="268" width="240" height="11" rx="4" fill="#8f8b81"/>
+
+  <rect x="706" y="308" width="464" height="128" rx="14" fill="#efece4"/>
+  <rect x="726" y="400" width="44" height="14" rx="4" fill="#8f8b81"/>
+
+  <rect x="706" y="456" width="228" height="96" rx="14" fill="#d8d2c6"/>
+  <rect x="950" y="456" width="220" height="96" rx="14" fill="#bdb6a8"/>
+  <rect x="726" y="520" width="40" height="12" rx="4" fill="#8f8b81"/>
+  <rect x="970" y="520" width="40" height="12" rx="4" fill="#8f8b81"/>
+
+  <rect x="706" y="572" width="464" height="64" rx="14" fill="#7a4a86"/>
+  <rect x="726" y="596" width="48" height="14" rx="4" fill="#ffffff"/>
+  <rect x="706" y="656" width="300" height="12" rx="4" fill="#8f8b81"/>
+
+</svg>

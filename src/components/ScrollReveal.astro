@@ -1,0 +1,46 @@
+---
+/**
+ * Progressive-enhancement scroll reveal.
+ *
+ * Content is visible by default; the `is-ready` class on <html> is what arms
+ * the hidden start state, and it is only added when the browser supports
+ * IntersectionObserver AND the visitor has not asked for reduced motion.
+ * So: no JS, no observer support, or reduced motion → everything just shows.
+ */
+---
+
+<script is:inline>
+  (() => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced || !('IntersectionObserver' in window)) return;
+
+    const targets = document.querySelectorAll('.js-reveal');
+    if (!targets.length) return;
+
+    document.documentElement.classList.add('is-ready');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
+        }
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
+    );
+
+    targets.forEach((el) => observer.observe(el));
+
+    // Safety net: if anything is still hidden after load (e.g. an element that
+    // never intersects because of a layout quirk), reveal it.
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.querySelectorAll('.js-reveal:not(.is-revealed)').forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight) el.classList.add('is-revealed');
+        });
+      }, 400);
+    });
+  })();
+</script>

@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import WorkGrid from '../../components/WorkGrid.astro';
+import { allProjects, industriesCovered } from '../../data/projects';
+import { href } from '../../lib/url';
+
+const schema = {
+  '@type': 'CollectionPage',
+  name: 'Selected work — UX/UI and product design case studies',
+  description: `${allProjects.length} case studies across ${industriesCovered.join(', ')}.`,
+  hasPart: allProjects.map((p) => ({
+    '@type': 'CreativeWork',
+    name: p.title,
+    description: p.description,
+    url: `${Astro.site?.origin ?? ''}${href(`/work/${p.slug}`)}`,
+  })),
+};
+---
+
+<Base
+  title="Selected work"
+  description={`UX/UI and product design case studies across ${industriesCovered.join(', ')} — research, strategy, interface design, design systems and shipped product.`}
+  schema={schema}
+>
+  <section class="section">
+    <div class="shell shell--wide">
+      <SectionHeader
+        eyebrow="Selected work"
+        title="Case studies, end to end"
+        as="h1"
+        lead="Every project here is written up in full: the research, the options I rejected, the decisions and why, what testing changed, and what I would do differently. Filter by industry, or read them in order."
+      />
+
+      <WorkGrid />
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,505 @@
+---
+import { contactConfig, profile } from '../data/site';
+
+/**
+ * A form that actually delivers.
+ *
+ *  · PUBLIC_CONTACT_ENDPOINT set → POSTs JSON, real success / error states.
+ *  · Not set → validates, then composes the message into the visitor's mail
+ *    client and offers copy-to-clipboard, with the address shown in full.
+ *
+ * Either way nothing here is a decorative button: every path ends in a message
+ * that can reach an inbox.
+ */
+const { endpoint, accessKey, subjectPrefix } = contactConfig;
+const hasEndpoint = Boolean(endpoint);
+---
+
+<div class="contact-form">
+  <form
+    id="contact-form"
+    class="contact-form__form"
+    novalidate
+    data-endpoint={endpoint}
+    data-access-key={accessKey}
+    data-email={profile.email}
+    data-subject-prefix={subjectPrefix}
+  >
+    <!-- Error summary: focused on failed submit, so keyboard and screen-reader
+         users are taken straight to what went wrong. -->
+    <div
+      id="form-summary"
+      class="form-status form-status--error"
+      role="alert"
+      tabindex="-1"
+      hidden
+    >
+      <p class="form-status__title">Please check the highlighted fields</p>
+      <ul class="contact-form__summary-list" id="form-summary-list" role="list"></ul>
+    </div>
+
+    <div class="contact-form__row">
+      <div class="field">
+        <label class="field__label" for="cf-name">
+          Name <span class="field__required" aria-hidden="true">*</span>
+        </label>
+        <input
+          class="field__input"
+          id="cf-name"
+          name="name"
+          type="text"
+          autocomplete="name"
+          required
+          aria-required="true"
+          aria-describedby="cf-name-error"
+          maxlength="120"
+        />
+        <p class="field__error" id="cf-name-error" data-error-for="name"></p>
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="cf-email">
+          Email <span class="field__required" aria-hidden="true">*</span>
+        </label>
+        <input
+          class="field__input"
+          id="cf-email"
+          name="email"
+          type="email"
+          inputmode="email"
+          autocomplete="email"
+          required
+          aria-required="true"
+          aria-describedby="cf-email-error"
+          maxlength="200"
+        />
+        <p class="field__error" id="cf-email-error" data-error-for="email"></p>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="cf-company">
+        Company or team
+        <span class="field__optional">Optional</span>
+      </label>
+      <input
+        class="field__input"
+        id="cf-company"
+        name="company"
+        type="text"
+        autocomplete="organization"
+        aria-describedby="cf-company-help"
+        maxlength="160"
+      />
+      <p class="field__help" id="cf-company-help">
+        Helps me understand the context before I reply.
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="cf-message">
+        Message <span class="field__required" aria-hidden="true">*</span>
+      </label>
+      <textarea
+        class="field__input"
+        id="cf-message"
+        name="message"
+        rows="6"
+        required
+        aria-required="true"
+        aria-describedby="cf-message-help cf-message-error"
+        maxlength="4000"></textarea>
+      <p class="field__help" id="cf-message-help">
+        A sentence about the problem is plenty — I will ask the rest.
+        <span id="cf-message-count" class="contact-form__count">0 / 4000</span>
+      </p>
+      <p class="field__error" id="cf-message-error" data-error-for="message"></p>
+    </div>
+
+    <!-- Honeypot: invisible to people, irresistible to bots. -->
+    <div class="form-trap" aria-hidden="true">
+      <label for="cf-website">Website</label>
+      <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <div class="contact-form__actions">
+      <button type="submit" class="btn btn--primary btn--lg" id="cf-submit">
+        <span class="btn__spinner" id="cf-spinner" hidden></span>
+        <span id="cf-submit-label">Send message</span>
+      </button>
+      <p class="field__help">
+        Or email me directly at{' '}
+        <a class="link" href={`mailto:${profile.email}`}>{profile.email}</a>
+      </p>
+    </div>
+
+    <!-- Polite live region: status changes announced without stealing focus. -->
+    <p class="visually-hidden" role="status" aria-live="polite" id="cf-live"></p>
+  </form>
+
+  <!-- Success -->
+  <div class="form-status form-status--success contact-form__panel" id="cf-success" hidden>
+    <p class="form-status__title" id="cf-success-title">Message sent</p>
+    <p class="form-status__body" id="cf-success-body">
+      Thank you — I have your message and will reply within two working days.
+    </p>
+    <div class="contact-form__panel-actions">
+      <button type="button" class="btn btn--secondary btn--sm" id="cf-reset">
+        Send another message
+      </button>
+      <button type="button" class="btn btn--ghost btn--sm" id="cf-copy" hidden>
+        Copy message to clipboard
+      </button>
+    </div>
+  </div>
+
+  <!-- Error -->
+  <div class="form-status form-status--error contact-form__panel" id="cf-error" hidden>
+    <p class="form-status__title">That did not send</p>
+    <p class="form-status__body" id="cf-error-body">
+      Something went wrong on the way to my inbox. Please try again, or email me
+      directly at <a class="link" href={`mailto:${profile.email}`}>{profile.email}</a>.
+    </p>
+    <div class="contact-form__panel-actions">
+      <button type="button" class="btn btn--secondary btn--sm" id="cf-retry">Try again</button>
+    </div>
+  </div>
+
+  {
+    !hasEndpoint && (
+      <p class="contact-form__note field__help">
+        <strong>Note for whoever deploys this:</strong> no{' '}
+        <code>PUBLIC_CONTACT_ENDPOINT</code> is configured, so submissions are handed to
+        the visitor's mail client. Set that variable in <code>.env</code> to post
+        straight to a form service instead. See <code>.env.example</code>.
+      </p>
+    )
+  }
+</div>
+
+<style>
+  .contact-form__form {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .contact-form__row {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  @media (min-width: 40em) {
+    .contact-form__row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .contact-form__summary-list {
+    display: grid;
+    gap: var(--space-1);
+    margin: 0;
+    padding-inline-start: var(--space-5);
+    font-size: var(--step--1);
+  }
+
+  .contact-form__summary-list a {
+    color: inherit;
+  }
+
+  .contact-form__actions {
+    display: grid;
+    gap: var(--space-3);
+    justify-items: start;
+  }
+
+  .contact-form__count {
+    display: block;
+    font-feature-settings: 'tnum' 1;
+    color: var(--ink-subtle);
+  }
+
+  .contact-form__panel {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .contact-form__panel-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-block-start: var(--space-2);
+  }
+
+  .contact-form__note {
+    margin-block-start: var(--space-5);
+    padding: var(--space-4);
+    border: var(--border-width) dashed var(--border);
+    border-radius: var(--radius-md);
+  }
+
+  .contact-form__note code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+  }
+</style>
+
+<script>
+  type Fields = { name: string; email: string; company: string; message: string };
+
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  if (form) {
+    const submit = document.getElementById('cf-submit') as HTMLButtonElement;
+    const submitLabel = document.getElementById('cf-submit-label') as HTMLElement;
+    const spinner = document.getElementById('cf-spinner') as HTMLElement;
+    const summary = document.getElementById('form-summary') as HTMLElement;
+    const summaryList = document.getElementById('form-summary-list') as HTMLElement;
+    const successPanel = document.getElementById('cf-success') as HTMLElement;
+    const successBody = document.getElementById('cf-success-body') as HTMLElement;
+    const successTitle = document.getElementById('cf-success-title') as HTMLElement;
+    const errorPanel = document.getElementById('cf-error') as HTMLElement;
+    const errorBody = document.getElementById('cf-error-body') as HTMLElement;
+    const live = document.getElementById('cf-live') as HTMLElement;
+    const copyBtn = document.getElementById('cf-copy') as HTMLButtonElement;
+    const resetBtn = document.getElementById('cf-reset') as HTMLButtonElement;
+    const retryBtn = document.getElementById('cf-retry') as HTMLButtonElement;
+    const counter = document.getElementById('cf-message-count') as HTMLElement;
+    const messageField = document.getElementById('cf-message') as HTMLTextAreaElement;
+
+    const inbox = form.dataset.email || '';
+    const subjectPrefix = form.dataset.subjectPrefix || 'Portfolio enquiry';
+    // Read the delivery config at submit time, not at load: the endpoint can
+    // then be swapped at runtime (tests, a late-loading config) without the
+    // form having been built around a stale value.
+    const delivery = () => ({
+      endpoint: form.dataset.endpoint || '',
+      accessKey: form.dataset.accessKey || '',
+    });
+
+    let composed = '';
+
+    // ---- validation -----------------------------------------------------
+    const rules: Record<keyof Fields, (v: string) => string | null> = {
+      name: (v) =>
+        !v.trim()
+          ? 'Please tell me your name.'
+          : v.trim().length < 2
+            ? 'That looks a little short — please enter your full name.'
+            : null,
+      email: (v) =>
+        !v.trim()
+          ? 'Please add an email address so I can reply.'
+          : !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())
+            ? 'That email address does not look complete.'
+            : null,
+      company: () => null,
+      message: (v) =>
+        !v.trim()
+          ? 'Please add a message.'
+          : v.trim().length < 10
+            ? 'A little more detail would help — at least a sentence.'
+            : null,
+    };
+
+    const fieldEl = (name: string) =>
+      form.querySelector<HTMLInputElement | HTMLTextAreaElement>(`[name="${name}"]`);
+    const errorEl = (name: string) =>
+      form.querySelector<HTMLElement>(`[data-error-for="${name}"]`);
+
+    const showFieldError = (name: string, message: string | null) => {
+      const input = fieldEl(name);
+      const target = errorEl(name);
+      if (!input || !target) return;
+      if (message) {
+        input.setAttribute('aria-invalid', 'true');
+        target.textContent = message;
+      } else {
+        input.removeAttribute('aria-invalid');
+        target.textContent = '';
+      }
+    };
+
+    const validate = (): { ok: boolean; values: Fields; errors: [string, string][] } => {
+      const data = new FormData(form);
+      const values: Fields = {
+        name: String(data.get('name') ?? ''),
+        email: String(data.get('email') ?? ''),
+        company: String(data.get('company') ?? ''),
+        message: String(data.get('message') ?? ''),
+      };
+      const errors: [string, string][] = [];
+      (Object.keys(rules) as (keyof Fields)[]).forEach((key) => {
+        const error = rules[key](values[key]);
+        showFieldError(key, error);
+        if (error) errors.push([key, error]);
+      });
+      return { ok: errors.length === 0, values, errors };
+    };
+
+    // Validate a field once the visitor has left it — never while typing.
+    (Object.keys(rules) as (keyof Fields)[]).forEach((key) => {
+      const input = fieldEl(key);
+      input?.addEventListener('blur', () => {
+        if (input.value) showFieldError(key, rules[key](input.value));
+      });
+      input?.addEventListener('input', () => {
+        if (input.getAttribute('aria-invalid') === 'true') {
+          showFieldError(key, rules[key](input.value));
+        }
+      });
+    });
+
+    messageField?.addEventListener('input', () => {
+      counter.textContent = `${messageField.value.length} / 4000`;
+    });
+
+    // ---- state machine --------------------------------------------------
+    const setBusy = (busy: boolean) => {
+      submit.disabled = busy;
+      submit.setAttribute('aria-busy', String(busy));
+      spinner.hidden = !busy;
+      submitLabel.textContent = busy ? 'Sending…' : 'Send message';
+    };
+
+    const show = (panel: 'form' | 'success' | 'error') => {
+      form.hidden = panel !== 'form';
+      successPanel.hidden = panel !== 'success';
+      errorPanel.hidden = panel !== 'error';
+      if (panel === 'success') successPanel.querySelector('button')?.focus();
+      if (panel === 'error') errorPanel.querySelector('button')?.focus();
+    };
+
+    const composeBody = (v: Fields) =>
+      [
+        `Name: ${v.name}`,
+        `Email: ${v.email}`,
+        v.company ? `Company: ${v.company}` : null,
+        '',
+        v.message,
+      ]
+        .filter((line) => line !== null)
+        .join('\n');
+
+    // ---- submit ---------------------------------------------------------
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      // Honeypot filled → silently accept and discard.
+      if ((fieldEl('website') as HTMLInputElement | null)?.value) {
+        show('success');
+        return;
+      }
+
+      const { ok, values, errors } = validate();
+
+      if (!ok) {
+        summaryList.innerHTML = '';
+        for (const [key, message] of errors) {
+          const li = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = `#cf-${key}`;
+          link.textContent = message;
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            fieldEl(key)?.focus();
+          });
+          li.append(link);
+          summaryList.append(li);
+        }
+        summary.hidden = false;
+        summary.focus();
+        live.textContent = `${errors.length} field${errors.length > 1 ? 's' : ''} need attention.`;
+        return;
+      }
+
+      summary.hidden = true;
+      const { endpoint, accessKey } = delivery();
+      composed = composeBody(values);
+      setBusy(true);
+      live.textContent = 'Sending your message.';
+
+      // No endpoint configured: hand off to the visitor's mail client.
+      if (!endpoint) {
+        const subject = `${subjectPrefix} — ${values.name}`;
+        const mailto = `mailto:${inbox}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(composed)}`;
+        // Hand off through a real anchor rather than assigning location.href:
+        // browsers treat it as a user-initiated action on the mail handler,
+        // and it leaves the page intact if no handler is registered.
+        const handoff = document.createElement('a');
+        handoff.href = mailto;
+        handoff.rel = 'noopener';
+        handoff.style.display = 'none';
+        document.body.append(handoff);
+        handoff.click();
+        handoff.remove();
+        setBusy(false);
+        successTitle.textContent = 'Your email is ready to send';
+        successBody.innerHTML =
+          `Your mail app should have opened with the message already written. ` +
+          `If it did not, copy the message below and send it to ` +
+          `<a class="link" href="mailto:${inbox}">${inbox}</a>.`;
+        copyBtn.hidden = false;
+        show('success');
+        live.textContent = 'Your email client has been opened with the message ready to send.';
+        return;
+      }
+
+      try {
+        const payload: Record<string, string> = {
+          name: values.name,
+          email: values.email,
+          company: values.company,
+          message: values.message,
+          subject: `${subjectPrefix} — ${values.name}`,
+        };
+        if (accessKey) payload.access_key = accessKey;
+
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
+
+        setBusy(false);
+        successTitle.textContent = 'Message sent';
+        successBody.textContent =
+          'Thank you — I have your message and will reply within two working days.';
+        copyBtn.hidden = true;
+        show('success');
+        live.textContent = 'Your message was sent successfully.';
+        form.reset();
+        counter.textContent = '0 / 4000';
+      } catch (error) {
+        setBusy(false);
+        errorBody.innerHTML =
+          `Something went wrong on the way to my inbox ` +
+          `(${error instanceof Error ? error.message : 'unknown error'}). ` +
+          `Please try again, or email me directly at ` +
+          `<a class="link" href="mailto:${inbox}">${inbox}</a>.`;
+        show('error');
+        live.textContent = 'Your message could not be sent. Please try again.';
+      }
+    });
+
+    copyBtn?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(composed);
+        copyBtn.textContent = 'Copied';
+        window.setTimeout(() => (copyBtn.textContent = 'Copy message to clipboard'), 2200);
+      } catch {
+        copyBtn.textContent = 'Press Ctrl/Cmd + C to copy';
+      }
+    });
+
+    resetBtn?.addEventListener('click', () => {
+      show('form');
+      fieldEl('name')?.focus();
+    });
+
+    retryBtn?.addEventListener('click', () => {
+      show('form');
+      submit.focus();
+    });
+  }
+</script>

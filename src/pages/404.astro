@@ -1,0 +1,138 @@
+---
+import Base from '../layouts/Base.astro';
+import { allProjects } from '../data/projects';
+import { navigation } from '../data/site';
+import { href } from '../lib/url';
+
+const suggestions = allProjects.slice(0, 3);
+---
+
+<Base
+  title="Page not found"
+  description="That page does not exist. Here is the way back to the work."
+  noindex
+>
+  <section class="section notfound">
+    <div class="shell">
+      <p class="eyebrow">Error 404</p>
+      <h1 class="notfound__title display">This page does not exist.</h1>
+      <p class="lead">
+        The link may be out of date, or I may have moved something. Either way, here is
+        the way back — and three case studies that do exist.
+      </p>
+
+      <div class="notfound__actions">
+        <a class="btn btn--primary btn--lg" href={href('/')}>Back to home</a>
+        <a class="btn btn--secondary btn--lg" href={href('/work')}>See the work</a>
+      </div>
+
+      <nav class="notfound__nav" aria-label="All sections">
+        <p class="cs-option__heading">Everything on this site</p>
+        <ul class="cluster" role="list">
+          {
+            navigation.map((item) => (
+              <li>
+                <a class="tag" href={href(item.href)}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div class="notfound__suggestions">
+        <p class="cs-option__heading">Case studies</p>
+        <ul class="notfound__list" role="list">
+          {
+            suggestions.map((p) => (
+              <li>
+                <a href={href(`/work/${p.slug}`)}>
+                  <span class="notfound__list-title">{p.title}</span>
+                  <span class="notfound__list-meta">{p.industry} · {p.tagline}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .notfound {
+    min-block-size: 60svh;
+  }
+
+  .notfound__title {
+    margin-block: var(--space-4) var(--space-5);
+    max-width: 16ch;
+  }
+
+  .notfound__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-block: var(--space-7);
+  }
+
+  .notfound__nav,
+  .notfound__suggestions {
+    padding-block-start: var(--space-6);
+    margin-block-start: var(--space-6);
+    border-block-start: var(--border-width) solid var(--hairline);
+  }
+
+  .notfound__nav ul {
+    margin-block-start: var(--space-4);
+  }
+
+  .notfound__nav a {
+    text-decoration: none;
+  }
+
+  .notfound__nav a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .notfound__list {
+    display: grid;
+    gap: var(--space-1);
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+  }
+
+  .notfound__list a {
+    display: grid;
+    gap: 2px;
+    padding-block: var(--space-4);
+    border-block-end: var(--border-width) solid var(--hairline);
+    text-decoration: none;
+  }
+
+  .notfound__list-title {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    letter-spacing: var(--tracking-snug);
+    color: var(--ink);
+  }
+
+  .notfound__list a:hover .notfound__list-title {
+    color: var(--accent);
+  }
+
+  .notfound__list-meta {
+    font-size: var(--step--2);
+    color: var(--ink-subtle);
+  }
+
+  .cs-option__heading {
+    font-family: var(--font-sans);
+    font-size: var(--step--2);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--ink-subtle);
+  }
+</style>

@@ -1,0 +1,79 @@
+---
+import '../styles/tokens.css';
+import '../styles/global.css';
+import '../styles/components.css';
+
+import Seo from '../components/Seo.astro';
+import FontFaces from '../components/FontFaces.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  schema?: Record<string, unknown>;
+  navVariant?: 'home' | 'page';
+  /** Set false on the 404 page, where a footer CTA is noise. */
+  footer?: boolean;
+}
+
+const {
+  title,
+  description,
+  image,
+  type,
+  noindex,
+  schema,
+  navVariant = 'page',
+  footer = true,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <Seo
+      title={title}
+      description={description}
+      image={image}
+      type={type}
+      noindex={noindex}
+      schema={schema}
+    />
+    <FontFaces />
+
+    <!--
+      Applied before first paint so the chosen theme never flashes.
+      Inline and tiny by necessity: anything deferred here is a visible flicker.
+    -->
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem('portfolio-theme');
+          if (stored === 'dark' || stored === 'light') {
+            document.documentElement.setAttribute('data-theme', stored);
+          }
+        } catch {
+          /* private mode: fall through to the OS preference */
+        }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <Nav variant={navVariant} />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    {footer && <Footer />}
+
+    <ScrollReveal />
+  </body>
+</html>

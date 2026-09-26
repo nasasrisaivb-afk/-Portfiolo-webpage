@@ -1,0 +1,499 @@
+---
+import { navigation, profile } from '../data/site';
+import { href } from '../lib/url';
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props {
+  /** On the home page the nav scroll-spies; elsewhere links jump back home. */
+  variant?: 'home' | 'page';
+}
+
+const { variant = 'page' } = Astro.props;
+---
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-nav" id="site-nav" data-variant={variant}>
+  <div class="site-nav__inner shell shell--wide">
+    <a class="site-nav__brand" href={href('/')} aria-label={`${profile.name} — home`}>
+      <span class="site-nav__mark" aria-hidden="true">{profile.initials}</span>
+      <span class="site-nav__name">
+        <span class="site-nav__name-main">{profile.name}</span>
+        <span class="site-nav__name-role">{profile.role}</span>
+      </span>
+    </a>
+
+    <nav class="site-nav__links" id="primary-nav" aria-label="Primary">
+      <ul role="list">
+        {
+          navigation.map((item) => (
+            <li>
+              <a
+                href={href(item.href)}
+                class="site-nav__link"
+                data-section={item.section}
+                data-nav-link
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="site-nav__actions">
+      <ThemeToggle />
+      <a class="btn btn--primary btn--sm site-nav__cta" href={href('/#contact')}>
+        Let’s talk
+      </a>
+      <button
+        type="button"
+        class="site-nav__burger"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Open menu"
+      >
+        <span class="site-nav__burger-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile navigation: a real panel, not a restyled desktop list. -->
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <nav aria-label="Primary, mobile">
+      <ul role="list" class="mobile-nav__list">
+        {
+          navigation.map((item, i) => (
+            <li>
+              <a href={href(item.href)} class="mobile-nav__link" data-mobile-link>
+                <span class="mobile-nav__index" aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div class="mobile-nav__foot">
+      <a class="btn btn--primary btn--block" href={href('/#contact')} data-mobile-link>
+        Start a conversation
+      </a>
+      <ul role="list" class="mobile-nav__social">
+        {
+          profile.social.map((s) => (
+            <li>
+              <a href={s.href} rel="me noopener noreferrer" target="_blank">
+                {s.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-nav {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: var(--z-nav);
+    background-color: var(--canvas);
+    border-block-end: var(--border-width) solid transparent;
+    transition:
+      border-color var(--dur-base) var(--ease-out),
+      background-color var(--dur-base) var(--ease-out);
+  }
+
+  /* Only blur once the page has scrolled — cheaper, and calmer at rest. */
+  .site-nav.is-stuck {
+    background-color: var(--canvas);
+    border-block-end-color: var(--hairline);
+    box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 4%, transparent);
+  }
+
+  .site-nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-5);
+    min-block-size: var(--nav-height);
+  }
+
+  .site-nav__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-decoration: none;
+    color: var(--ink);
+    padding-block: var(--space-2);
+  }
+
+  .site-nav__mark {
+    display: grid;
+    place-items: center;
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    flex: none;
+    background-color: var(--ink);
+    color: var(--ink-inverse);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.02em;
+    transition: background-color var(--dur-fast) var(--ease-out);
+  }
+
+  .site-nav__brand:hover .site-nav__mark {
+    background-color: var(--accent);
+    color: var(--on-accent);
+  }
+
+  .site-nav__name {
+    display: grid;
+    line-height: 1.25;
+  }
+
+  .site-nav__name-main {
+    font-size: var(--step--1);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-snug);
+  }
+
+  .site-nav__name-role {
+    font-size: var(--step--2);
+    color: var(--ink-subtle);
+  }
+
+  @media (max-width: 26em) {
+    .site-nav__name-role {
+      display: none;
+    }
+  }
+
+  .site-nav__links {
+    display: none;
+  }
+
+  .site-nav__links ul {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-nav__link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 40px;
+    padding-inline: var(--space-4);
+    border-radius: var(--radius-pill);
+    font-size: var(--step--1);
+    font-weight: var(--weight-medium);
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition:
+      color var(--dur-fast) var(--ease-out),
+      background-color var(--dur-fast) var(--ease-out);
+  }
+
+  .site-nav__link:hover {
+    color: var(--ink);
+    background-color: var(--surface);
+  }
+
+  /* Active section indicator */
+  .site-nav__link[aria-current] {
+    color: var(--ink);
+  }
+
+  .site-nav__link[aria-current]::after {
+    content: '';
+    position: absolute;
+    inset-block-end: 4px;
+    inset-inline: 50%;
+    inline-size: 5px;
+    block-size: 5px;
+    translate: -50% 0;
+    border-radius: 50%;
+    background-color: var(--accent);
+  }
+
+  .site-nav__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .site-nav__cta {
+    display: none;
+  }
+
+  .site-nav__burger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--target-min);
+    block-size: var(--target-min);
+    border-radius: var(--radius-pill);
+    color: var(--ink);
+  }
+
+  .site-nav__burger:hover {
+    background-color: var(--surface);
+  }
+
+  .site-nav__burger-bars,
+  .site-nav__burger-bars::before,
+  .site-nav__burger-bars::after {
+    display: block;
+    inline-size: 20px;
+    block-size: 1.5px;
+    background-color: currentColor;
+    border-radius: 2px;
+    transition: transform var(--dur-base) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
+  }
+
+  .site-nav__burger-bars {
+    position: relative;
+  }
+
+  .site-nav__burger-bars::before,
+  .site-nav__burger-bars::after {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+  }
+
+  .site-nav__burger-bars::before {
+    inset-block-start: -6px;
+  }
+
+  .site-nav__burger-bars::after {
+    inset-block-start: 6px;
+  }
+
+  [aria-expanded='true'] .site-nav__burger-bars {
+    background-color: transparent;
+  }
+
+  [aria-expanded='true'] .site-nav__burger-bars::before {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  [aria-expanded='true'] .site-nav__burger-bars::after {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* ---- Mobile panel ---- */
+  .mobile-nav {
+    position: fixed;
+    inset: var(--nav-height) 0 0;
+    z-index: var(--z-nav);
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: var(--space-6);
+    padding: var(--space-6) var(--gutter) var(--space-8);
+    background-color: var(--canvas);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    animation: mobile-nav-in var(--dur-base) var(--ease-out);
+  }
+
+  @keyframes mobile-nav-in {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+  }
+
+  .mobile-nav__list {
+    display: grid;
+    align-content: start;
+    gap: var(--space-1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-block-start: var(--border-width) solid var(--hairline);
+  }
+
+  .mobile-nav__link {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-4);
+    padding-block: var(--space-4);
+    border-block-end: var(--border-width) solid var(--hairline);
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-snug);
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .mobile-nav__link:hover,
+  .mobile-nav__link[aria-current] {
+    color: var(--accent);
+  }
+
+  .mobile-nav__index {
+    font-family: var(--font-sans);
+    font-size: var(--step--2);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-caps);
+    color: var(--ink-subtle);
+    font-feature-settings: 'tnum' 1;
+  }
+
+  .mobile-nav__foot {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .mobile-nav__social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--step--1);
+    color: var(--ink-muted);
+  }
+
+  /* ---- Desktop ---- */
+  @media (min-width: 60em) {
+    .site-nav__links {
+      display: block;
+    }
+
+    .site-nav__cta {
+      display: inline-flex;
+    }
+
+    .site-nav__burger,
+    .mobile-nav {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  // ---- Mobile menu -------------------------------------------------------
+  const toggle = document.getElementById('nav-toggle');
+  const panel = document.getElementById('mobile-nav');
+
+  if (toggle && panel) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      panel.hidden = !open;
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (open) {
+        panel.querySelector<HTMLAnchorElement>('a')?.focus();
+      }
+    };
+
+    toggle.addEventListener('click', () => {
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    // Any link closes the panel — anchors need the panel gone to reveal the target.
+    panel.querySelectorAll('[data-mobile-link]').forEach((link) => {
+      link.addEventListener('click', () => setOpen(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    // Keep focus inside the panel while it is open.
+    panel.addEventListener('keydown', (event) => {
+      if (event.key !== 'Tab') return;
+      const focusables = panel.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled])',
+      );
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    // Leaving mobile width with the panel open would trap scroll.
+    const wide = window.matchMedia('(min-width: 60em)');
+    wide.addEventListener('change', (e) => {
+      if (e.matches) setOpen(false);
+    });
+  }
+
+  // ---- Shadow the nav once the page has scrolled -------------------------
+  const nav = document.getElementById('site-nav');
+  if (nav) {
+    const sentinel = document.createElement('div');
+    sentinel.setAttribute('aria-hidden', 'true');
+    sentinel.style.cssText = 'position:absolute;top:0;height:1px;width:1px;';
+    document.body.prepend(sentinel);
+    new IntersectionObserver(
+      ([entry]) => nav.classList.toggle('is-stuck', !entry.isIntersecting),
+      { threshold: 0 },
+    ).observe(sentinel);
+  }
+
+  // ---- Active section indicator (home page only) -------------------------
+  if (nav?.dataset.variant === 'home') {
+    const links = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]'),
+    );
+    const sections = links
+      .map((link) => {
+        const id = link.dataset.section;
+        return id ? document.getElementById(id) : null;
+      })
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    if (sections.length) {
+      const mark = (id: string | null) => {
+        links.forEach((link) => {
+          if (id && link.dataset.section === id) {
+            link.setAttribute('aria-current', 'true');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const visible = new Set<string>();
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) visible.add(entry.target.id);
+            else visible.delete(entry.target.id);
+          }
+          // Mark the topmost visible section, so scrolling up behaves too.
+          const current = sections.find((s) => visible.has(s.id));
+          mark(current?.id ?? null);
+        },
+        { rootMargin: '-30% 0px -60% 0px', threshold: 0 },
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    }
+  }
+</script>

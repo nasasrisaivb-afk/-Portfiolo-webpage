@@ -1,0 +1,399 @@
+---
+import { profile } from '../data/site';
+import { href } from '../lib/url';
+import { allProjects, industriesCovered } from '../data/projects';
+
+const projectCount = allProjects.length;
+---
+
+<section class="hero" id="top">
+  <div class="shell shell--wide hero__inner">
+    <div class="hero__content">
+      <p class="hero__eyebrow eyebrow">
+        {profile.availability}
+      </p>
+
+      <h1 class="hero__title display">
+        Designing digital products that turn <em class="hero__em">complex problems</em
+        > into simple, useful experiences.
+      </h1>
+
+      <p class="hero__intro lead">
+        I’m <strong>{profile.name}</strong> — a UX/UI and product designer working end to end:
+        research and strategy, through information architecture and interface design, into
+        design systems and shipped product.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href={href('/#work')}>
+          View my work
+          <svg class="btn__icon btn__icon--shift" viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="M2 8h11M9 4l4 4-4 4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </a>
+        <a class="btn btn--secondary btn--lg" href={href('/#contact')}>Let’s connect</a>
+      </div>
+
+      <dl class="hero__facts">
+        <div>
+          <dt>Case studies</dt>
+          <dd>{projectCount}</dd>
+        </div>
+        <div>
+          <dt>Industries</dt>
+          <dd>{industriesCovered.length}</dd>
+        </div>
+        <div>
+          <dt>Practice</dt>
+          <dd>Research → delivery</dd>
+        </div>
+      </dl>
+    </div>
+
+    <!--
+      The motion element: a wireframe that resolves into an interface.
+      It is the job, drawn. Static under prefers-reduced-motion.
+    -->
+    <div class="hero__visual" aria-hidden="true">
+      <div class="artboard">
+        <span class="artboard__label mono-meta">wireframe → interface</span>
+        <svg viewBox="0 0 320 400" class="artboard__svg" role="presentation" focusable="false">
+          <!-- column guides, as ticks in the margin rather than lines across
+               the content, which would read as noise over the blocks -->
+          <g class="ab-grid">
+            {
+              Array.from({ length: 9 }).map((_, i) => (
+                <line x1={20 + i * 35} y1="8" x2={20 + i * 35} y2="18" />
+              ))
+            }
+            <line x1="20" y1="396" x2="300" y2="396" />
+          </g>
+
+          <!-- header bar -->
+          <rect class="ab-block ab-block--1" x="20" y="28" width="180" height="14" rx="3" />
+          <rect class="ab-block ab-block--2" x="20" y="52" width="120" height="10" rx="3" />
+          <rect class="ab-pill" x="232" y="26" width="68" height="20" rx="10" />
+
+          <!-- hero media -->
+          <rect class="ab-media" x="20" y="84" width="280" height="132" rx="8" />
+          <circle class="ab-dot" cx="52" cy="116" r="9" />
+          <rect class="ab-line" x="72" y="110" width="84" height="7" rx="3" />
+          <rect class="ab-line ab-line--dim" x="72" y="123" width="56" height="6" rx="3" />
+          <path
+            class="ab-chart"
+            d="M40 196 L82 176 L124 186 L166 150 L208 164 L250 132 L282 142"
+            fill="none"
+          ></path>
+
+          <!-- cards -->
+          <rect class="ab-card ab-card--a" x="20" y="232" width="134" height="76" rx="8" />
+          <rect class="ab-card ab-card--b" x="166" y="232" width="134" height="76" rx="8" />
+          <rect class="ab-line" x="34" y="248" width="70" height="7" rx="3" />
+          <rect class="ab-line ab-line--dim" x="34" y="262" width="100" height="6" rx="3" />
+          <rect class="ab-line ab-line--dim" x="34" y="274" width="82" height="6" rx="3" />
+          <rect class="ab-line" x="180" y="248" width="58" height="7" rx="3" />
+          <rect class="ab-line ab-line--dim" x="180" y="262" width="104" height="6" rx="3" />
+          <rect class="ab-line ab-line--dim" x="180" y="274" width="74" height="6" rx="3" />
+
+          <!-- primary action -->
+          <rect class="ab-cta" x="20" y="326" width="128" height="34" rx="17" />
+          <rect class="ab-line ab-line--invert" x="44" y="339" width="80" height="8" rx="4" />
+          <rect class="ab-ghost" x="162" y="326" width="100" height="34" rx="17" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: clamp(2rem, 5vw, 4.5rem) var(--space-section);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* A single quiet accent wash — not a gradient background. */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset-block-start: -18%;
+    inset-inline-end: -12%;
+    inline-size: min(46rem, 80vw);
+    aspect-ratio: 1;
+    background: radial-gradient(circle, var(--accent-soft), transparent 68%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .hero__inner {
+    display: grid;
+    /*
+      An explicit minmax(0, 1fr) track. Without it the implicit `auto` track is
+      sized by its widest child's max-content, and the artboard drags the whole
+      text column past the viewport.
+    */
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(2.5rem, 6vw, 4.5rem);
+    align-items: center;
+  }
+
+  .hero__inner > * {
+    min-width: 0;
+  }
+
+  @media (min-width: 64em) {
+    .hero__inner {
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    }
+  }
+
+  .hero__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+    align-content: start;
+    justify-items: start;
+  }
+
+  .hero__eyebrow {
+    color: var(--ink-muted);
+  }
+
+  .hero__title {
+    max-width: 19ch;
+  }
+
+  .hero__em {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: 'opsz' 96;
+  }
+
+  .hero__intro {
+    max-width: 52ch;
+  }
+
+  .hero__intro strong {
+    color: var(--ink);
+    font-weight: var(--weight-semibold);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .hero__facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+    gap: var(--space-5);
+    width: 100%;
+    max-width: 34rem;
+    margin: 0;
+    padding-block-start: var(--space-6);
+    border-block-start: var(--border-width) solid var(--hairline);
+  }
+
+  .hero__facts dt {
+    font-size: var(--step--2);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--ink-subtle);
+  }
+
+  .hero__facts dd {
+    margin: var(--space-1) 0 0;
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-variation-settings: 'opsz' 28;
+    line-height: 1.2;
+  }
+
+  /* ---------------- artboard ---------------- */
+  .hero__visual {
+    justify-self: center;
+    inline-size: min(100%, 26rem);
+  }
+
+  .artboard {
+    position: relative;
+    padding: var(--space-5) var(--space-4) var(--space-4);
+    background-color: var(--surface);
+    border: var(--border-width) solid var(--hairline);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+  }
+
+  .artboard__label {
+    position: absolute;
+    inset-block-start: var(--space-4);
+    inset-inline-start: var(--space-5);
+    font-size: var(--step--2);
+    color: var(--ink-subtle);
+  }
+
+  .artboard__svg {
+    inline-size: 100%;
+    block-size: auto;
+    margin-block-start: var(--space-4);
+    overflow: visible;
+  }
+
+  /* Wireframe state (the "before") */
+  .ab-grid line {
+    stroke: var(--hairline);
+    stroke-width: 1;
+  }
+
+  .ab-block,
+  .ab-line,
+  .ab-dot,
+  .ab-pill,
+  .ab-ghost {
+    fill: var(--surface-sunken);
+  }
+
+  .ab-media,
+  .ab-card {
+    fill: var(--surface-sunken);
+    stroke: var(--border);
+    stroke-width: 1;
+    stroke-dasharray: 4 3;
+  }
+
+  .ab-cta {
+    fill: var(--surface-sunken);
+    stroke: var(--border);
+    stroke-width: 1;
+    stroke-dasharray: 4 3;
+  }
+
+  .ab-chart {
+    stroke: var(--border);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 3 4;
+  }
+
+  .ab-line--dim {
+    opacity: 0.7;
+  }
+
+  .ab-line--invert {
+    fill: var(--border);
+  }
+
+  /*
+    The resolve: a single slow loop from wireframe to interface. 14s, mostly
+    resting in the resolved state — ambient, not a demo reel.
+  */
+  @media (prefers-reduced-motion: no-preference) {
+    .ab-block,
+    .ab-line,
+    .ab-dot,
+    .ab-pill,
+    .ab-media,
+    .ab-card,
+    .ab-cta,
+    .ab-chart,
+    .ab-ghost {
+      animation: ab-resolve 14s var(--ease-in-out) infinite;
+    }
+
+    .ab-block--1 { animation-delay: 0.1s; }
+    .ab-block--2 { animation-delay: 0.2s; }
+    .ab-media { animation-delay: 0.3s; }
+    .ab-chart { animation-delay: 0.8s; }
+    .ab-card--a { animation-delay: 0.45s; }
+    .ab-card--b { animation-delay: 0.6s; }
+    .ab-cta { animation-delay: 0.9s; }
+
+    @keyframes ab-resolve {
+      0%, 8% {
+        fill: var(--surface-sunken);
+        stroke: var(--border);
+        stroke-dasharray: 4 3;
+      }
+      26%, 82% {
+        fill: var(--resolved-fill, var(--canvas-contrast));
+        stroke: var(--hairline);
+        stroke-dasharray: 0 0;
+      }
+      100% {
+        fill: var(--surface-sunken);
+        stroke: var(--border);
+        stroke-dasharray: 4 3;
+      }
+    }
+
+    .ab-block--1,
+    .ab-line {
+      --resolved-fill: var(--ink);
+    }
+
+    .ab-line--dim {
+      --resolved-fill: var(--ink-subtle);
+    }
+
+    .ab-block--2 {
+      --resolved-fill: var(--ink-subtle);
+    }
+
+    .ab-dot,
+    .ab-cta {
+      --resolved-fill: var(--accent);
+    }
+
+    .ab-pill {
+      --resolved-fill: var(--accent-soft);
+    }
+
+    .ab-line--invert {
+      --resolved-fill: var(--surface);
+    }
+
+    .ab-chart {
+      fill: none;
+      animation-name: ab-resolve-stroke;
+    }
+
+    @keyframes ab-resolve-stroke {
+      0%, 8% {
+        stroke: var(--border);
+        stroke-dasharray: 3 4;
+      }
+      26%, 82% {
+        stroke: var(--accent);
+        stroke-dasharray: 0 0;
+      }
+      100% {
+        stroke: var(--border);
+        stroke-dasharray: 3 4;
+      }
+    }
+  }
+
+  /* Reduced motion gets the resolved state, statically. */
+  @media (prefers-reduced-motion: reduce) {
+    .ab-block--1 { fill: var(--ink); }
+    .ab-block--2 { fill: var(--ink-subtle); }
+    .ab-line { fill: var(--ink); }
+    .ab-line--dim { fill: var(--ink-subtle); }
+    .ab-line--invert { fill: var(--surface); }
+    .ab-dot,
+    .ab-cta { fill: var(--accent); stroke: none; }
+    .ab-pill { fill: var(--accent-soft); }
+    .ab-media,
+    .ab-card { fill: var(--canvas-contrast); stroke: var(--hairline); stroke-dasharray: 0; }
+    .ab-chart { stroke: var(--accent); stroke-dasharray: 0; }
+  }
+</style>

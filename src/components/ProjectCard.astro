@@ -1,0 +1,316 @@
+---
+import type { CaseStudy } from '../data/types';
+import { href } from '../lib/url';
+
+interface Props {
+  project: CaseStudy;
+  /** `feature` = large alternating editorial block; `compact` = grid card. */
+  variant?: 'feature' | 'compact';
+  index?: number;
+  /** Alternates the image side for feature cards. */
+  flip?: boolean;
+}
+
+const { project: p, variant = 'compact', index = 0, flip = false } = Astro.props;
+const url = href(`/work/${p.slug}`);
+const headingId = `project-${p.slug}-title`;
+---
+
+{
+  variant === 'feature' ? (
+    <article class={`feature js-reveal ${flip ? 'feature--flip' : ''}`} aria-labelledby={headingId}>
+      <a class="feature__media" href={url} tabindex="-1" aria-hidden="true">
+        <span class="feature__tint" style={`--tint:${p.cover.tint}`}></span>
+        <img
+          src={href(p.cover.src)}
+          alt=""
+          width="880"
+          height="620"
+          loading={index === 0 ? 'eager' : 'lazy'}
+          decoding="async"
+          fetchpriority={index === 0 ? 'high' : 'auto'}
+        />
+      </a>
+
+      <div class="feature__body">
+        <p class="feature__index mono-meta">
+          {String(index + 1).padStart(2, '0')} — {p.industry}
+        </p>
+
+        <h3 class="feature__title" id={headingId}>
+          <a href={url}>{p.title}</a>
+        </h3>
+
+        <p class="feature__tagline">{p.tagline}</p>
+        <p class="feature__description">{p.description}</p>
+
+        <dl class="feature__meta">
+          <div>
+            <dt>Role</dt>
+            <dd>{p.role.split('—')[0].trim()}</dd>
+          </div>
+          <div>
+            <dt>Type</dt>
+            <dd>{p.projectType}</dd>
+          </div>
+          <div>
+            <dt>Timeline</dt>
+            <dd>{p.timeline}</dd>
+          </div>
+        </dl>
+
+        <p class="feature__contribution">
+          <span class="feature__contribution-label">Key contribution</span>
+          {p.contribution}
+        </p>
+
+        <ul class="cluster feature__tags" role="list">
+          <li><span class="tag tag--accent">{p.status}</span></li>
+          {p.tags.slice(0, 3).map((t) => (
+            <li><span class="tag tag--plain">{t}</span></li>
+          ))}
+        </ul>
+
+        <a class="btn btn--secondary" href={url}>
+          View case study
+          <svg class="btn__icon btn__icon--shift" viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="M2 8h11M9 4l4 4-4 4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="visually-hidden">for {p.title}</span>
+        </a>
+      </div>
+    </article>
+  ) : (
+    <article
+      class="pcard card card--interactive js-reveal"
+      data-industry={p.industry}
+      data-tags={p.tags.join('|')}
+      aria-labelledby={headingId}
+    >
+      <div class="pcard__media">
+        <span class="feature__tint" style={`--tint:${p.cover.tint}`}></span>
+        <img
+          src={href(p.cover.src)}
+          alt={p.cover.alt}
+          width="880"
+          height="620"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+
+      <p class="mono-meta">{p.industry} · {p.year}</p>
+
+      <h3 class="pcard__title" id={headingId}>
+        <a class="card__link-overlay" href={url}>
+          <span class="visually-hidden">View the {p.title} case study</span>
+        </a>
+        {p.title}
+      </h3>
+
+      <p class="pcard__tagline">{p.tagline}</p>
+
+      <ul class="cluster pcard__tags" role="list">
+        <li><span class="tag tag--accent">{p.projectType}</span></li>
+        {p.tags.slice(0, 2).map((t) => (
+          <li><span class="tag tag--plain">{t}</span></li>
+        ))}
+      </ul>
+
+      <p class="pcard__cta link-arrow" aria-hidden="true">View case study</p>
+    </article>
+  )
+}
+
+<style>
+  /* ---------------- Feature (large editorial block) ---------------- */
+  .feature {
+    display: grid;
+    gap: var(--space-6);
+    align-items: center;
+  }
+
+  @media (min-width: 60em) {
+    .feature {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: clamp(2rem, 5vw, 5rem);
+    }
+
+    .feature--flip .feature__media {
+      order: 2;
+    }
+  }
+
+  .feature__media {
+    position: relative;
+    display: block;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background-color: var(--surface-sunken);
+    border: var(--border-width) solid var(--hairline);
+    aspect-ratio: 22 / 15;
+  }
+
+  .feature__media img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+
+  .feature:hover .feature__media img,
+  .feature:focus-within .feature__media img {
+    transform: scale(1.02);
+  }
+
+  .feature__tint {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--tint) 10%, transparent),
+      transparent 62%
+    );
+  }
+
+  .feature__body {
+    display: grid;
+    gap: var(--space-4);
+    align-content: start;
+  }
+
+  .feature__index {
+    color: var(--accent);
+  }
+
+  .feature__title {
+    font-family: var(--font-display);
+    font-size: var(--step-4);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    font-variation-settings: 'opsz' 48;
+  }
+
+  .feature__title a {
+    text-decoration: none;
+  }
+
+  .feature__tagline {
+    font-size: var(--step-1);
+    line-height: var(--leading-snug);
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+
+  .feature__description {
+    color: var(--ink-muted);
+    max-width: 46ch;
+  }
+
+  .feature__meta {
+    display: grid;
+    gap: var(--space-4);
+    margin: 0;
+    padding-block: var(--space-4);
+    border-block: var(--border-width) solid var(--hairline);
+  }
+
+  @media (min-width: 30em) {
+    .feature__meta {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .feature__meta dt {
+    font-size: var(--step--2);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--ink-subtle);
+    margin-block-end: var(--space-1);
+  }
+
+  .feature__meta dd {
+    margin: 0;
+    font-size: var(--step--1);
+    color: var(--ink);
+  }
+
+  .feature__contribution {
+    display: grid;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-5);
+    background-color: var(--surface);
+    border-inline-start: var(--border-width-thick) solid var(--accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-size: var(--step--1);
+    color: var(--ink);
+  }
+
+  .feature__contribution-label {
+    font-size: var(--step--2);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .feature__tags {
+    --cluster-gap: var(--space-2);
+  }
+
+  /* ---------------- Compact grid card ---------------- */
+  .pcard {
+    gap: var(--space-3);
+    padding: var(--space-5);
+  }
+
+  .pcard__media {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background-color: var(--surface-sunken);
+    aspect-ratio: 22 / 15;
+    margin-block-end: var(--space-2);
+  }
+
+  .pcard__media img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+
+  .pcard:hover .pcard__media img {
+    transform: scale(1.03);
+  }
+
+  .pcard__title {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    letter-spacing: var(--tracking-snug);
+  }
+
+  .pcard__tagline {
+    font-size: var(--step--1);
+    color: var(--ink-muted);
+    flex: 1;
+  }
+
+  .pcard__tags {
+    --cluster-gap: var(--space-2);
+  }
+
+  .pcard__cta {
+    margin-block-start: auto;
+  }
+</style>

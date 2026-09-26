@@ -1,0 +1,96 @@
+---
+interface Props {
+  id: string;
+  number: string;
+  title: string;
+  narrative?: string;
+  narrativeExtra?: string;
+  /** Pulls the block onto the sunken background for rhythm. */
+  tone?: 'default' | 'sunken';
+}
+
+const { id, number, title, narrative, narrativeExtra, tone = 'default' } = Astro.props;
+---
+
+<section class={`cs-block ${tone === 'sunken' ? 'cs-block--sunken' : ''}`} id={id} aria-labelledby={`${id}-title`}>
+  <div class="shell cs-block__inner">
+    <header class="cs-block__head js-reveal">
+      <p class="cs-block__number mono-meta">{number}</p>
+      <h2 class="cs-block__title" id={`${id}-title`}>{title}</h2>
+    </header>
+
+    <div class="cs-block__body">
+      {
+        (narrative || narrativeExtra) && (
+          <div class="cs-block__narrative prose js-reveal">
+            {narrative && <p>{narrative}</p>}
+            {narrativeExtra && <p>{narrativeExtra}</p>}
+          </div>
+        )
+      }
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .cs-block {
+    padding-block: var(--space-section-tight);
+    border-block-start: var(--border-width) solid var(--hairline);
+  }
+
+  .cs-block--sunken {
+    background-color: var(--canvas-contrast);
+  }
+
+  .cs-block__inner {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 64em) {
+    .cs-block__inner {
+      grid-template-columns: 16rem minmax(0, 1fr);
+      gap: clamp(2rem, 4vw, 4rem);
+    }
+
+    .cs-block__head {
+      position: sticky;
+      inset-block-start: calc(var(--nav-height) + var(--space-5));
+      align-self: start;
+    }
+  }
+
+  .cs-block__head {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .cs-block__number {
+    color: var(--accent);
+  }
+
+  .cs-block__title {
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+    font-variation-settings: 'opsz' 32;
+    text-wrap: balance;
+  }
+
+  .cs-block__body {
+    display: grid;
+    gap: var(--space-6);
+    min-width: 0;
+  }
+
+  .cs-block__narrative p {
+    font-size: var(--step-0);
+    line-height: var(--leading-relaxed);
+  }
+
+  .cs-block__narrative {
+    max-width: 68ch;
+  }
+</style>

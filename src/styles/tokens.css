@@ -1,0 +1,259 @@
+/* ==========================================================================
+   DESIGN SYSTEM — TOKENS
+   Every visual decision on this site resolves to a token declared here.
+   Contrast ratios noted below are measured (WCAG 2.1 relative luminance).
+   ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------------
+     TYPEFACES
+     Fraunces  — editorial display voice (variable weight + optical size)
+     Inter     — interface + long-form reading
+     --------------------------------------------------------------------- */
+  --font-display: 'Fraunces Variable', 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system,
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* ---------------------------------------------------------------------
+     TYPE SCALE — fluid, clamped so it never breaks at 320px or 2560px
+     --------------------------------------------------------------------- */
+  --step--2: clamp(0.6875rem, 0.67rem + 0.09vw, 0.75rem);   /* 11 → 12  micro  */
+  --step--1: clamp(0.8125rem, 0.79rem + 0.11vw, 0.875rem);  /* 13 → 14  small  */
+  --step-0: clamp(1rem, 0.97rem + 0.14vw, 1.0625rem);       /* 16 → 17  body   */
+  --step-1: clamp(1.125rem, 1.07rem + 0.27vw, 1.3125rem);   /* 18 → 21  lead   */
+  --step-2: clamp(1.375rem, 1.27rem + 0.5vw, 1.625rem);     /* 22 → 26  h4     */
+  --step-3: clamp(1.625rem, 1.44rem + 0.9vw, 2.125rem);     /* 26 → 34  h3     */
+  --step-4: clamp(2rem, 1.62rem + 1.9vw, 3rem);             /* 32 → 48  h2     */
+  --step-5: clamp(2.25rem, 1.75rem + 2.5vw, 3.5rem);        /* 36 → 56  h1     */
+  --step-6: clamp(2.5rem, 1.85rem + 3.2vw, 4.5rem);         /* 40 → 72  hero   */
+
+  --leading-tight: 1.04;
+  --leading-snug: 1.16;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.68;
+
+  --tracking-tight: -0.03em;
+  --tracking-snug: -0.015em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-caps: 0.12em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Optical sizing for the display face (Fraunces reads better set large) */
+  --display-opsz: 72;
+
+  /* ---------------------------------------------------------------------
+     SPACE — 8px base grid
+     --------------------------------------------------------------------- */
+  --space-0: 0;
+  --space-1: 0.25rem;   /*  4 */
+  --space-2: 0.5rem;    /*  8 */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.5rem;    /* 24 */
+  --space-6: 2rem;      /* 32 */
+  --space-7: 2.5rem;    /* 40 */
+  --space-8: 3rem;      /* 48 */
+  --space-9: 4rem;      /* 64 */
+  --space-10: 5rem;     /* 80 */
+  --space-11: 6rem;     /* 96 */
+  --space-12: 8rem;     /* 128 */
+
+  /* Fluid rhythm used for section padding and large gaps */
+  --space-section: clamp(4rem, 9vw, 9rem);
+  --space-section-tight: clamp(2.5rem, 5vw, 5rem);
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  /* ---------------------------------------------------------------------
+     GRID
+     --------------------------------------------------------------------- */
+  --grid-columns: 12;
+  --grid-gap: clamp(1rem, 2.2vw, 2rem);
+  --measure-wide: 88rem;    /* 1408 — full shell        */
+  --measure-page: 76rem;    /* 1216 — default container */
+  --measure-text: 38rem;    /*  608 — ~70ch reading     */
+  --measure-narrow: 30rem;  /*  480 — forms, asides     */
+
+  /* ---------------------------------------------------------------------
+     RADII
+     --------------------------------------------------------------------- */
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* ---------------------------------------------------------------------
+     BORDERS
+     --------------------------------------------------------------------- */
+  --border-width: 1px;
+  --border-width-thick: 2px;
+
+  /* ---------------------------------------------------------------------
+     MOTION
+     --------------------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-instant: 90ms;
+  --dur-fast: 160ms;
+  --dur-base: 260ms;
+  --dur-slow: 460ms;
+  --dur-reveal: 700ms;
+
+  /* ---------------------------------------------------------------------
+     ELEVATION — deliberately restrained (two levels, no coloured glows)
+     --------------------------------------------------------------------- */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 100;
+  --z-nav: 200;
+  --z-overlay: 300;
+  --z-toast: 400;
+
+  /* Minimum interactive target (WCAG 2.5.5) */
+  --target-min: 44px;
+}
+
+/* ==========================================================================
+   THEME — LIGHT ("Paper")  ·  default
+   60% canvas · 30% surface + ink typography · 10% accent
+   ========================================================================== */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  /* 60% — canvas */
+  --canvas: #f7f5f0;
+  --canvas-contrast: #efebe3;
+
+  /* 30% — surfaces & structure */
+  --surface: #ffffff;
+  --surface-sunken: #efebe3;
+  --surface-raised: #ffffff;
+  --surface-inverse: #14140f;
+  --hairline: #e4e0d6;
+  --border: #d9d4c8;
+  --border-strong: #7e7a6e;   /* 3.94:1 on canvas — WCAG 1.4.11 for controls */
+
+  /* Typography */
+  --ink: #14140f;             /* 16.96:1 on canvas */
+  --ink-muted: #56544c;       /*  6.96:1 on canvas */
+  --ink-subtle: #6f6b60;      /*  4.88:1 on canvas */
+  --ink-inverse: #f7f5f0;
+
+  /* 10% — accent */
+  --accent: #a8401c;          /*  5.64:1 on canvas */
+  --accent-strong: #9c3a17;   /*  6.36:1 on canvas */
+  --accent-soft: rgba(168, 64, 28, 0.1);
+  --accent-line: rgba(168, 64, 28, 0.32);
+  --on-accent: #ffffff;       /*  6.15:1 on accent  */
+
+  /* Feedback */
+  --success: #186b42;
+  --success-soft: rgba(24, 107, 66, 0.1);
+  --danger: #b3261e;
+  --danger-soft: rgba(179, 38, 30, 0.09);
+  --warning: #8a5300;
+  --warning-soft: rgba(138, 83, 0, 0.1);
+
+  /* Effects */
+  --shadow-sm: 0 1px 2px rgba(20, 20, 15, 0.05), 0 2px 8px rgba(20, 20, 15, 0.04);
+  --shadow-md: 0 2px 4px rgba(20, 20, 15, 0.04), 0 14px 32px rgba(20, 20, 15, 0.08);
+  --overlay: rgba(20, 20, 15, 0.46);
+  --focus-ring: var(--accent);
+  --focus-halo: var(--canvas);
+  --selection-bg: rgba(168, 64, 28, 0.18);
+}
+
+/* ==========================================================================
+   THEME — DARK ("Ink")
+   ========================================================================== */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --canvas: #12110e;
+  --canvas-contrast: #1a1915;
+
+  --surface: #1a1915;
+  --surface-sunken: #0d0c0a;
+  --surface-raised: #24231e;
+  --surface-inverse: #f4f1ea;
+  --hairline: #272620;
+  --border: #34322b;
+  --border-strong: #7a756b;   /* 4.12:1 on canvas */
+
+  --ink: #f4f1ea;             /* 16.74:1 on canvas */
+  --ink-muted: #b0aba0;       /*  8.25:1 on canvas */
+  --ink-subtle: #948f85;      /*  5.8:1  on canvas */
+  --ink-inverse: #12110e;
+
+  --accent: #f0875c;          /*  7.49:1 on canvas */
+  --accent-strong: #ff9b6a;   /*  9.12:1 on canvas */
+  --accent-soft: rgba(240, 135, 92, 0.14);
+  --accent-line: rgba(240, 135, 92, 0.38);
+  --on-accent: #12110e;       /*  7.49:1 on accent  */
+
+  --success: #6bdca6;
+  --success-soft: rgba(107, 220, 166, 0.14);
+  --danger: #f98a80;
+  --danger-soft: rgba(249, 138, 128, 0.14);
+  --warning: #f0c05a;
+  --warning-soft: rgba(240, 192, 90, 0.14);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.32);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.4), 0 16px 36px rgba(0, 0, 0, 0.48);
+  --overlay: rgba(6, 6, 4, 0.66);
+  --focus-ring: var(--accent-strong);
+  --focus-halo: var(--canvas);
+  --selection-bg: rgba(240, 135, 92, 0.26);
+}
+
+/* Honour the OS preference when the visitor has not chosen a theme. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --canvas: #12110e;
+    --canvas-contrast: #1a1915;
+
+    --surface: #1a1915;
+    --surface-sunken: #0d0c0a;
+    --surface-raised: #24231e;
+    --surface-inverse: #f4f1ea;
+    --hairline: #272620;
+    --border: #34322b;
+    --border-strong: #7a756b;
+
+    --ink: #f4f1ea;
+    --ink-muted: #b0aba0;
+    --ink-subtle: #948f85;
+    --ink-inverse: #12110e;
+
+    --accent: #f0875c;
+    --accent-strong: #ff9b6a;
+    --accent-soft: rgba(240, 135, 92, 0.14);
+    --accent-line: rgba(240, 135, 92, 0.38);
+    --on-accent: #12110e;
+
+    --success: #6bdca6;
+    --success-soft: rgba(107, 220, 166, 0.14);
+    --danger: #f98a80;
+    --danger-soft: rgba(249, 138, 128, 0.14);
+    --warning: #f0c05a;
+    --warning-soft: rgba(240, 192, 90, 0.14);
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.32);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.4), 0 16px 36px rgba(0, 0, 0, 0.48);
+    --overlay: rgba(6, 6, 4, 0.66);
+    --focus-ring: var(--accent-strong);
+    --focus-halo: var(--canvas);
+    --selection-bg: rgba(240, 135, 92, 0.26);
+  }
+}

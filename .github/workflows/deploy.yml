@@ -1,0 +1,61 @@
+name: Build & deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; never cancel a run that is mid-publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        env:
+          # Project sites are served from /<repo>. For a custom domain set
+          # SITE_URL to the domain and BASE_PATH to /
+          SITE_URL: https://${{ github.repository_owner }}.github.io
+          BASE_PATH: /${{ github.event.repository.name }}
+          PUBLIC_CONTACT_ENDPOINT: ${{ secrets.PUBLIC_CONTACT_ENDPOINT }}
+          PUBLIC_CONTACT_ACCESS_KEY: ${{ secrets.PUBLIC_CONTACT_ACCESS_KEY }}
+        run: npm run build
+
+      - name: Audit the build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}
+        run: |
+          npx playwright install --with-deps chromium
+          npm run audit
+          npm run test
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
