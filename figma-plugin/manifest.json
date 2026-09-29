@@ -1,0 +1,9 @@
+{
+  "name": "Portfolio — Build Design System",
+  "id": "nasasrisaivb-portfolio-design-system",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": { "allowedDomains": ["none"] }
+}

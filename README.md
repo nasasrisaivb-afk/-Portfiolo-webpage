@@ -26,7 +26,9 @@ npm run dev          # http://localhost:4321/-Portfiolo-webpage
 | `npm run test` | Functional tests: contact form, filtering, mobile menu, theme, keyboard |
 | `npm run verify` | build → audit → test |
 | `npm run assets` | Regenerate the resume PDF and the social images |
-| `npm run figma` | Regenerate the Figma import package in `figma-export/` |
+| `npm run figma` | Regenerate the SVG import package in `figma-export/` |
+| `npm run figma:plugin` | Rebuild **and test** the Figma plugin in `figma-plugin/` |
+| `npm run figma:test` | Run the plugin against a mock of the Figma Plugin API |
 | `npm run og` | Social images only |
 | `npm run resume:pdf` | Resume PDF only |
 
@@ -204,7 +206,11 @@ src/
   layouts/              Base, CaseStudyLayout
   pages/                routes (+ robots.txt and manifest as endpoints)
   lib/url.ts            base-path-safe link helper
-figma-export/           importable Figma package (see its own README)
+figma-plugin/           run once in Figma to build the file natively
+  manifest.json         import this in Figma → Plugins → Development
+  code.js               generated; edit src/ instead
+  src/*.js              foundations, components, screens, orchestration
+figma-export/           no-install alternative: SVG + tokens (own README)
   artboards/*.svg       7 screens + foundations + components
   tokens.json           W3C design tokens for the Variables importer
 scripts/
