@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="3020" viewBox="0 0 1440 3020">
+<g id="Case study — CropVibe">
+<rect x="0" y="0" width="1440" height="3020" fill="#f7f5f0" id="Background"/>
+<g id="Nav / Sticky">
+<rect x="0" y="0" width="1440" height="76" fill="#f7f5f0"/>
+<line x1="0" y1="76" x2="1440" y2="76" stroke="#e4e0d6" stroke-width="1"/>
+<g id="Brand">
+<rect x="64" y="20" width="36" height="36" rx="6" fill="#14140f"/>
+<text x="82" y="43" font-family="Fraunces" font-size="14" font-weight="700" fill="#f7f5f0" text-anchor="middle" id="Monogram">NS</text>
+<text x="112" y="33" font-family="Inter" font-size="14" font-weight="600" fill="#14140f" id="Name">Nasa Sri Sai V.B</text>
+<text x="112" y="50" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Role">UX/UI Designer · Product Designer</text>
+</g>
+<g id="Links">
+<text x="510" y="43" font-family="Inter" font-size="14" font-weight="500" fill="#56544c" id="Home">Home</text>
+<text x="585.54" y="43" font-family="Inter" font-size="14" font-weight="600" fill="#14140f" id="Work">Work</text>
+<circle cx="603.46" cy="54" r="2.5" fill="#a8401c" id="Active dot"/>
+<text x="657.39" y="43" font-family="Inter" font-size="14" font-weight="500" fill="#56544c" id="About">About</text>
+<text x="733.61" y="43" font-family="Inter" font-size="14" font-weight="500" fill="#56544c" id="Process">Process</text>
+<text x="823.58" y="43" font-family="Inter" font-size="14" font-weight="500" fill="#56544c" id="Resume">Resume</text>
+<text x="913.3" y="43" font-family="Inter" font-size="14" font-weight="500" fill="#56544c" id="Contact">Contact</text>
+</g>
+<g id="Button / primary / sm — Let’s talk">
+<rect x="1272" y="18" width="83.65" height="36" rx="18" fill="#14140f"/>
+<text x="1313.82" y="40.2" font-family="Inter" font-size="12" font-weight="600" fill="#f7f5f0" text-anchor="middle" letter-spacing="0.5" id="Label">Let’s talk</text>
+</g>
+</g>
+<g id="Case study hero">
+<text x="96" y="132" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Breadcrumb">Home  /  Work  /  CropVibe</text>
+<g id="Eyebrow — Agriculture · 2026">
+<line x1="96" y1="176" x2="128" y2="176" stroke="#a8401c" stroke-width="1"/>
+<text x="144" y="180" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Label">AGRICULTURE · 2026</text>
+</g>
+<text x="96" y="256" font-family="Fraunces" font-size="68" font-weight="600" fill="#14140f" letter-spacing="-2.4" id="Title">CropVibe</text>
+<g id="Tagline">
+<text x="96" y="300" font-family="Inter" font-size="26" font-weight="400" fill="#56544c" id="line 1">Five businesses, one account: designing a</text>
+<text x="96" y="332.5" font-family="Inter" font-size="26" font-weight="400" fill="#56544c" id="line 2">multi-sided agricultural marketplace</text>
+</g>
+<g id="Tag — Shipped">
+<rect x="96" y="388" width="75.3" height="28" rx="14" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="133.65" y="406" font-family="Inter" font-size="12" font-weight="500" fill="#a8401c" text-anchor="middle" id="Label">Shipped</text>
+</g>
+<g id="Tag — End-to-end product design">
+<rect x="181.3" y="388" width="183.6" height="28" rx="14" fill="none" stroke="#d9d4c8" stroke-width="1"/>
+<text x="273.1" y="406" font-family="Inter" font-size="12" font-weight="500" fill="#56544c" text-anchor="middle" id="Label">End-to-end product design</text>
+</g>
+<g id="Tag — Marketplace">
+<rect x="374.9" y="388" width="99.4" height="28" rx="14" fill="none" stroke="#d9d4c8" stroke-width="1"/>
+<text x="424.59" y="406" font-family="Inter" font-size="12" font-weight="500" fill="#56544c" text-anchor="middle" id="Label">Marketplace</text>
+</g>
+<g id="Tag — Multi-sided platform">
+<rect x="484.29" y="388" width="144.54" height="28" rx="14" fill="none" stroke="#d9d4c8" stroke-width="1"/>
+<text x="556.56" y="406" font-family="Inter" font-size="12" font-weight="500" fill="#56544c" text-anchor="middle" id="Label">Multi-sided platform</text>
+</g>
+<g id="Tag — Design system">
+<rect x="638.84" y="388" width="112.55" height="28" rx="14" fill="none" stroke="#d9d4c8" stroke-width="1"/>
+<text x="695.11" y="406" font-family="Inter" font-size="12" font-weight="500" fill="#56544c" text-anchor="middle" id="Label">Design system</text>
+</g>
+<g id="Cover">
+<rect x="96" y="452" width="1248" height="500" rx="24" fill="#4C7A34"/>
+<rect x="176" y="502" width="520" height="400" rx="14" fill="#faf8f4"/>
+<rect x="216" y="542" width="200" height="14" rx="4" fill="#1b1b17"/>
+<rect x="216" y="570" width="300" height="10" rx="3" fill="#8f8b81"/>
+<rect x="216" y="604" width="440" height="56" rx="28" fill="#f1eee7"/>
+<rect x="228" y="614" width="150" height="36" rx="18" fill="#4C7A34"/>
+<rect x="216" y="692" width="200" height="130" rx="10" fill="#f1eee7"/>
+<rect x="436" y="692" width="200" height="130" rx="10" fill="#f1eee7"/>
+<rect x="776" y="562" width="400" height="330" rx="14" fill="#faf8f4"/>
+<rect x="812" y="602" width="160" height="12" rx="3" fill="#1b1b17"/>
+<circle cx="826" cy="662" r="16" fill="#4C7A34"/>
+<rect x="856" y="654" width="180" height="11" rx="3" fill="#1b1b17"/>
+<rect x="856" y="674" width="240" height="9" rx="3" fill="#ded9cf"/>
+<circle cx="826" cy="732" r="16" fill="#ece8e0"/>
+<rect x="856" y="724" width="180" height="11" rx="3" fill="#8f8b81"/>
+<rect x="856" y="744" width="240" height="9" rx="3" fill="#ded9cf"/>
+<circle cx="826" cy="802" r="16" fill="#ece8e0"/>
+<rect x="856" y="794" width="180" height="11" rx="3" fill="#8f8b81"/>
+<rect x="856" y="814" width="240" height="9" rx="3" fill="#ded9cf"/>
+<rect x="812" y="832" width="330" height="46" rx="23" fill="#4C7A34"/>
+</g>
+<g id="Meta bar">
+<line x1="96" y1="1012" x2="1344" y2="1012" stroke="#e4e0d6" stroke-width="1"/>
+<text x="96" y="1046" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="My role label">MY ROLE</text>
+<g id="My role value">
+<text x="96" y="1072" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Lead product designer — research, IA,</text>
+<text x="96" y="1093" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 2">UX, UI, design system, front-end pairing</text>
+</g>
+<text x="408" y="1046" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Team label">TEAM</text>
+<text x="408" y="1072" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="Member 1">Me (product design)</text>
+<text x="408" y="1094" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="Member 2">2 front-end engineers</text>
+<text x="408" y="1116" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="Member 3">1 back-end engineer</text>
+<text x="408" y="1138" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="Member 4">Product owner</text>
+<text x="720" y="1046" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Timeline label">TIMELINE</text>
+<g id="Timeline value">
+<text x="720" y="1072" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Phase 1 — 14 weeks, ongoing</text>
+</g>
+<text x="1032" y="1046" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Project type label">PROJECT TYPE</text>
+<g id="Project type value">
+<text x="1032" y="1072" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">End-to-end product design</text>
+</g>
+<line x1="96" y1="1182" x2="1344" y2="1182" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+</g>
+<g id="01 Overview">
+<line x1="0" y1="1156" x2="1440" y2="1156" stroke="#e4e0d6" stroke-width="1"/>
+<text x="96" y="1196" font-family="Inter" font-size="12" font-weight="600" fill="#a8401c" letter-spacing="1.3" id="Number">01</text>
+<text x="96" y="1236" font-family="Fraunces" font-size="34" font-weight="600" fill="#14140f" letter-spacing="-1" id="Title">Overview</text>
+<g id="Narrative">
+<text x="416" y="1196" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 1">CropVibe is an agricultural marketplace for a market where one person is rarely one kind of user. A farmer</text>
+<text x="416" y="1224.9" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 2">who sells 40 quintals of paddy in March rents out her tractor in May, hires a soil consultant in June and</text>
+<text x="416" y="1253.8" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 3">runs a workshop for neighbours in August. Most agri platforms model those as four different products —</text>
+<text x="416" y="1282.7" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 4">four logins, four apps, four empty inboxes.</text>
+</g>
+<g id="Narrative 2">
+<text x="416" y="1331.6" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 1">I designed CropVibe around a single account that carries five roles — Seller, Buyer, Rental Provider,</text>
+<text x="416" y="1360.5" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 2">Service Provider and Educator — with the interface reshaping itself around whichever role you are</text>
+<text x="416" y="1389.4" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 3">currently wearing. Phase 1 shipped the web dashboard, the consultancy booking module and an admin</text>
+<text x="416" y="1418.3" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 4">console, on a token-based design system built for one-handed use on a mid-range Android phone in</text>
+<text x="416" y="1447.2" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 5">patchy signal.</text>
+</g>
+<g id="Metric — Roles on one account">
+<rect x="416" y="1508.1" width="272" height="132" rx="10" fill="#ffffff" stroke="#e4e0d6" stroke-width="1"/>
+<text x="436" y="1556.1" font-family="Fraunces" font-size="34" font-weight="600" fill="#a8401c" letter-spacing="-1" id="Value">5</text>
+<g id="Label">
+<text x="436" y="1582.1" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Roles on one account</text>
+</g>
+<g id="Note">
+<text x="436" y="1612.1" font-family="Inter" font-size="11" font-weight="400" fill="#6f6b60" id="line 1">Seller · Buyer · Rental · Service · Educator</text>
+</g>
+</g>
+<g id="Metric — Product modules designed">
+<rect x="708" y="1508.1" width="272" height="132" rx="10" fill="#ffffff" stroke="#e4e0d6" stroke-width="1"/>
+<text x="728" y="1556.1" font-family="Fraunces" font-size="34" font-weight="600" fill="#a8401c" letter-spacing="-1" id="Value">7</text>
+<g id="Label">
+<text x="728" y="1582.1" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Product modules designed</text>
+</g>
+<g id="Note">
+<text x="728" y="1612.1" font-family="Inter" font-size="11" font-weight="400" fill="#6f6b60" id="line 1">Marketplace, rentals, consultancy, courses,</text>
+<text x="728" y="1626.95" font-family="Inter" font-size="11" font-weight="400" fill="#6f6b60" id="line 2">orders, intel, admin</text>
+</g>
+</g>
+<g id="Metric — Service booking flow">
+<rect x="1000" y="1508.1" width="272" height="132" rx="10" fill="#ffffff" stroke="#e4e0d6" stroke-width="1"/>
+<text x="1020" y="1556.1" font-family="Fraunces" font-size="34" font-weight="600" fill="#a8401c" letter-spacing="-1" id="Value">3 steps</text>
+<g id="Label">
+<text x="1020" y="1582.1" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Service booking flow</text>
+</g>
+<g id="Note">
+<text x="1020" y="1612.1" font-family="Inter" font-size="11" font-weight="400" fill="#6f6b60" id="line 1">Down from a catalogue with no booking</text>
+<text x="1020" y="1626.95" font-family="Inter" font-size="11" font-weight="400" fill="#6f6b60" id="line 2">action at all</text>
+</g>
+</g>
+<g id="Metric — Accessibility target">
+<rect x="416" y="1658.1" width="272" height="132" rx="10" fill="#ffffff" stroke="#e4e0d6" stroke-width="1"/>
+<text x="436" y="1706.1" font-family="Fraunces" font-size="34" font-weight="600" fill="#a8401c" letter-spacing="-1" id="Value">WCAG 2.1 AA</text>
+<g id="Label">
+<text x="436" y="1732.1" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Accessibility target</text>
+</g>
+<g id="Note">
+<text x="436" y="1762.1" font-family="Inter" font-size="11" font-weight="400" fill="#6f6b60" id="line 1">Contrast, 44px targets and keyboard paths</text>
+<text x="436" y="1776.95" font-family="Inter" font-size="11" font-weight="400" fill="#6f6b60" id="line 2">in the token layer</text>
+</g>
+</g>
+</g>
+<g id="07 User insights">
+<rect x="0" y="1828" width="1440" height="900" fill="#efebe3"/>
+<line x1="0" y1="1828" x2="1440" y2="1828" stroke="#e4e0d6" stroke-width="1"/>
+<text x="96" y="1876" font-family="Inter" font-size="12" font-weight="600" fill="#a8401c" letter-spacing="1.3" id="Number">07</text>
+<text x="96" y="1916" font-family="Fraunces" font-size="34" font-weight="600" fill="#14140f" letter-spacing="-1" id="Title">User insights</text>
+<g id="Narrative">
+<text x="416" y="1876" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 1">The findings that changed what got built. Each one carries the evidence it came from, because a design</text>
+<text x="416" y="1904.9" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 2">decision defended by an unsourced insight is just an opinion with a diagram.</text>
+</g>
+<g id="Insight — People do not identify with on">
+<rect x="416" y="1996" width="420" height="352" rx="10" fill="#ffffff" stroke="#e4e0d6" stroke-width="1"/>
+<text x="436" y="2036" font-family="Inter" font-size="21" font-weight="600" fill="#14140f" letter-spacing="-0.3" id="Title 1">People do not identify with one role</text>
+<text x="436" y="2062" font-family="Inter" font-size="21" font-weight="600" fill="#14140f" letter-spacing="-0.3" id="Title 2">— they switch between them by</text>
+<text x="436" y="2088" font-family="Inter" font-size="21" font-weight="600" fill="#14140f" letter-spacing="-0.3" id="Title 3">season</text>
+<text x="436" y="2122" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 1">Every participant who sold produce also did at least one</text>
+<text x="436" y="2143" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 2">other thing on the platform. Asking them to pick an</text>
+<text x="436" y="2164" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 3">identity at sign-up was asking them to describe their</text>
+<text x="436" y="2185" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 4">March self in August.</text>
+<rect x="436" y="2206" width="2" height="84" fill="#a8401c"/>
+<text x="452" y="2222" font-family="Fraunces" font-size="21" font-weight="600" fill="#14140f" font-style="italic" id="Quote 1">“In this season I am selling. After</text>
+<text x="452" y="2248" font-family="Fraunces" font-size="21" font-weight="600" fill="#14140f" font-style="italic" id="Quote 2">harvest I rent the tractor out. It is</text>
+<text x="452" y="2274" font-family="Fraunces" font-size="21" font-weight="600" fill="#14140f" font-style="italic" id="Quote 3">the same me.”</text>
+<text x="436" y="2316" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.2" id="Evidence">9 / 11 PARTICIPANTS HELD TWO OR MORE ROLES</text>
+</g>
+<g id="Insight — Ambiguity reads as risk, and r">
+<rect x="868" y="1996" width="420" height="224" rx="10" fill="#ffffff" stroke="#e4e0d6" stroke-width="1"/>
+<text x="888" y="2036" font-family="Inter" font-size="21" font-weight="600" fill="#14140f" letter-spacing="-0.3" id="Title 1">Ambiguity reads as risk, and risk</text>
+<text x="888" y="2062" font-family="Inter" font-size="21" font-weight="600" fill="#14140f" letter-spacing="-0.3" id="Title 2">ends the session</text>
+<text x="888" y="2096" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 1">When users could not tell whether a screen was showing</text>
+<text x="888" y="2117" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 2">what they could buy or what they were selling, they did</text>
+<text x="888" y="2138" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 3">not experiment to find out. They stopped and phoned</text>
+<text x="888" y="2159" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 4">someone.</text>
+<text x="888" y="2200" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.2" id="Evidence">5 / 6 WALKTHROUGHS ABANDONED THE CONSULTANCY TAB WITHIN 20 SECONDS</text>
+</g>
+<g id="Insight — Trust is built by specifics, n">
+<rect x="416" y="2316" width="420" height="300" rx="10" fill="#ffffff" stroke="#e4e0d6" stroke-width="1"/>
+<text x="436" y="2356" font-family="Inter" font-size="21" font-weight="600" fill="#14140f" letter-spacing="-0.3" id="Title 1">Trust is built by specifics, not by star</text>
+<text x="436" y="2382" font-family="Inter" font-size="21" font-weight="600" fill="#14140f" letter-spacing="-0.3" id="Title 2">ratings</text>
+<text x="436" y="2416" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 1">An advisor listing was judged on named credentials,</text>
+<text x="436" y="2437" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 2">years of experience and reviews attached to a real</text>
+<text x="436" y="2458" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 3">booking. A bare 4.6-star average was dismissed as</text>
+<text x="436" y="2479" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 4">something anyone could buy.</text>
+<rect x="436" y="2500" width="2" height="58" fill="#a8401c"/>
+<text x="452" y="2516" font-family="Fraunces" font-size="21" font-weight="600" fill="#14140f" font-style="italic" id="Quote 1">“Anyone can put five stars. Show</text>
+<text x="452" y="2542" font-family="Fraunces" font-size="21" font-weight="600" fill="#14140f" font-style="italic" id="Quote 2">me who he actually helped.”</text>
+<text x="436" y="2584" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.2" id="Evidence">6 / 6 WALKTHROUGHS ASKED FOR THE ADVISOR’S QUALIFICATION BEFORE PRICE</text>
+</g>
+<g id="Insight — A price without a date is not ">
+<rect x="868" y="2316" width="420" height="198" rx="10" fill="#ffffff" stroke="#e4e0d6" stroke-width="1"/>
+<text x="888" y="2356" font-family="Inter" font-size="21" font-weight="600" fill="#14140f" letter-spacing="-0.3" id="Title 1">A price without a date is not an offer</text>
+<text x="888" y="2390" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 1">Users would not commit to a service or a rental until they</text>
+<text x="888" y="2411" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 2">could see which days it was actually available. Price-first</text>
+<text x="888" y="2432" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 3">cards produced enquiries; date-first cards produced</text>
+<text x="888" y="2453" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Detail 4">bookings.</text>
+<text x="888" y="2494" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.2" id="Evidence">RAISED UNPROMPTED IN 8 / 11 INTERVIEWS</text>
+</g>
+</g>
+</g>
+</svg>

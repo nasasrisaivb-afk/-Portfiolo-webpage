@@ -26,6 +26,7 @@ npm run dev          # http://localhost:4321/-Portfiolo-webpage
 | `npm run test` | Functional tests: contact form, filtering, mobile menu, theme, keyboard |
 | `npm run verify` | build → audit → test |
 | `npm run assets` | Regenerate the resume PDF and the social images |
+| `npm run figma` | Regenerate the Figma import package in `figma-export/` |
 | `npm run og` | Social images only |
 | `npm run resume:pdf` | Resume PDF only |
 
@@ -203,7 +204,11 @@ src/
   layouts/              Base, CaseStudyLayout
   pages/                routes (+ robots.txt and manifest as endpoints)
   lib/url.ts            base-path-safe link helper
+figma-export/           importable Figma package (see its own README)
+  artboards/*.svg       7 screens + foundations + components
+  tokens.json           W3C design tokens for the Variables importer
 scripts/
+  figma/                generates the above from src/data + src/styles
   audit.mjs             accessibility / overflow / link audit
   test-interactions.mjs functional tests
   build-covers.mjs      project artwork

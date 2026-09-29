@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="2560" viewBox="0 0 1680 2560">
+<g id="01 — Foundations">
+<rect x="0" y="0" width="1680" height="2560" fill="#f7f5f0" id="Background"/>
+<g id="Cover">
+<g id="Eyebrow — Design system">
+<line x1="80" y1="92" x2="112" y2="92" stroke="#a8401c" stroke-width="1"/>
+<text x="128" y="96" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Label">DESIGN SYSTEM</text>
+</g>
+<text x="80" y="168" font-family="Fraunces" font-size="56" font-weight="600" fill="#14140f" letter-spacing="-1.6" id="Name">Nasa Sri Sai V.B</text>
+<g id="Intro">
+<text x="80" y="210" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 1">Portfolio design system — colour, type, space and radius. Every value here matches</text>
+<text x="80" y="237.2" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 2">src/styles/tokens.css in the repository, so the design file and the built site cannot drift.</text>
+</g>
+<line x1="80" y1="290" x2="1600" y2="290" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+<g id="Colour">
+<text x="80" y="356" font-family="Fraunces" font-size="34" font-weight="600" fill="#14140f" letter-spacing="-1" id="Title">Colour</text>
+<g id="Note">
+<text x="80" y="384" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="line 1">Two modes over one semantic layer. The ratio beside each text token is its measured contrast</text>
+<text x="80" y="405.7" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="line 2">against its own canvas.</text>
+</g>
+<text x="80" y="452" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Col token">TOKEN</text>
+<text x="480" y="452" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Col light">LIGHT</text>
+<text x="700" y="452" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Col dark">DARK</text>
+<text x="920" y="452" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Col role">ROLE</text>
+<line x1="80" y1="466" x2="1600" y2="466" stroke="#e4e0d6" stroke-width="1"/>
+<g id="Token — color/canvas">
+<text x="80" y="508" font-family="Inter" font-size="14" font-weight="500" fill="#14140f" id="Name">color/canvas</text>
+<rect x="480" y="486" width="40" height="34" rx="6" fill="#f7f5f0" stroke="#d9d4c8" stroke-width="1"/>
+<text x="532" y="508" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Light hex">#F7F5F0</text>
+<rect x="700" y="486" width="40" height="34" rx="6" fill="#12110e" stroke="#d9d4c8" stroke-width="1"/>
+<text x="752" y="508" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Dark hex">#12110E</text>
+<text x="920" y="508" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Role">60% — page canvas</text>
+<line x1="80" y1="528" x2="1600" y2="528" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+<g id="Token — color/canvas-contrast">
+<text x="80" y="560" font-family="Inter" font-size="14" font-weight="500" fill="#14140f" id="Name">color/canvas-contrast</text>
+<rect x="480" y="538" width="40" height="34" rx="6" fill="#efebe3" stroke="#d9d4c8" stroke-width="1"/>
+<text x="532" y="560" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Light hex">#EFEBE3</text>
+<rect x="700" y="538" width="40" height="34" rx="6" fill="#1a1915" stroke="#d9d4c8" stroke-width="1"/>
+<text x="752" y="560" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Dark hex">#1A1915</text>
+<text x="920" y="560" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Role">Alternating section band</text>
+<line x1="80" y1="580" x2="1600" y2="580" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+<g id="Token — color/surface">
+<text x="80" y="612" font-family="Inter" font-size="14" font-weight="500" fill="#14140f" id="Name">color/surface</text>
+<rect x="480" y="590" width="40" height="34" rx="6" fill="#ffffff" stroke="#d9d4c8" stroke-width="1"/>
+<text x="532" y="612" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Light hex">#FFFFFF</text>
+<rect x="700" y="590" width="40" height="34" rx="6" fill="#1a1915" stroke="#d9d4c8" stroke-width="1"/>
+<text x="752" y="612" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Dark hex">#1A1915</text>
+<text x="920" y="612" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Role">30% — cards, inputs</text>
+<line x1="80" y1="632" x2="1600" y2="632" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+<g id="Token — color/surface-inverse">
+<text x="80" y="664" font-family="Inter" font-size="14" font-weight="500" fill="#14140f" id="Name">color/surface-inverse</text>
+<rect x="480" y="642" width="40" height="34" rx="6" fill="#14140f" stroke="#d9d4c8" stroke-width="1"/>
+<text x="532" y="664" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Light hex">#14140F</text>
+<rect x="700" y="642" width="40" height="34" rx="6" fill="#f4f1ea" stroke="#d9d4c8" stroke-width="1"/>
+<text x="752" y="664" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Dark hex">#F4F1EA</text>
+<text x="920" y="664" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Role">Inverted panels</text>
+<line x1="80" y1="684" x2="1600" y2="684" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+<g id="Token — color/hairline">
+<text x="80" y="716" font-family="Inter" font-size="14" font-weight="500" fill="#14140f" id="Name">color/hairline</text>
+<rect x="480" y="694" width="40" height="34" rx="6" fill="#e4e0d6" stroke="#d9d4c8" stroke-width="1"/>
+<text x="532" y="716" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Light hex">#E4E0D6</text>
+<rect x="700" y="694" width="40" height="34" rx="6" fill="#272620" stroke="#d9d4c8" stroke-width="1"/>
+<text x="752" y="716" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Dark hex">#272620</text>
+<text x="920" y="716" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Role">Dividers</text>
+<line x1="80" y1="736" x2="1600" y2="736" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+<g id="Token — color/border">
+<text x="80" y="768" font-family="Inter" font-size="14" font-weight="500" fill="#14140f" id="Name">color/border</text>
+<rect x="480" y="746" width="40" height="34" rx="6" fill="#d9d4c8" stroke="#d9d4c8" stroke-width="1"/>
+<text x="532" y="768" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Light hex">#D9D4C8</text>
+<rect x="700" y="746" width="40" height="34" rx="6" fill="#34322b" stroke="#d9d4c8" stroke-width="1"/>
+<text x="752" y="768" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Dark hex">#34322B</text>
+<text x="920" y="768" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Role">Decorative borders</text>
+<line x1="80" y1="788" x2="1600" y2="788" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+<g id="Token — color/border-strong">
+<text x="80" y="820" font-family="Inter" font-size="14" font-weight="500" fill="#14140f" id="Name">color/border-strong</text>
+<rect x="480" y="798" width="40" height="34" rx="6" fill="#7e7a6e" stroke="#d9d4c8" stroke-width="1"/>
+<text x="532" y="820" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Light hex">#7E7A6E</text>
+<rect x="700" y="798" width="40" height="34" rx="6" fill="#7a756b" stroke="#d9d4c8" stroke-width="1"/>
+<text x="752" y="820" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Dark hex">#7A756B</text>
+<text x="920" y="820" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Role">Control borders — 3:1</text>
+<line x1="80" y1="840" x2="1600" y2="840" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+<g id="Token — color/ink">
+<text x="80" y="872" font-family="Inter" font-size="14" font-weight="500" fill="#14140f" id="Name">color/ink</text>
+<rect x="480" y="850" width="40" height="34" rx="6" fill="#14140f" stroke="#d9d4c8" stroke-width="1"/>
+<text x="532" y="872" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Light hex">#14140F</text>
+<rect x="700" y="850" width="40" height="34" rx="6" fill="#f4f1ea" stroke="#d9d4c8" stroke-width="1"/>
+<text x="752" y="872" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Dark hex">#F4F1EA</text>
+<text x="920" y="872" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Role">Body text — 16.96:1</text>
+<line x1="80" y1="892" x2="1600" y2="892" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+<g id="Token — color/ink-muted">
+<text x="80" y="924" font-family="Inter" font-size="14" font-weight="500" fill="#14140f" id="Name">color/ink-muted</text>
+<rect x="480" y="902" width="40" height="34" rx="6" fill="#56544c" stroke="#d9d4c8" stroke-width="1"/>
+<text x="532" y="924" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Light hex">#56544C</text>
+<rect x="700" y="902" width="40" height="34" rx="6" fill="#b0aba0" stroke="#d9d4c8" stroke-width="1"/>
+<text x="752" y="924" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Dark hex">#B0ABA0</text>
+<text x="920" y="924" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Role">Secondary text — 6.96:1</text>
+<line x1="80" y1="944" x2="1600" y2="944" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+<g id="Token — color/ink-subtle">
+<text x="80" y="976" font-family="Inter" font-size="14" font-weight="500" fill="#14140f" id="Name">color/ink-subtle</text>
+<rect x="480" y="954" width="40" height="34" rx="6" fill="#6f6b60" stroke="#d9d4c8" stroke-width="1"/>
+<text x="532" y="976" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Light hex">#6F6B60</text>
+<rect x="700" y="954" width="40" height="34" rx="6" fill="#948f85" stroke="#d9d4c8" stroke-width="1"/>
+<text x="752" y="976" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Dark hex">#948F85</text>
+<text x="920" y="976" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Role">Tertiary text — 4.88:1</text>
+<line x1="80" y1="996" x2="1600" y2="996" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+<g id="Token — color/accent">
+<text x="80" y="1028" font-family="Inter" font-size="14" font-weight="500" fill="#14140f" id="Name">color/accent</text>
+<rect x="480" y="1006" width="40" height="34" rx="6" fill="#a8401c" stroke="#d9d4c8" stroke-width="1"/>
+<text x="532" y="1028" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Light hex">#A8401C</text>
+<rect x="700" y="1006" width="40" height="34" rx="6" fill="#f0875c" stroke="#d9d4c8" stroke-width="1"/>
+<text x="752" y="1028" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Dark hex">#F0875C</text>
+<text x="920" y="1028" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Role">10% — the rationed accent</text>
+<line x1="80" y1="1048" x2="1600" y2="1048" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+<g id="Token — color/accent-strong">
+<text x="80" y="1080" font-family="Inter" font-size="14" font-weight="500" fill="#14140f" id="Name">color/accent-strong</text>
+<rect x="480" y="1058" width="40" height="34" rx="6" fill="#9c3a17" stroke="#d9d4c8" stroke-width="1"/>
+<text x="532" y="1080" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Light hex">#9C3A17</text>
+<rect x="700" y="1058" width="40" height="34" rx="6" fill="#ff9b6a" stroke="#d9d4c8" stroke-width="1"/>
+<text x="752" y="1080" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Dark hex">#FF9B6A</text>
+<text x="920" y="1080" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Role">Accent hover</text>
+<line x1="80" y1="1100" x2="1600" y2="1100" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+<g id="Token — color/success">
+<text x="80" y="1132" font-family="Inter" font-size="14" font-weight="500" fill="#14140f" id="Name">color/success</text>
+<rect x="480" y="1110" width="40" height="34" rx="6" fill="#186b42" stroke="#d9d4c8" stroke-width="1"/>
+<text x="532" y="1132" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Light hex">#186B42</text>
+<rect x="700" y="1110" width="40" height="34" rx="6" fill="#6bdca6" stroke="#d9d4c8" stroke-width="1"/>
+<text x="752" y="1132" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Dark hex">#6BDCA6</text>
+<text x="920" y="1132" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Role">Positive state</text>
+<line x1="80" y1="1152" x2="1600" y2="1152" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+<g id="Token — color/danger">
+<text x="80" y="1184" font-family="Inter" font-size="14" font-weight="500" fill="#14140f" id="Name">color/danger</text>
+<rect x="480" y="1162" width="40" height="34" rx="6" fill="#b3261e" stroke="#d9d4c8" stroke-width="1"/>
+<text x="532" y="1184" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Light hex">#B3261E</text>
+<rect x="700" y="1162" width="40" height="34" rx="6" fill="#f98a80" stroke="#d9d4c8" stroke-width="1"/>
+<text x="752" y="1184" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Dark hex">#F98A80</text>
+<text x="920" y="1184" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Role">Error state</text>
+<line x1="80" y1="1204" x2="1600" y2="1204" stroke="#e4e0d6" stroke-width="1"/>
+</g>
+</g>
+<g id="Typography">
+<text x="80" y="1270" font-family="Fraunces" font-size="34" font-weight="600" fill="#14140f" letter-spacing="-1" id="Title">Typography</text>
+<g id="Note">
+<text x="80" y="1298" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="line 1">Fraunces for display, Inter for interface. On the site these are fluid clamps; the sizes here are the</text>
+<text x="80" y="1319.7" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="line 2">desktop end of each range.</text>
+</g>
+<g id="Type — Display/XL">
+<text x="80" y="1370" font-family="Inter" font-size="12" font-weight="600" fill="#a8401c" letter-spacing="1.2" id="Style name">Display/XL</text>
+<text x="280" y="1370" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Spec">Fraunces 600 · 72px</text>
+<text x="80" y="1450.24" font-family="Fraunces" font-size="72" font-weight="600" fill="#14140f" letter-spacing="-2.16" id="Specimen">Designing digital products</text>
+</g>
+<g id="Type — Display/L">
+<text x="80" y="1507.2" font-family="Inter" font-size="12" font-weight="600" fill="#a8401c" letter-spacing="1.2" id="Style name">Display/L</text>
+<text x="280" y="1507.2" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Spec">Fraunces 600 · 56px</text>
+<text x="80" y="1572.72" font-family="Fraunces" font-size="56" font-weight="600" fill="#14140f" letter-spacing="-1.68" id="Specimen">Products where the hard part was the thinking</text>
+</g>
+<g id="Type — Heading/H2">
+<text x="80" y="1626.8" font-family="Inter" font-size="12" font-weight="600" fill="#a8401c" letter-spacing="1.2" id="Style name">Heading/H2</text>
+<text x="280" y="1626.8" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Spec">Fraunces 600 · 48px</text>
+<text x="80" y="1684.96" font-family="Fraunces" font-size="48" font-weight="600" fill="#14140f" letter-spacing="-1.44" id="Specimen">Tell me what you are trying to build</text>
+</g>
+<g id="Type — Heading/H3">
+<text x="80" y="1737.6" font-family="Inter" font-size="12" font-weight="600" fill="#a8401c" letter-spacing="1.2" id="Style name">Heading/H3</text>
+<text x="280" y="1737.6" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Spec">Inter 600 · 34px</text>
+<text x="80" y="1782.88" font-family="Inter" font-size="34" font-weight="600" fill="#14140f" id="Specimen">Information architecture</text>
+</g>
+<g id="Type — Heading/H4">
+<text x="80" y="1833" font-family="Inter" font-size="12" font-weight="600" fill="#a8401c" letter-spacing="1.2" id="Style name">Heading/H4</text>
+<text x="280" y="1833" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Spec">Inter 600 · 26px</text>
+<text x="80" y="1870.92" font-family="Inter" font-size="26" font-weight="600" fill="#14140f" id="Specimen">What comes out of this stage</text>
+</g>
+<g id="Type — Body/Lead">
+<text x="80" y="1919.6" font-family="Inter" font-size="12" font-weight="600" fill="#a8401c" letter-spacing="1.2" id="Style name">Body/Lead</text>
+<text x="280" y="1919.6" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Spec">Inter 400 · 21px</text>
+<text x="80" y="1952.92" font-family="Inter" font-size="21" font-weight="400" fill="#14140f" id="Specimen">I design digital products that turn complex problems into simple, useful experiences.</text>
+</g>
+<g id="Type — Body/Base">
+<text x="80" y="2000.7" font-family="Inter" font-size="12" font-weight="600" fill="#a8401c" letter-spacing="1.2" id="Style name">Body/Base</text>
+<text x="280" y="2000.7" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Spec">Inter 400 · 17px</text>
+<text x="80" y="2030.34" font-family="Inter" font-size="17" font-weight="400" fill="#14140f" id="Specimen">Loading, empty, error and not-found states are designed alongside the populated view.</text>
+</g>
+<g id="Type — Body/Small">
+<text x="80" y="2077.4" font-family="Inter" font-size="12" font-weight="600" fill="#a8401c" letter-spacing="1.2" id="Style name">Body/Small</text>
+<text x="280" y="2077.4" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Spec">Inter 400 · 14px</text>
+<text x="80" y="2104.28" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="Specimen">Evidence: 7 of 9 participants misread the reference range on first encounter.</text>
+</g>
+<g id="Type — Label/Micro">
+<text x="80" y="2150.8" font-family="Inter" font-size="12" font-weight="600" fill="#a8401c" letter-spacing="1.2" id="Style name">Label/Micro</text>
+<text x="280" y="2150.8" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Spec">Inter 600 · 12px</text>
+<text x="80" y="2175.84" font-family="Inter" font-size="12" font-weight="600" fill="#14140f" id="Specimen">SELECTED WORK</text>
+</g>
+<g id="Spacing &amp; radius">
+<text x="80" y="2242" font-family="Inter" font-size="21" font-weight="600" fill="#14140f" id="Spacing title">Spacing — 8px grid</text>
+<rect x="80" y="2266" width="4" height="40" rx="2" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="80" y="2324" font-family="Inter" font-size="11" font-weight="500" fill="#6f6b60" id="spacing/1">4</text>
+<rect x="102" y="2266" width="8" height="40" rx="2" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="102" y="2324" font-family="Inter" font-size="11" font-weight="500" fill="#6f6b60" id="spacing/2">8</text>
+<rect x="128" y="2266" width="12" height="40" rx="2" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="128" y="2324" font-family="Inter" font-size="11" font-weight="500" fill="#6f6b60" id="spacing/3">12</text>
+<rect x="158" y="2266" width="16" height="40" rx="2" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="158" y="2324" font-family="Inter" font-size="11" font-weight="500" fill="#6f6b60" id="spacing/4">16</text>
+<rect x="192" y="2266" width="24" height="40" rx="2" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="192" y="2324" font-family="Inter" font-size="11" font-weight="500" fill="#6f6b60" id="spacing/5">24</text>
+<rect x="234" y="2266" width="32" height="40" rx="2" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="234" y="2324" font-family="Inter" font-size="11" font-weight="500" fill="#6f6b60" id="spacing/6">32</text>
+<rect x="284" y="2266" width="40" height="40" rx="2" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="284" y="2324" font-family="Inter" font-size="11" font-weight="500" fill="#6f6b60" id="spacing/7">40</text>
+<rect x="342" y="2266" width="48" height="40" rx="2" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="342" y="2324" font-family="Inter" font-size="11" font-weight="500" fill="#6f6b60" id="spacing/8">48</text>
+<rect x="408" y="2266" width="64" height="40" rx="2" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="408" y="2324" font-family="Inter" font-size="11" font-weight="500" fill="#6f6b60" id="spacing/9">64</text>
+<rect x="490" y="2266" width="80" height="40" rx="2" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="490" y="2324" font-family="Inter" font-size="11" font-weight="500" fill="#6f6b60" id="spacing/10">80</text>
+<rect x="588" y="2266" width="96" height="40" rx="2" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="588" y="2324" font-family="Inter" font-size="11" font-weight="500" fill="#6f6b60" id="spacing/11">96</text>
+<rect x="702" y="2266" width="128" height="40" rx="2" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="702" y="2324" font-family="Inter" font-size="11" font-weight="500" fill="#6f6b60" id="spacing/12">128</text>
+<text x="80" y="2382" font-family="Inter" font-size="21" font-weight="600" fill="#14140f" id="Radius title">Radius</text>
+<rect x="80" y="2406" width="84" height="64" rx="3" fill="#ffffff" stroke="#d9d4c8" stroke-width="1"/>
+<text x="122" y="2490" font-family="Inter" font-size="12" font-weight="500" fill="#6f6b60" text-anchor="middle" id="radius/xs">xs</text>
+<rect x="184" y="2406" width="84" height="64" rx="6" fill="#ffffff" stroke="#d9d4c8" stroke-width="1"/>
+<text x="226" y="2490" font-family="Inter" font-size="12" font-weight="500" fill="#6f6b60" text-anchor="middle" id="radius/sm">sm</text>
+<rect x="288" y="2406" width="84" height="64" rx="10" fill="#ffffff" stroke="#d9d4c8" stroke-width="1"/>
+<text x="330" y="2490" font-family="Inter" font-size="12" font-weight="500" fill="#6f6b60" text-anchor="middle" id="radius/md">md</text>
+<rect x="392" y="2406" width="84" height="64" rx="16" fill="#ffffff" stroke="#d9d4c8" stroke-width="1"/>
+<text x="434" y="2490" font-family="Inter" font-size="12" font-weight="500" fill="#6f6b60" text-anchor="middle" id="radius/lg">lg</text>
+<rect x="496" y="2406" width="84" height="64" rx="24" fill="#ffffff" stroke="#d9d4c8" stroke-width="1"/>
+<text x="538" y="2490" font-family="Inter" font-size="12" font-weight="500" fill="#6f6b60" text-anchor="middle" id="radius/xl">xl</text>
+<rect x="600" y="2406" width="84" height="64" rx="32" fill="#ffffff" stroke="#d9d4c8" stroke-width="1"/>
+<text x="642" y="2490" font-family="Inter" font-size="12" font-weight="500" fill="#6f6b60" text-anchor="middle" id="radius/full">full</text>
+</g>
+</g>
+</g>
+</svg>

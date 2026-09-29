@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="2420" viewBox="0 0 390 2420">
+<g id="Home — Mobile 390">
+<rect x="0" y="0" width="390" height="2420" fill="#f7f5f0" id="Background"/>
+<g id="Nav / Mobile">
+<rect x="0" y="0" width="390" height="68" fill="#f7f5f0"/>
+<line x1="0" y1="68" x2="390" y2="68" stroke="#e4e0d6" stroke-width="1"/>
+<rect x="20" y="16" width="36" height="36" rx="6" fill="#14140f"/>
+<text x="38" y="39" font-family="Fraunces" font-size="14" font-weight="700" fill="#f7f5f0" text-anchor="middle" id="Monogram">NS</text>
+<text x="68" y="39" font-family="Inter" font-size="14" font-weight="600" fill="#14140f" id="Name">Nasa Sri Sai V.B</text>
+<g id="Burger">
+<rect x="346" y="27" width="20" height="1.5" rx="0.75" fill="#14140f"/>
+<rect x="346" y="34" width="20" height="1.5" rx="0.75" fill="#14140f"/>
+<rect x="346" y="41" width="20" height="1.5" rx="0.75" fill="#14140f"/>
+</g>
+<circle cx="316" cy="34" r="9" fill="none" stroke="#56544c" stroke-width="1.4" id="Theme toggle"/>
+</g>
+<g id="Hero">
+<g id="Eyebrow">
+<text x="20" y="116" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="line 1">OPEN TO PRODUCT DESIGN ROLES &amp; SELECTED</text>
+<text x="20" y="132.5" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="line 2">FREELANCE WORK</text>
+</g>
+<text x="20" y="173" font-family="Fraunces" font-size="40" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="Title line 1">Designing digital</text>
+<text x="20" y="217" font-family="Fraunces" font-size="40" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="Title line 2">products that turn</text>
+<text x="20" y="261" font-family="Fraunces" font-size="40" font-weight="600" fill="#a8401c" letter-spacing="-1.4" font-style="italic" id="Title line 3">complex problems</text>
+<text x="20" y="305" font-family="Fraunces" font-size="40" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="Title line 4">into simple, useful</text>
+<text x="20" y="349" font-family="Fraunces" font-size="40" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="Title line 5">experiences.</text>
+<g id="Intro">
+<text x="20" y="417" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 1">I’m Nasa Sri Sai V.B — a UX/UI and</text>
+<text x="20" y="444.2" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 2">product designer working end to end:</text>
+<text x="20" y="471.4" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 3">research and strategy, through IA and</text>
+<text x="20" y="498.6" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 4">interface design, into design systems and</text>
+<text x="20" y="525.8" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 5">shipped product.</text>
+</g>
+<rect x="20" y="581" width="350" height="52" rx="26" fill="#14140f"/>
+<text x="195" y="613" font-family="Inter" font-size="17" font-weight="600" fill="#f7f5f0" text-anchor="middle" id="CTA primary">View my work</text>
+<rect x="20" y="645" width="350" height="52" rx="26" fill="none" stroke="#7e7a6e" stroke-width="1"/>
+<text x="195" y="677" font-family="Inter" font-size="17" font-weight="600" fill="#14140f" text-anchor="middle" id="CTA secondary">Let’s connect</text>
+</g>
+<g id="Hero artboard">
+<rect x="20" y="780" width="350" height="300" rx="20" fill="#ffffff" stroke="#e4e0d6" stroke-width="1"/>
+<text x="40" y="810" font-family="Inter" font-size="10" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Caption">WIREFRAME → INTERFACE</text>
+<rect x="40" y="828" width="180" height="12" rx="3" fill="#14140f"/>
+<rect x="40" y="850" width="120" height="9" rx="3" fill="#6f6b60"/>
+<rect x="40" y="876" width="310" height="110" rx="8" fill="#efebe3"/>
+<path d="M60 968 L120 942 L180 952 L240 914 L300 930 L336 906" fill="none" stroke="#a8401c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="40" y="1002" width="140" height="40" rx="20" fill="#a8401c"/>
+<rect x="196" y="1002" width="110" height="40" rx="20" fill="none" stroke="#d9d4c8" stroke-width="1"/>
+</g>
+<g id="Selected work">
+<line x1="20" y1="1100" x2="370" y2="1100" stroke="#e4e0d6" stroke-width="1"/>
+<text x="20" y="1140" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Eyebrow">SELECTED WORK</text>
+<text x="20" y="1184" font-family="Fraunces" font-size="32" font-weight="600" fill="#14140f" letter-spacing="-1" id="Title line 1">Products where the</text>
+<text x="20" y="1218" font-family="Fraunces" font-size="32" font-weight="600" fill="#14140f" letter-spacing="-1" id="Title line 2">hard part was the</text>
+<text x="20" y="1252" font-family="Fraunces" font-size="32" font-weight="600" fill="#14140f" letter-spacing="-1" id="Title line 3">thinking</text>
+<g id="Card — CropVibe">
+<rect x="20" y="1314" width="350" height="400" rx="16" fill="#ffffff" stroke="#e4e0d6" stroke-width="1"/>
+<rect x="36" y="1330" width="318" height="180" rx="10" fill="#4C7A34"/>
+<rect x="60" y="1358" width="170" height="124" rx="8" fill="#faf8f4"/>
+<rect x="76" y="1376" width="90" height="9" rx="3" fill="#1b1b17"/>
+<rect x="76" y="1394" width="120" height="7" rx="3" fill="#c9c4ba"/>
+<rect x="250" y="1384" width="86" height="98" rx="8" fill="#faf8f4"/>
+<text x="36" y="1538" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.2" id="Meta">AGRICULTURE · 2026</text>
+<text x="36" y="1576" font-family="Fraunces" font-size="26" font-weight="600" fill="#14140f" letter-spacing="-0.6" id="Title">CropVibe</text>
+<g id="Tagline">
+<text x="36" y="1606" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="line 1">Five businesses, one account: designing a</text>
+<text x="36" y="1627" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="line 2">multi-sided agricultural marketplace</text>
+</g>
+<g id="Tag — End-to-end product design">
+<rect x="36" y="1666" width="183.6" height="28" rx="14" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="127.8" y="1684" font-family="Inter" font-size="12" font-weight="500" fill="#a8401c" text-anchor="middle" id="Label">End-to-end product design</text>
+</g>
+</g>
+<g id="Card — DEXA">
+<rect x="20" y="1746" width="350" height="400" rx="16" fill="#ffffff" stroke="#e4e0d6" stroke-width="1"/>
+<rect x="36" y="1762" width="318" height="180" rx="10" fill="#2B5F7E"/>
+<rect x="60" y="1790" width="170" height="124" rx="8" fill="#faf8f4"/>
+<rect x="76" y="1808" width="90" height="9" rx="3" fill="#1b1b17"/>
+<rect x="76" y="1826" width="120" height="7" rx="3" fill="#c9c4ba"/>
+<rect x="250" y="1816" width="86" height="98" rx="8" fill="#faf8f4"/>
+<text x="36" y="1970" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.2" id="Meta">LOGISTICS · 2025</text>
+<text x="36" y="2008" font-family="Fraunces" font-size="26" font-weight="600" fill="#14140f" letter-spacing="-0.6" id="Title">DEXA</text>
+<g id="Tagline">
+<text x="36" y="2038" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="line 1">Designing for the dispatcher: a control tower</text>
+<text x="36" y="2059" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="line 2">for delivery operations</text>
+</g>
+<g id="Tag — Operations tooling">
+<rect x="36" y="2098" width="133.47" height="28" rx="14" fill="#f4e5df" stroke="#a8401c" stroke-width="1"/>
+<text x="102.73" y="2116" font-family="Inter" font-size="12" font-weight="500" fill="#a8401c" text-anchor="middle" id="Label">Operations tooling</text>
+</g>
+</g>
+</g>
+<g id="Contact">
+<rect x="0" y="2160" width="390" height="260" fill="#efebe3"/>
+<text x="20" y="2204" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Eyebrow">CONTACT</text>
+<text x="20" y="2246" font-family="Fraunces" font-size="32" font-weight="600" fill="#14140f" letter-spacing="-1" id="Title line 1">Tell me what you are</text>
+<text x="20" y="2280" font-family="Fraunces" font-size="32" font-weight="600" fill="#14140f" letter-spacing="-1" id="Title line 2">trying to build</text>
+<rect x="20" y="2330" width="350" height="52" rx="26" fill="#14140f"/>
+<text x="195" y="2362" font-family="Inter" font-size="17" font-weight="600" fill="#f7f5f0" text-anchor="middle" id="CTA">Start a conversation</text>
+</g>
+</g>
+</svg>

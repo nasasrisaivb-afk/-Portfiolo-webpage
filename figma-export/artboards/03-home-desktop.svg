@@ -1,0 +1,421 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="5160" viewBox="0 0 1440 5160">
+<g id="Home — Desktop 1440">
+<rect x="0" y="0" width="1440" height="5160" fill="#f7f5f0" id="Background"/>
+<g id="Background wash">
+<circle cx="1320" cy="60" r="300" fill="#f6eee9"/>
+</g>
+<g id="Nav / Sticky">
+<rect x="0" y="0" width="1440" height="76" fill="#f7f5f0"/>
+<line x1="0" y1="76" x2="1440" y2="76" stroke="#e4e0d6" stroke-width="1"/>
+<g id="Brand">
+<rect x="64" y="20" width="36" height="36" rx="6" fill="#14140f"/>
+<text x="82" y="43" font-family="Fraunces" font-size="14" font-weight="700" fill="#f7f5f0" text-anchor="middle" id="Monogram">NS</text>
+<text x="112" y="33" font-family="Inter" font-size="14" font-weight="600" fill="#14140f" id="Name">Nasa Sri Sai V.B</text>
+<text x="112" y="50" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Role">UX/UI Designer · Product Designer</text>
+</g>
+<g id="Links">
+<text x="510" y="43" font-family="Inter" font-size="14" font-weight="600" fill="#14140f" id="Home">Home</text>
+<circle cx="529.92" cy="54" r="2.5" fill="#a8401c" id="Active dot"/>
+<text x="585.85" y="43" font-family="Inter" font-size="14" font-weight="500" fill="#56544c" id="Work">Work</text>
+<text x="657.1" y="43" font-family="Inter" font-size="14" font-weight="500" fill="#56544c" id="About">About</text>
+<text x="733.32" y="43" font-family="Inter" font-size="14" font-weight="500" fill="#56544c" id="Process">Process</text>
+<text x="823.29" y="43" font-family="Inter" font-size="14" font-weight="500" fill="#56544c" id="Resume">Resume</text>
+<text x="913.01" y="43" font-family="Inter" font-size="14" font-weight="500" fill="#56544c" id="Contact">Contact</text>
+</g>
+<g id="Button / primary / sm — Let’s talk">
+<rect x="1272" y="18" width="83.65" height="36" rx="18" fill="#14140f"/>
+<text x="1313.82" y="40.2" font-family="Inter" font-size="12" font-weight="600" fill="#f7f5f0" text-anchor="middle" letter-spacing="0.5" id="Label">Let’s talk</text>
+</g>
+</g>
+<g id="Hero">
+<g id="Eyebrow — Open to product design roles &amp; selected freelance work">
+<line x1="96" y1="162" x2="128" y2="162" stroke="#a8401c" stroke-width="1"/>
+<text x="144" y="166" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Label">OPEN TO PRODUCT DESIGN ROLES &amp; SELECTED FREELANCE WORK</text>
+</g>
+<g id="Hero title line 1">
+<text x="96" y="236" font-family="Fraunces" font-size="62" font-weight="600" fill="#14140f" letter-spacing="-2.2" id="Line">Designing digital</text>
+</g>
+<g id="Hero title line 2">
+<text x="96" y="301.72" font-family="Fraunces" font-size="62" font-weight="600" fill="#14140f" letter-spacing="-2.2" id="Line">products that turn</text>
+</g>
+<g id="Hero title line 3">
+<text x="96" y="367.44" font-family="Fraunces" font-size="62" font-weight="600" fill="#a8401c" letter-spacing="-2.2" font-style="italic" id="Accent">complex problems</text>
+<text x="630.52" y="367.44" font-family="Fraunces" font-size="62" font-weight="600" fill="#14140f" letter-spacing="-2.2" id="After">into</text>
+</g>
+<g id="Hero title line 4">
+<text x="96" y="433.16" font-family="Fraunces" font-size="62" font-weight="600" fill="#14140f" letter-spacing="-2.2" id="Line">simple, useful</text>
+</g>
+<g id="Hero title line 5">
+<text x="96" y="498.88" font-family="Fraunces" font-size="62" font-weight="600" fill="#14140f" letter-spacing="-2.2" id="Line">experiences.</text>
+</g>
+<g id="Intro">
+<text x="96" y="588.6" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 1">I’m Nasa Sri Sai V.B — a UX/UI and product designer working</text>
+<text x="96" y="620.1" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 2">end to end: research and strategy, through information</text>
+<text x="96" y="651.6" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 3">architecture and interface design, into design systems and</text>
+<text x="96" y="683.1" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 4">shipped product.</text>
+</g>
+<g id="Button / primary / lg — View my work">
+<rect x="96" y="746.6" width="171.54" height="52" rx="26" fill="#14140f"/>
+<text x="181.77" y="778.55" font-family="Inter" font-size="17" font-weight="600" fill="#f7f5f0" text-anchor="middle" letter-spacing="0.5" id="Label">View my work</text>
+</g>
+<g id="Button / secondary / lg — Let’s connect">
+<rect x="283.54" y="746.6" width="166.21" height="52" rx="26" fill="none" stroke="#7e7a6e" stroke-width="1"/>
+<text x="366.64" y="778.55" font-family="Inter" font-size="17" font-weight="600" fill="#14140f" text-anchor="middle" letter-spacing="0.5" id="Label">Let’s connect</text>
+</g>
+<line x1="96" y1="846.6" x2="656" y2="846.6" stroke="#e4e0d6" stroke-width="1"/>
+<g id="Fact — Case studies">
+<text x="96" y="876.6" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Label">CASE STUDIES</text>
+<text x="96" y="912.6" font-family="Fraunces" font-size="26" font-weight="600" fill="#14140f" id="Value">5</text>
+</g>
+<g id="Fact — Industries">
+<text x="286" y="876.6" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Label">INDUSTRIES</text>
+<text x="286" y="912.6" font-family="Fraunces" font-size="26" font-weight="600" fill="#14140f" id="Value">4</text>
+</g>
+<g id="Fact — Practice">
+<text x="476" y="876.6" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Label">PRACTICE</text>
+<text x="476" y="912.6" font-family="Fraunces" font-size="26" font-weight="600" fill="#14140f" id="Value">End to end</text>
+</g>
+<g id="Hero artboard">
+<rect x="880" y="226" width="440" height="540" rx="24" fill="#ffffff" stroke="#e4e0d6" stroke-width="1"/>
+<text x="908" y="266" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Caption">WIREFRAME → INTERFACE</text>
+<rect x="908" y="290" width="240" height="16" rx="3" fill="#14140f"/>
+<rect x="908" y="316" width="160" height="12" rx="3" fill="#6f6b60"/>
+<rect x="1192" y="288" width="100" height="24" rx="12" fill="#f4e5df"/>
+<rect x="908" y="352" width="384" height="180" rx="10" fill="#efebe3"/>
+<circle cx="950" cy="394" r="12" fill="#a8401c"/>
+<rect x="974" y="386" width="110" height="9" rx="3" fill="#14140f"/>
+<rect x="974" y="404" width="76" height="8" rx="3" fill="#6f6b60"/>
+<path d="M932 508 L992 480 L1052 492 L1112 444 L1172 464 L1232 422 L1272 434" fill="none" stroke="#a8401c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="908" y="552" width="184" height="104" rx="10" fill="#efebe3"/>
+<rect x="1108" y="552" width="184" height="104" rx="10" fill="#efebe3"/>
+<rect x="908" y="682" width="176" height="46" rx="23" fill="#a8401c"/>
+<rect x="1108" y="682" width="140" height="46" rx="23" fill="none" stroke="#d9d4c8" stroke-width="1"/>
+</g>
+</g>
+<g id="Industry strip">
+<rect x="0" y="1032.6" width="1440" height="88" fill="#efebe3"/>
+<line x1="0" y1="1032.6" x2="1440" y2="1032.6" stroke="#e4e0d6" stroke-width="1"/>
+<line x1="0" y1="1120.6" x2="1440" y2="1120.6" stroke="#e4e0d6" stroke-width="1"/>
+<text x="96" y="1082.6" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Label">DOMAIN EXPERIENCE</text>
+<text x="326" y="1084.6" font-family="Fraunces" font-size="21" font-weight="400" fill="#14140f" id="Agriculture">Agriculture</text>
+<circle cx="449.83" cy="1078.6" r="2" fill="#a8401c"/>
+<text x="460.83" y="1084.6" font-family="Fraunces" font-size="21" font-weight="400" fill="#14140f" id="Logistics">Logistics</text>
+<circle cx="559.27" cy="1078.6" r="2" fill="#a8401c"/>
+<text x="570.27" y="1084.6" font-family="Fraunces" font-size="21" font-weight="400" fill="#14140f" id="Healthcare">Healthcare</text>
+<circle cx="690.48" cy="1078.6" r="2" fill="#a8401c"/>
+<text x="701.48" y="1084.6" font-family="Fraunces" font-size="21" font-weight="400" fill="#14140f" id="Branding">Branding</text>
+<circle cx="804.36" cy="1078.6" r="2" fill="#a8401c"/>
+<text x="815.36" y="1084.6" font-family="Fraunces" font-size="21" font-weight="400" fill="#14140f" id="SaaS">SaaS</text>
+<circle cx="873.87" cy="1078.6" r="2" fill="#a8401c"/>
+<text x="884.87" y="1084.6" font-family="Fraunces" font-size="21" font-weight="400" fill="#14140f" id="Fintech">Fintech</text>
+<circle cx="969.76" cy="1078.6" r="2" fill="#a8401c"/>
+<text x="980.76" y="1084.6" font-family="Fraunces" font-size="21" font-weight="400" fill="#14140f" id="E-commerce">E-commerce</text>
+</g>
+<g id="Selected work">
+<g id="Eyebrow — Selected work">
+<line x1="96" y1="1236.6" x2="128" y2="1236.6" stroke="#a8401c" stroke-width="1"/>
+<text x="144" y="1240.6" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Label">SELECTED WORK</text>
+</g>
+<g id="Heading — Products where the hard part w…">
+<text x="96" y="1284.6" font-family="Fraunces" font-size="48" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="line 1">Products where the</text>
+<text x="96" y="1334.52" font-family="Fraunces" font-size="48" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="line 2">hard part was the</text>
+<text x="96" y="1384.44" font-family="Fraunces" font-size="48" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="line 3">thinking</text>
+</g>
+<g id="Lead">
+<text x="796" y="1284.6" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 1">Five projects across agriculture, logistics, healthcare</text>
+<text x="796" y="1316.1" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 2">and brand. Each one is a full case study — research,</text>
+<text x="796" y="1347.6" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 3">the arguments, the decisions, the things I got wrong.</text>
+</g>
+<text x="96" y="1426.44" font-family="Inter" font-size="12" font-weight="600" fill="#14140f" letter-spacing="1.4" id="Link">SEE ALL CASE STUDIES</text>
+<line x1="286" y1="1422.44" x2="322" y2="1422.44" stroke="#14140f" stroke-width="1"/>
+<g id="Project 1 — CropVibe">
+<rect x="96" y="1492.44" width="548" height="374" rx="16" fill="#4C7A34"/>
+<rect x="140" y="1536.44" width="300" height="250" rx="10" fill="#faf8f4"/>
+<rect x="168" y="1568.44" width="140" height="12" rx="3" fill="#1b1b17"/>
+<rect x="168" y="1592.44" width="200" height="9" rx="3" fill="#c9c4ba"/>
+<rect x="168" y="1620.44" width="244" height="56" rx="8" fill="#efece4"/>
+<rect x="168" y="1692.44" width="110" height="30" rx="15" fill="#4C7A34"/>
+<rect x="396" y="1622.44" width="200" height="180" rx="10" fill="#faf8f4"/>
+<text x="796" y="1514.44" font-family="Inter" font-size="12" font-weight="600" fill="#a8401c" letter-spacing="1.4" id="Index">01 — AGRICULTURE</text>
+<text x="796" y="1566.44" font-family="Fraunces" font-size="48" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="Title">CropVibe</text>
+<g id="Tagline">
+<text x="796" y="1608.44" font-family="Inter" font-size="21" font-weight="400" fill="#14140f" id="line 1">Five businesses, one account: designing a multi-sided</text>
+<text x="796" y="1634.69" font-family="Inter" font-size="21" font-weight="400" fill="#14140f" id="line 2">agricultural marketplace</text>
+</g>
+<g id="Description">
+<text x="796" y="1676.94" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 1">A digital ecosystem where farmers sell produce, buy in bulk,</text>
+<text x="796" y="1704.14" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 2">rent equipment, sell advisory services and teach courses —</text>
+<text x="796" y="1731.34" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 3">from a single account. I designed the role model, the information</text>
+<text x="796" y="1758.54" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 4">architecture and the booking experience that holds it together.</text>
+</g>
+<line x1="796" y1="1807.74" x2="1336" y2="1807.74" stroke="#e4e0d6" stroke-width="1"/>
+<text x="796" y="1835.74" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Role label">ROLE</text>
+<g id="Role value">
+<text x="796" y="1857.74" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Lead product designer</text>
+</g>
+<text x="978" y="1835.74" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Type label">TYPE</text>
+<g id="Type value">
+<text x="978" y="1857.74" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">End-to-end product</text>
+<text x="978" y="1876.64" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 2">design</text>
+</g>
+<text x="1160" y="1835.74" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Timeline label">TIMELINE</text>
+<g id="Timeline value">
+<text x="1160" y="1857.74" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Phase 1 — 14 weeks,</text>
+<text x="1160" y="1876.64" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 2">ongoing</text>
+</g>
+<line x1="796" y1="1903.74" x2="1336" y2="1903.74" stroke="#e4e0d6" stroke-width="1"/>
+<g id="Key contribution">
+<rect x="796" y="1927.74" width="540" height="103" rx="10" fill="#ffffff"/>
+<rect x="796" y="1927.74" width="3" height="103" fill="#a8401c"/>
+<text x="818" y="1951.74" font-family="Inter" font-size="11" font-weight="600" fill="#a8401c" letter-spacing="1.3" id="Label">KEY CONTRIBUTION</text>
+<text x="818" y="1973.74" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Replaced five separate &quot;apps in waiting&quot; with one role-switching</text>
+<text x="818" y="1994.74" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 2">account, and turned an un-bookable service catalogue into a three-step</text>
+<text x="818" y="2015.74" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 3">booking flow that writes straight into orders.</text>
+</g>
+</g>
+<g id="Project 2 — DEXA">
+<rect x="796" y="2126.74" width="548" height="374" rx="16" fill="#2B5F7E"/>
+<rect x="840" y="2170.74" width="300" height="250" rx="10" fill="#faf8f4"/>
+<rect x="868" y="2202.74" width="140" height="12" rx="3" fill="#1b1b17"/>
+<rect x="868" y="2226.74" width="200" height="9" rx="3" fill="#c9c4ba"/>
+<rect x="868" y="2254.74" width="244" height="56" rx="8" fill="#efece4"/>
+<rect x="868" y="2326.74" width="110" height="30" rx="15" fill="#2B5F7E"/>
+<rect x="1096" y="2256.74" width="200" height="180" rx="10" fill="#faf8f4"/>
+<text x="96" y="2148.74" font-family="Inter" font-size="12" font-weight="600" fill="#a8401c" letter-spacing="1.4" id="Index">02 — LOGISTICS</text>
+<text x="96" y="2200.74" font-family="Fraunces" font-size="48" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="Title">DEXA</text>
+<g id="Tagline">
+<text x="96" y="2242.74" font-family="Inter" font-size="21" font-weight="400" fill="#14140f" id="line 1">Designing for the dispatcher: a control tower for</text>
+<text x="96" y="2268.99" font-family="Inter" font-size="21" font-weight="400" fill="#14140f" id="line 2">delivery operations</text>
+</g>
+<g id="Description">
+<text x="96" y="2311.24" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 1">Logistics teams were running live operations out of</text>
+<text x="96" y="2338.44" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 2">spreadsheets, phone calls and three chat groups. I designed a</text>
+<text x="96" y="2365.64" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 3">single operations view that shows what is late, why, and what to</text>
+<text x="96" y="2392.84" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 4">do about it — built around the way dispatchers actually make</text>
+<text x="96" y="2420.04" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 5">decisions under time pressure.</text>
+</g>
+<line x1="96" y1="2469.24" x2="636" y2="2469.24" stroke="#e4e0d6" stroke-width="1"/>
+<text x="96" y="2497.24" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Role label">ROLE</text>
+<g id="Role value">
+<text x="96" y="2519.24" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Product designer</text>
+</g>
+<text x="278" y="2497.24" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Type label">TYPE</text>
+<g id="Type value">
+<text x="278" y="2519.24" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Operations tooling</text>
+</g>
+<text x="460" y="2497.24" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Timeline label">TIMELINE</text>
+<g id="Timeline value">
+<text x="460" y="2519.24" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">11 weeks</text>
+</g>
+<line x1="96" y1="2565.24" x2="636" y2="2565.24" stroke="#e4e0d6" stroke-width="1"/>
+<g id="Key contribution">
+<rect x="96" y="2589.24" width="540" height="103" rx="10" fill="#ffffff"/>
+<rect x="96" y="2589.24" width="3" height="103" fill="#a8401c"/>
+<text x="118" y="2613.24" font-family="Inter" font-size="11" font-weight="600" fill="#a8401c" letter-spacing="1.3" id="Label">KEY CONTRIBUTION</text>
+<text x="118" y="2635.24" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Turned a reactive job-list into an exception-first operations view, so</text>
+<text x="118" y="2656.24" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 2">dispatchers stop reading every row and start acting on the ten that</text>
+<text x="118" y="2677.24" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 3">matter.</text>
+</g>
+</g>
+</g>
+<g id="About">
+<rect x="0" y="2828.24" width="1440" height="600" fill="#efebe3"/>
+<g id="Eyebrow — About">
+<line x1="96" y1="2920.24" x2="128" y2="2920.24" stroke="#a8401c" stroke-width="1"/>
+<text x="144" y="2924.24" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Label">ABOUT</text>
+</g>
+<g id="Heading — I design the parts of a produc…">
+<text x="96" y="2968.24" font-family="Fraunces" font-size="44" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="line 1">I design the parts of a</text>
+<text x="96" y="3014" font-family="Fraunces" font-size="44" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="line 2">product people have to</text>
+<text x="96" y="3059.76" font-family="Fraunces" font-size="44" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="line 3">think hardest about</text>
+</g>
+<g id="Lead">
+<text x="796" y="2968.24" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 1">Marketplaces, operations tooling, diagnostics and</text>
+<text x="796" y="2999.74" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 2">care coordination — where the hard part is how</text>
+<text x="796" y="3031.24" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 3">much complexity you can take away.</text>
+</g>
+<g id="Body">
+<text x="96" y="3117.76" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 1">I work end to end. I am in the room when the problem is still being argued</text>
+<text x="96" y="3145.81" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 2">about, and still there when the build hits the states nobody drew. My</text>
+<text x="96" y="3173.86" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 3">design philosophy is short: decide what the person is trying to finish, and</text>
+<text x="96" y="3201.91" font-family="Inter" font-size="17" font-weight="400" fill="#56544c" id="line 4">remove everything in the way of them finishing it.</text>
+</g>
+<g id="At a glance">
+<rect x="796" y="3087.76" width="548" height="300" rx="16" fill="#ffffff" stroke="#e4e0d6" stroke-width="1"/>
+<text x="824" y="3131.76" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Based in label">BASED IN</text>
+<g id="Based in value">
+<text x="824" y="3153.76" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">India · Working with teams worldwide</text>
+</g>
+<text x="824" y="3192.76" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Working across label">WORKING ACROSS</text>
+<g id="Working across value">
+<text x="824" y="3214.76" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Agriculture · Logistics · Healthcare · Branding</text>
+</g>
+<text x="824" y="3253.76" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Tools label">TOOLS</text>
+<g id="Tools value">
+<text x="824" y="3275.76" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Figma · Adobe CC · HTML &amp; CSS · Design tokens</text>
+</g>
+<text x="824" y="3314.76" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Currently label">CURRENTLY</text>
+<g id="Currently value">
+<text x="824" y="3336.76" font-family="Inter" font-size="14" font-weight="400" fill="#14140f" id="line 1">Open to product design roles &amp; selected freelance work</text>
+</g>
+</g>
+</g>
+<g id="Process">
+<g id="Eyebrow — Design process">
+<line x1="96" y1="3524.24" x2="128" y2="3524.24" stroke="#a8401c" stroke-width="1"/>
+<text x="144" y="3528.24" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Label">DESIGN PROCESS</text>
+</g>
+<g id="Heading — Discover → Define → Explore → …">
+<text x="96" y="3572.24" font-family="Fraunces" font-size="42" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="line 1">Discover → Define → Explore</text>
+<text x="96" y="3615.92" font-family="Fraunces" font-size="42" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="line 2">→ Design → Validate →</text>
+<text x="96" y="3659.6" font-family="Fraunces" font-size="42" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="line 3">Deliver</text>
+</g>
+<g id="Lead">
+<text x="856" y="3572.24" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 1">Six stages, but the useful part is what leaves</text>
+<text x="856" y="3603.74" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 2">each one and how user feedback changes the</text>
+<text x="856" y="3635.24" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 3">next decision.</text>
+</g>
+<g id="Stage 01 — Discover">
+<circle cx="118" cy="3729.6" r="22" fill="#f7f5f0" stroke="#d9d4c8" stroke-width="1"/>
+<text x="118" y="3735.6" font-family="Inter" font-size="14" font-weight="600" fill="#a8401c" text-anchor="middle" id="Number">01</text>
+<line x1="118" y1="3755.6" x2="118" y2="3897.6" stroke="#e4e0d6" stroke-width="1"/>
+<text x="176" y="3737.6" font-family="Fraunces" font-size="34" font-weight="600" fill="#14140f" letter-spacing="-1" id="Name">Discover</text>
+<g id="Promise">
+<text x="176" y="3773.6" font-family="Inter" font-size="21" font-weight="400" fill="#14140f" id="line 1">Find out what is actually wrong, before anyone decides what</text>
+<text x="176" y="3799.85" font-family="Inter" font-size="21" font-weight="400" fill="#14140f" id="line 2">to build.</text>
+</g>
+<line x1="176" y1="3840.1" x2="1336" y2="3840.1" stroke="#e4e0d6" stroke-width="1"/>
+<text x="176" y="3864.1" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Col 1">WHAT I DO</text>
+<text x="836" y="3864.1" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Col 2">WHAT COMES OUT</text>
+<circle cx="180" cy="3886.1" r="2.5" fill="#a8401c"/>
+<text x="194" y="3890.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Activity 1">Audit the existing product route by route, recording the exact…</text>
+<circle cx="180" cy="3912.1" r="2.5" fill="#a8401c"/>
+<text x="194" y="3916.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Activity 2">Interview people on every side of the transaction, not just th…</text>
+<circle cx="180" cy="3938.1" r="2.5" fill="#a8401c"/>
+<text x="194" y="3942.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Activity 3">Collect the workarounds — spreadsheets, paper lists, chat grou…</text>
+<circle cx="840" cy="3886.1" r="2.5" fill="#a8401c"/>
+<text x="854" y="3890.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Output 1">Findings with evidence attached</text>
+<circle cx="840" cy="3912.1" r="2.5" fill="#a8401c"/>
+<text x="854" y="3916.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Output 2">A defect list that is already actionable</text>
+<circle cx="840" cy="3938.1" r="2.5" fill="#a8401c"/>
+<text x="854" y="3942.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Output 3">Personas and scenarios built from what people said</text>
+</g>
+<g id="Stage 02 — Define">
+<circle cx="118" cy="3929.6" r="22" fill="#f7f5f0" stroke="#d9d4c8" stroke-width="1"/>
+<text x="118" y="3935.6" font-family="Inter" font-size="14" font-weight="600" fill="#a8401c" text-anchor="middle" id="Number">02</text>
+<line x1="118" y1="3955.6" x2="118" y2="4097.6" stroke="#e4e0d6" stroke-width="1"/>
+<text x="176" y="3937.6" font-family="Fraunces" font-size="34" font-weight="600" fill="#14140f" letter-spacing="-1" id="Name">Define</text>
+<g id="Promise">
+<text x="176" y="3973.6" font-family="Inter" font-size="21" font-weight="400" fill="#14140f" id="line 1">Turn findings into one problem statement a team can agree to,</text>
+<text x="176" y="3999.85" font-family="Inter" font-size="21" font-weight="400" fill="#14140f" id="line 2">and metrics we agree to before the work starts.</text>
+</g>
+<line x1="176" y1="4040.1" x2="1336" y2="4040.1" stroke="#e4e0d6" stroke-width="1"/>
+<text x="176" y="4064.1" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Col 1">WHAT I DO</text>
+<text x="836" y="4064.1" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Col 2">WHAT COMES OUT</text>
+<circle cx="180" cy="4086.1" r="2.5" fill="#a8401c"/>
+<text x="194" y="4090.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Activity 1">Write a problem definition specific enough to be wrong</text>
+<circle cx="180" cy="4112.1" r="2.5" fill="#a8401c"/>
+<text x="194" y="4116.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Activity 2">Convert pain points into how-might-we questions</text>
+<circle cx="180" cy="4138.1" r="2.5" fill="#a8401c"/>
+<text x="194" y="4142.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Activity 3">Rank by severity and consequence, not by how interesting they …</text>
+<circle cx="840" cy="4086.1" r="2.5" fill="#a8401c"/>
+<text x="854" y="4090.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Output 1">Problem definition statement</text>
+<circle cx="840" cy="4112.1" r="2.5" fill="#a8401c"/>
+<text x="854" y="4116.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Output 2">Prioritised how-might-we set</text>
+<circle cx="840" cy="4138.1" r="2.5" fill="#a8401c"/>
+<text x="854" y="4142.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Output 3">Success metrics and how they will be instrumented</text>
+</g>
+<g id="Stage 03 — Explore">
+<circle cx="118" cy="4129.6" r="22" fill="#f7f5f0" stroke="#d9d4c8" stroke-width="1"/>
+<text x="118" y="4135.6" font-family="Inter" font-size="14" font-weight="600" fill="#a8401c" text-anchor="middle" id="Number">03</text>
+<text x="176" y="4137.6" font-family="Fraunces" font-size="34" font-weight="600" fill="#14140f" letter-spacing="-1" id="Name">Explore</text>
+<g id="Promise">
+<text x="176" y="4173.6" font-family="Inter" font-size="21" font-weight="400" fill="#14140f" id="line 1">Put up genuinely different options and kill the weak ones fast,</text>
+<text x="176" y="4199.85" font-family="Inter" font-size="21" font-weight="400" fill="#14140f" id="line 2">in public.</text>
+</g>
+<line x1="176" y1="4240.1" x2="1336" y2="4240.1" stroke="#e4e0d6" stroke-width="1"/>
+<text x="176" y="4264.1" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Col 1">WHAT I DO</text>
+<text x="836" y="4264.1" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Col 2">WHAT COMES OUT</text>
+<circle cx="180" cy="4286.1" r="2.5" fill="#a8401c"/>
+<text x="194" y="4290.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Activity 1">Sketch three structurally different approaches, not three vari…</text>
+<circle cx="180" cy="4312.1" r="2.5" fill="#a8401c"/>
+<text x="194" y="4316.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Activity 2">Pressure-test each against the hardest real constraint — peak …</text>
+<circle cx="180" cy="4338.1" r="2.5" fill="#a8401c"/>
+<text x="194" y="4342.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Activity 3">Write the pros and cons down, so the decision has a record</text>
+<circle cx="840" cy="4286.1" r="2.5" fill="#a8401c"/>
+<text x="854" y="4290.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Output 1">Option comparison with a recommendation</text>
+<circle cx="840" cy="4312.1" r="2.5" fill="#a8401c"/>
+<text x="854" y="4316.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Output 2">Low-fidelity flows and wireframes including failure states</text>
+<circle cx="840" cy="4338.1" r="2.5" fill="#a8401c"/>
+<text x="854" y="4342.1" font-family="Inter" font-size="14" font-weight="400" fill="#56544c" id="Output 3">A decision log explaining why the others were rejected</text>
+</g>
+</g>
+<g id="Contact">
+<rect x="0" y="4348.24" width="1440" height="811.76" fill="#efebe3"/>
+<g id="Eyebrow — Contact">
+<line x1="96" y1="4440.24" x2="128" y2="4440.24" stroke="#a8401c" stroke-width="1"/>
+<text x="144" y="4444.24" font-family="Inter" font-size="12" font-weight="600" fill="#6f6b60" letter-spacing="1.4" id="Label">CONTACT</text>
+</g>
+<g id="Heading — Tell me what you are trying to…">
+<text x="96" y="4488.24" font-family="Fraunces" font-size="48" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="line 1">Tell me what you are</text>
+<text x="96" y="4538.16" font-family="Fraunces" font-size="48" font-weight="600" fill="#14140f" letter-spacing="-1.4" id="line 2">trying to build</text>
+</g>
+<g id="Lead">
+<text x="796" y="4488.24" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 1">Hiring, a project, or a second opinion on something</text>
+<text x="796" y="4519.74" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 2">that is not working — all welcome. I reply to</text>
+<text x="796" y="4551.24" font-family="Inter" font-size="21" font-weight="400" fill="#56544c" id="line 3">everything within two working days.</text>
+</g>
+<g id="Form">
+<rect x="96" y="4586.16" width="640" height="460" rx="16" fill="#ffffff" stroke="#e4e0d6" stroke-width="1"/>
+<g id="Field — Name">
+<text x="128" y="4626.16" font-family="Inter" font-size="14" font-weight="600" fill="#14140f" id="Label">Name</text>
+<text x="173.55" y="4626.16" font-family="Inter" font-size="14" font-weight="600" fill="#a8401c" id="Required">*</text>
+<rect x="128" y="4638.16" width="280" height="48" rx="10" fill="#ffffff" stroke="#7e7a6e" stroke-width="1"/>
+</g>
+<g id="Field — Email">
+<text x="428" y="4626.16" font-family="Inter" font-size="14" font-weight="600" fill="#14140f" id="Label">Email</text>
+<text x="470.45" y="4626.16" font-family="Inter" font-size="14" font-weight="600" fill="#a8401c" id="Required">*</text>
+<rect x="428" y="4638.16" width="280" height="48" rx="10" fill="#ffffff" stroke="#7e7a6e" stroke-width="1"/>
+</g>
+<g id="Field — Company or team">
+<text x="128" y="4726.16" font-family="Inter" font-size="14" font-weight="600" fill="#14140f" id="Label">Company or team</text>
+<text x="257.93" y="4726.16" font-family="Inter" font-size="11" font-weight="400" fill="#6f6b60" letter-spacing="1" id="Optional">OPTIONAL</text>
+<rect x="128" y="4738.16" width="580" height="48" rx="10" fill="#ffffff" stroke="#7e7a6e" stroke-width="1"/>
+</g>
+<g id="Field — Message">
+<text x="128" y="4826.16" font-family="Inter" font-size="14" font-weight="600" fill="#14140f" id="Label">Message</text>
+<text x="195.65" y="4826.16" font-family="Inter" font-size="14" font-weight="600" fill="#a8401c" id="Required">*</text>
+<rect x="128" y="4838.16" width="580" height="130" rx="10" fill="#ffffff" stroke="#7e7a6e" stroke-width="1"/>
+</g>
+<g id="Button / primary / lg — Send message">
+<rect x="128" y="4974.16" width="176.88" height="52" rx="26" fill="#14140f"/>
+<text x="216.44" y="5006.11" font-family="Inter" font-size="17" font-weight="600" fill="#f7f5f0" text-anchor="middle" letter-spacing="0.5" id="Label">Send message</text>
+</g>
+<text x="306" y="5004.16" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Direct email">Or email me directly at nasasrisaivb@gmail.com</text>
+</g>
+<g id="Contact aside">
+<text x="796" y="4600.16" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Email label">EMAIL</text>
+<line x1="796" y1="4612.16" x2="1344" y2="4612.16" stroke="#e4e0d6" stroke-width="1"/>
+<text x="796" y="4648.16" font-family="Fraunces" font-size="26" font-weight="600" fill="#a8401c" id="Email">nasasrisaivb@gmail.com</text>
+<text x="796" y="4696.16" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Social label">ELSEWHERE</text>
+<line x1="796" y1="4708.16" x2="1344" y2="4708.16" stroke="#e4e0d6" stroke-width="1"/>
+<text x="796" y="4744.16" font-family="Inter" font-size="17" font-weight="500" fill="#14140f" id="LinkedIn name">LinkedIn</text>
+<text x="906" y="4744.16" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="LinkedIn handle">in/nasasrisaivb</text>
+<path d="M1330 4736.16 h10 v10 M1340 4736.16 l-9 9" fill="none" stroke="#6f6b60" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="796" y1="4760.16" x2="1344" y2="4760.16" stroke="#e4e0d6" stroke-width="1"/>
+<text x="796" y="4796.16" font-family="Inter" font-size="17" font-weight="500" fill="#14140f" id="Behance name">Behance</text>
+<text x="906" y="4796.16" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="Behance handle">nasasrisaivb</text>
+<path d="M1330 4788.16 h10 v10 M1340 4788.16 l-9 9" fill="none" stroke="#6f6b60" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="796" y1="4812.16" x2="1344" y2="4812.16" stroke="#e4e0d6" stroke-width="1"/>
+<text x="796" y="4848.16" font-family="Inter" font-size="17" font-weight="500" fill="#14140f" id="GitHub name">GitHub</text>
+<text x="906" y="4848.16" font-family="Inter" font-size="12" font-weight="400" fill="#6f6b60" id="GitHub handle">nasasrisaivb-afk</text>
+<path d="M1330 4840.16 h10 v10 M1340 4840.16 l-9 9" fill="none" stroke="#6f6b60" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="796" y1="4864.16" x2="1344" y2="4864.16" stroke="#e4e0d6" stroke-width="1"/>
+<text x="796" y="4916.16" font-family="Inter" font-size="11" font-weight="600" fill="#6f6b60" letter-spacing="1.3" id="Status label">STATUS</text>
+<rect x="796" y="4930.16" width="434.86" height="26" rx="6" fill="#e4f0ea"/>
+<circle cx="812" cy="4943.16" r="3.5" fill="#186b42"/>
+<text x="824" y="4947.16" font-family="Inter" font-size="12" font-weight="600" fill="#186b42" letter-spacing="0.8" id="Status">OPEN TO PRODUCT DESIGN ROLES &amp; SELECTED FREELANCE WORK</text>
+</g>
+</g>
+</g>
+</svg>
